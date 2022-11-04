@@ -1,3 +1,0 @@
-echo 'testing' > test.txt
-
-this is a test file
