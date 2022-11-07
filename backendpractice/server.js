@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const { Collection } = require('mongodb')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 
@@ -10,6 +11,9 @@ MongoClient.connect('connection-string',
      console.log('Connected to 35 Database')
      const db = client.db('songsDB')
      const songsCollection = db.collection('Songs')
+     const promptsCollection = db.collection('Prompts')
+     const userCollection = db.collection('Users')
+
 
 
      app.set('view engine', 'ejs')
@@ -17,14 +21,31 @@ MongoClient.connect('connection-string',
      app.use(bodyParser.json())
      app.use(express.static('public'))
 
-     app.get('/', (req, res) => {
-         db.collection('Songs').find().toArray()
-          .then(songs => {
-            res.render('index.ejs', { Songs: songs })
-          })
-         .catch(/*...*/)
+    app.get('/', (req, res) => {
+        songsCollection.find().toArray()
+        .then(songResults => {
+            Songs = songResults
+            promptsCollection.find().toArray()
+            .then(promptResults => {
+                Prompts = promptResults
+                userCollection.find().toArray()
+                .then(userResults => {
+                    Users = userResults
+                    res.render('index.ejs', {Songs: Songs, Prompts: Prompts, Users: Users})
+                })
+            })
+        })
+        .catch(/*...*/)
+
     })
 
+    app.post('/prompts', (req, res) => {
+        promptsCollection.insertOne(req.body)
+        .then(result => {
+            res.redirect('/')
+        })
+        .catch(error => console.error(error))
+    })
 
     
      app.post('/songs', (req, res) => {
@@ -35,6 +56,16 @@ MongoClient.connect('connection-string',
             .catch(error => console.error(error))
 
     })
+
+    app.post('/users', (req, res) => {
+        userCollection.insertOne(req.body)
+          .then(result => {
+            res.redirect('/') 
+        })
+        .catch(error => console.error(error))
+
+})
+
 
     app.put('/songs', (req, res) => {
         songsCollection.findOneAndUpdate(

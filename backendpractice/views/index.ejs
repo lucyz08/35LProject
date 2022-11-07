@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3000 Prac</title>
+</head>
+<body>
+  <h1> Live Eat Code Pray in 35L </h1>
+  <p>I love program wow</p>
+
+  <section data-position="add-song">
+    <h4>Add Song to Database</h4>
+    <form action="/songs" method="POST">
+        <input type="text" placeholder="Title" name="name"/>
+        <input type="text" placeholder="Artist" name="artist"/>
+        <button type="submit">Submit Song</button>
+    </form>
+</section>
+
+<section data-position="add-prompt">
+    <h4>Suggest a Daily Prompt</h4>
+    <form action="/prompts" method="POST">
+        <input type="text" placeholder="Suggested Prompt" name="prompt"/>
+        <button type="submit">Submit Prompt Suggestion</button>
+    </form>
+</section>
+
+<section data-position="add-user">
+    <h4>Add a user (only by username for now)</h4>
+    <form action="/users" method="POST">
+        <input type="text" placeholder="Username" name="username"/>
+        <input type="text" placeholder="Did they respond today" name="response"/>
+        <button type="submit">Submit user</button>
+    </form>
+</section>
+
+
+<section data-position="update-song">
+  <div>
+      <h2>SONG change</h2>
+      <p>
+          Pushing the following button with replace the first
+          listed song with 
+          the title Sweet Emotion with New Slang
+      </p>
+      <button id="update-button">Replace Song</button>
+  </div>
+</section>
+
+<section data-position="delete-song">
+  <div>
+      <h2>Talk like old people</h2>
+      <p>
+          Remove a song with title New Slang. Does nothing if songs with that title
+      </p>
+      <button id="delete-button">Delete New Slang</button>
+  </div>
+  <div id="message"></div>
+</section>
+
+
+<section data-position="song-list">
+    <h2>List of Songs in 'Songs'</h2>
+    <ul class="Songs">
+        <% for(var i = 0; i < Songs.length; i++) {%>
+        <li class="song">
+            <span><%= Songs[i].name %></span>
+            <span><%= Songs[i].artist %></span>
+        </li>
+    <% } %>
+    </ul>
+</section>
+
+<section data-position="prompt-list">
+    <h2>List of Prompts in 'Prompts'</h2>
+    <ul class="Prompts">
+        <% for(var i = 0; i < Prompts.length; i++) {%>
+        <li class="prompt">
+            <span><%= Prompts[i].prompt %></span>
+        </li>
+    <% } %>
+    </ul>
+</section>
+
+<section data-position="user-list">
+    <h2>List of Users in 'Users'</h2>
+    <ul class="Users">
+        <% for(var i = 0; i < Users.length; i++) {%>
+        <li class="user">
+            <span><%= Users[i].username %></span>
+            <span><%= Users[i].response %></span>
+            <!--Should loop through friends as well to print,
+            for now just prints userID of friends-->
+            <span><%= Users[i].friends %></span>
+        </li>
+    <% } %>
+    </ul>
+</section>
+
+<script src="/main.js"></script>
+</body>
+</html>
