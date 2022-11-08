@@ -1,0 +1,11 @@
+
+They appear to be completely different, however 
+this may just be due to their nonlinear nature. 
+When one inspects the graphs of the two, they are 
+very different. The graph of the one from git has 
+many different branches at all times. Eggert's version
+doesn't have nearly as many branches and is often 
+just one branch. When you inspect the branches of 
+each, git's has just one branch: master. However,
+when you inspect Eggerts, there are several
+branches: maint master next seen todo. 

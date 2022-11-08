@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    background-color: black;
 }
 
 body {
@@ -42,13 +45,39 @@ body {
     color: rgb(230, 234, 11);
 }
 
+.front{
+    margin: 75px 100px 25px 100px;
+
+}
+
+.back{
+    margin: 75px 75px 25px 75px;
+}
+
 .frontend{
     display: flex; 
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 25px;
 }
 
 .backend{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 25px;
+}
+
+.titles{
+    background-color: black
+}
+
+.frontendpics{
+    display: flex; 
+    justify-content: space-around;
+}
+
+.backendpics{
+    display: flex;
+    justify-content: space-between;
 }
