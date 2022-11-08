@@ -18,6 +18,12 @@ function App() {
 
   return (
   <>
+    <div className="App">
+      <h1>Arpeggio</h1>
+      {
+        currentForm === "login" ?<Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
+      }
+    </div>
     <Navbar />
     <div>
       <Routes>
@@ -26,12 +32,6 @@ function App() {
         <Route path="/friends" element={<Friends />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </div>
-    <div className="App">
-      <h1>Arpeggio</h1>
-      {
-        currentForm === "login" ?<Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
-      }
     </div>
   </>
   )
