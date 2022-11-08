@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .auth-form-container, .login-form, .register-form {
@@ -25,7 +25,7 @@ input {
 
 button {
   border: none;
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -33,7 +33,7 @@ button {
 
 .link-btn{
   background: none;
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: underline;
 }
 
