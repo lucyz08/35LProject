@@ -5,7 +5,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 
 
-MongoClient.connect('mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mongodb.net/test',
+MongoClient.connect('connection-string',
  {useUnifiedTopology: true})
  .then(client => {
      console.log('Connected to 35 Database')
@@ -100,8 +100,8 @@ MongoClient.connect('mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mo
     })
    
 
-    app.listen(3000, function() {
-        console.log('listening on 3000') })
+    app.listen(5000, function() {
+        console.log('listening on 5000') })
 
  })
  .catch(error => console.error(error))
