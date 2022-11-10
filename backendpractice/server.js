@@ -5,7 +5,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 
 
-MongoClient.connect('connection-string',
+MongoClient.connect('mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mongodb.net/test',
  {useUnifiedTopology: true})
  .then(client => {
      console.log('Connected to 35 Database')
