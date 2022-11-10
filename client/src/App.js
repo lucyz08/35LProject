@@ -3,27 +3,21 @@ import Home from "./Home"
 import About from "./About"
 import Friends from "./Friends"
 import Profile from "./Profile"
+import Auth from "./Auth"
 import { Routes, Route } from "react-router-dom"
+import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
-import React, { useState } from "react";
-import { Login } from "./Login";
-import { Register } from "./Register";
+
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName)
-  }
 
   return (
   <>
-    <div className="App">
-      <h1>Arpeggio</h1>
+    {/* <div className="App">
+      <h1></h1>
       {
-        currentForm === "login" ?<Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
       }
-    </div>
+    </div> */}
 
     <Navbar />
     <div>
@@ -32,6 +26,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/friends" element={<Friends />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/auth" element={<Auth />} />
+        {/* <Route path="/register" element={<Register />} /> */}
       </Routes>
     </div>
   </>
