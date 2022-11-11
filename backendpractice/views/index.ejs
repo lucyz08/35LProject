@@ -6,7 +6,9 @@
 </head>
 <body>
   <h1> Live Eat Code Pray in 35L </h1>
-  <p>I love program wow</p>
+  <p>no better way to spend veterans day weekend</p>
+
+  <!-- BASICS. ADDING SONGS, PROMPTS, AND USERS TO DATABASE -->
 
   <section data-position="add-song">
     <h4>Add Song to Database</h4>
@@ -33,6 +35,23 @@
         <button type="submit">Submit user</button>
     </form>
 </section>
+
+<!-- ADD FRIENDS VIA USERNAME -->
+
+<section data-position="add-friend">
+    <div>
+        <h3>Add Friend via username</h3>
+        <p>
+            type your BFFL's username below
+         </p>
+        <form action="/friends" method="POST">
+            <input type="text" placeholder="Name of homie" name="friendUsername"/>
+            <button id="friend-button" type="submit">Add Friend</button>
+        </form>
+    </div>
+</section>
+
+<!-- UPDATES AND DELETIONS TO SONGS-->
 
 
 <section data-position="update-song">
