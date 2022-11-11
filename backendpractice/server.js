@@ -5,7 +5,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 
 
-MongoClient.connect('connection-string',
+MongoClient.connect('mongodb+srv://pinkm:35clusdb@35lproject.tnn1kyn.mongodb.net/test',
  {useUnifiedTopology: true})
  .then(client => {
      console.log('Connected to 35 Database')
@@ -64,6 +64,41 @@ MongoClient.connect('connection-string',
         })
         .catch(error => console.error(error))
 
+})
+
+//following code successfully adds new friend by username
+app.post('/friends', (req, res) => {
+    var homietoAdd = req.body
+    userCollection.findOne(
+        //finding proposed new friend via search for their username
+        { username : homietoAdd.friendUsername }
+    )
+    .then(newFriend => {
+        //if friend is not in database
+        if (newFriend == null) 
+            { res.redirect('/')
+                return }
+        userCollection.findOneAndUpdate(
+            {
+                //current user's name would go here
+                username : "notorBIG"
+            },
+            {
+                //access array in user's friends and add new friend via their ObjectId
+                $push: {
+                    friends : newFriend._id
+                }
+            },
+            {
+                upsert: true
+            }
+        )
+        .then(result => {
+            res.redirect('/')
+        }) 
+        .catch(error => console.error(error))
+    })
+    .catch(error => console.error(error))
 })
 
 
