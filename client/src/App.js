@@ -7,6 +7,7 @@ import Auth from "./Auth"
 import { Routes, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
+import ProtectedRoutes from "./ProtectedRoutes"
 
 
 function App() {
@@ -22,12 +23,13 @@ function App() {
     <Navbar />
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/friends" element={<Friends />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<ProtectedRoutes />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/friends" element={<Friends />} />
+            <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route path="/auth" element={<Auth />} />
-        {/* <Route path="/register" element={<Register />} /> */}
       </Routes>
     </div>
   </>

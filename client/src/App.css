@@ -12,29 +12,36 @@
 }
 
 .Auth-form {
+  position: absolute;
   width: 420px;
+  margin: 7em auto;
   box-shadow: rgba(230, 224, 224, 0.16) 1px 1px 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 1.5em;
   background-color: rgb(255, 255, 255);
 }
 
 .Auth-form-content{
   padding-left: 12%;
   padding-right: 12%;
+  color:rgb(255, 255, 255);
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .Auth-form-title{
   text-align: center;
+  padding-top: 40px;
   margin-bottom: 1em;
   font-size: 24px;
+  font-weight: bold;
   color: rgb(255, 255, 255);
-  font-weight: 800;
 }
 
 label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(255, 255, 255);
+  margin-top: 1em;
 }
