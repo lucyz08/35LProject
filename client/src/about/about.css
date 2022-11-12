@@ -1,0 +1,82 @@
+.title{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 15px; 
+    margin-bottom: 40px;
+    padding: 10px; 
+    font-size: 40px; 
+    padding: 10px; 
+    color: white; 
+}
+
+.title2{
+    color: white; 
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.front{
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
+    color: white;
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-right: 200px; 
+}
+
+.back{
+    display: flex; 
+    justify-content: space-around;
+    align-items: center; 
+    color: white; 
+    margin-left: 125px; 
+    margin-right: 125px; 
+}
+
+.name{
+    font-size: 25px;
+    margin-bottom: 2px;
+}
+
+.frontface{
+    height: 250px;
+    width: 200px;
+    object-fit: cover; 
+}
+
+.backface{
+    height: 250px; 
+    width: 200px; 
+    object-fit: cover;
+}
+
+.person{
+    margin-bottom: 4px;
+}
+
+.one, .two{
+    margin: 15px; 
+}
+
+.desc{
+    color:white;
+    margin-bottom: 4px;
+}
+
+.linkedin, .github{
+    color: rgb(175, 166, 166); 
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.linkedin:hover{
+    color: rgba(0, 140, 255, 0.855);
+}
+
+.github:hover{
+    color: rgb(129, 9, 180);
+}

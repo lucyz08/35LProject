@@ -1,6 +1,6 @@
 import Navbar from "./Navbar"
 import Home from "./Home"
-import About from "./About"
+import About from "./about/About"
 import Friends from "./Friends"
 import Profile from "./Profile"
 import Auth from "./Auth"
