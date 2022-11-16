@@ -1,14 +1,3 @@
-// import Navbar from "./Navbar"
-// import Home from "./Home"
-// import About from "./About"
-// import Friends from "./Friends"
-// import Profile from "./Profile"
-// import { Routes, Route } from "react-router-dom"
-// import './App.css';
-// import React, { useState } from "react";
-// import { Login } from "./Login";
-// import { Register } from "./Register";
-
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
