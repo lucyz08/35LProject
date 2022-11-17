@@ -1,14 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
+//must include a file in src called passwords.js containing export constants CLIENT_ID and CLIENT_SECRET
 import { CLIENT_ID, CLIENT_SECRET } from './passwords';
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const [albums, setAlbums] = useState([]);
+  const [songs, setSongs] = useState([]);
 
   useEffect(() => {
     //API Access Token
@@ -26,7 +26,6 @@ function App() {
 
   //Search
   async function search() {
-    console.log("Search for " + searchInput);
 
     var searchParameters = {
       method: 'GET',
@@ -35,28 +34,26 @@ function App() {
         'Authorization': 'Bearer ' + accessToken
       }
     }
-    //Get request using search Arist ID
-    let artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
+
+    let SongID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=track', searchParameters)
     .then(response => response.json())
     .then(data => {
-      return data.artists.items[0].id
+
+      console.log(data)
+      setSongs(data.tracks.items)
     })
-    //Get request with Arist ID grab all the albums from that artist
-    let returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=50', searchParameters)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      setAlbums(data.items);
-    })
+
     //Display those albums to the user
   }
-console.log(albums);
+
+  console.log(songs);
+
   return (
     <div className="App">
       <Container>
         <InputGroup className="mb-3" size="lg">
           <FormControl
-            placeholder="Search for Artist"
+            placeholder="Search for Song"
             type="input"
             onKeyPress={event => {
               if (event.key == "Enter"){
@@ -72,15 +69,21 @@ console.log(albums);
       </Container>
       <Container>
         <Row className = "mx-2 row row-cols-4">
-          {albums.map( (album, i) => {
-            console.log(album);
+          {songs.map( (song, i) => {
+            console.log(song);
             return (
+              <div onClick={() => {
+                window.location.href=song.external_urls.spotify;
+                //some code to make that your song of the day
+              }}>
             <Card>
-              <Card.Img src = {album.images[0].url}/>
+              <Card.Img src = {song.album.images[0].url}/>
               <Card.Body>
-                <Card.Title>{album.name}</Card.Title>
+                <Card.Title>{song.name}</Card.Title>
+                <Card.Text>{song.artists[0].name}</Card.Text>
             </Card.Body>
           </Card>
+          </div>
             )
           })}
         </Row>
