@@ -1,6 +1,6 @@
 import express from 'express';
 
-import {getSongPosts, createSongPost} from '../controllers/posts.js';
+import {getSongPosts, createSongPost} from '../controllers/songFetchBack.js';
 
 const router = express.Router();
 

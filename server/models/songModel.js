@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
-const songPostSchema = mongoose.Schema({
-    song: String,
-    writer: String,
+const songsSchema = mongoose.Schema({
+    name: String,
+    artist: String,
 })
 
-const SongPostMessage = mongoose.model('SongPostMessage', songPostSchema);
+const SongPostMessage = mongoose.model('Song', songsSchema);
 
 export default SongPostMessage;

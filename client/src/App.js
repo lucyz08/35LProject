@@ -2,23 +2,23 @@ import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
-import {getPosts} from './actions/posts';
-import Posts from './components/Posts/Posts';
-import Form from './components/Forms/songForm.js';
+import {getSongs} from './actions/songFetching';
+import {getPrompts} from './actions/promptFetching';
+import Songs from './components/Songs/printSongs';
+import Prompts from './components/Prompts/printPrompts';
+import SongForm from './components/Forms/songForm.js';
 import arpeggio from './images/ArpeggioMain.png';
 
 const App = () => {
-  // const [currentForm, setCurrentForm] = useState('login');
-
-  // const toggleForm = (formName) => {
-  //   setCurrentForm(formName)
-  // }
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getPosts());
+      dispatch(getSongs());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getPrompts());
+}, [dispatch]);
 
   return (
     <Container maxidth="lg">
@@ -30,10 +30,13 @@ const App = () => {
         <Container>
           <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Songs />
+            </Grid>
+            <Grid item xs={12} sm={7}>
+              <Prompts />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form/>
+              <SongForm/>
             </Grid>
           </Grid>
         </Container>
