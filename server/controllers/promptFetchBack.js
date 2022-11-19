@@ -4,15 +4,27 @@ import express from 'express';
 
 const router = express.Router();
 
-export const getAllPrompts = async (req, res) => {
+export const getAllPrompts = async (req, res) => { 
     try {
-        const allPrompts = await possiblePrompt.find();
-        res.status(200).json(allPrompts);
+        const postPromptMessages = await possiblePrompt.find();
+        res.status(200).json(postPromptMessages);
     } catch (error) {
-        res.status(404).json({ message : error.message });
+        res.status(404).json({ message: error.message });
     }
 }
 
+export const createPrompt = async (req, res) => {
+    const { prompt } = req.body;
+    const newPromptMessage = new possiblePrompt({ prompt })
+
+    try {
+        await newPromptMessage.save();
+
+        res.status(201).json(newPromptMessage );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
 export const getRandPrompt = async (req, res) => {
     try {
         const allPrompt = await possiblePrompt.find();

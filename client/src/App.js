@@ -7,6 +7,7 @@ import {getPrompts} from './actions/promptFetching';
 import Songs from './components/Songs/printSongs';
 import Prompts from './components/Prompts/printPrompts';
 import SongForm from './components/Forms/songForm.js';
+import PromptForm from './components/Forms/promptForm.js'
 import arpeggio from './images/ArpeggioMain.png';
 
 const App = () => {
@@ -37,6 +38,9 @@ const App = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <SongForm/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <PromptForm/>
             </Grid>
           </Grid>
         </Container>

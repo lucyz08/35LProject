@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 //connecting our server side to our client 
-const url = 'http://localhost:5000/data';
+const API = axios.create({ baseURL: 'http://localhost:5000'});
 
-
-export const fetchSongs = () => axios.get(url);
-export const createSong = (newPost) => axios.post(url, newPost);
+//sogns connections
+export const fetchSongs = () => API.get("/songs");
+export const createSong = (newPost) => API.post("/songs", newPost);
 
 //for prompt fetching
-export const fetchPrompts = () => axios.get(url);
+export const fetchPrompts = () => API.get("/prompts");
+export const createPrompt = (newPost) => API.post("/prompts", newPost);

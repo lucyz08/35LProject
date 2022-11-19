@@ -7,5 +7,4 @@ const router = express.Router();
 router.get('/', getSongPosts);
 router.post('/', createSongPost);
 
-
 export default router;
