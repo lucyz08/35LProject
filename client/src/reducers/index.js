@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 
-import posts from './posts';
+import songs from './songsRedx';
+import prompts from './promptsRedx';
 
 export const reducers = combineReducers({
-    posts,
+    songs: songs,
+    prompts: prompts
 });

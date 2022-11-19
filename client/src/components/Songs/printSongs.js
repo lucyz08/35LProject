@@ -1,12 +1,12 @@
 import React from "react";
 import {useSelector} from 'react-redux';
 
-import SongPost from './Post/SongPost';
+import SongPost from './oneSong/SongPost';
 
-const Posts = () => {
-    const posts = useSelector((state) => state.posts);
+const Songs = () => {
+    const allsongs = useSelector((state) => state.songs);
 
-    console.log(posts);
+    console.log(allsongs);
     return (
         <>
         <h1>Post</h1>
@@ -16,4 +16,4 @@ const Posts = () => {
     );
 }
 
-export default Posts;
+export default Songs;

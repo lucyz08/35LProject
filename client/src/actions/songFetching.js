@@ -1,8 +1,8 @@
-import * as api from '../api';
+import * as api from '../api/APIindex';
 
-export const getPosts = () =>async (dispatch) => {
+export const getSongs = () =>async (dispatch) => {
     try {
-        const {data} = await api.fetchPosts();
+        const {data} = await api.fetchSongs();
 
         dispatch({type: 'FETCH_SONGS', payload: data});
     } catch (error) {
@@ -12,7 +12,7 @@ export const getPosts = () =>async (dispatch) => {
 
 export const createSongPost = (post) => async (dispatch) => {
     try {
-        const {data} = await api.createPost(post);
+        const {data} = await api.createSong(post);
         console.log(data);
         dispatch({type: 'CREATESONG', payload: data});
 

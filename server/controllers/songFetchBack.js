@@ -15,8 +15,8 @@ export const getSongPosts = async (req, res) => {
 }
 
 export const createSongPost = async (req, res) => {
-    const { song, writer } = req.body;
-    const newSongPostMessage = new SongPostMessage({ song, writer })
+    const { name, artist } = req.body;
+    const newSongPostMessage = new SongPostMessage({ name, artist })
 
     try {
         await newSongPostMessage.save();
