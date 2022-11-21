@@ -15,8 +15,7 @@ import About from './about/About';
 import Friends from './friends/Friends';
 import Profile from './profile/Profile';
 import Navbar from './Navbar';
-import PromptForm from '../components/Forms/promptForm.js'
-import arpeggio from '../images/ArpeggioMain.png';
+import PromptForm from './components/Forms/promptForm.js'
 
 const App = () => {
 
