@@ -1,10 +1,10 @@
-.songForm{
+.songForm, .promptForm{
     background-color: rgb(0, 0, 0);
 }
 
-label{
+.songLabel, .artistLabel, .promptLabel{
     color: rgb(255, 255, 255);
-    margin-top: 5em;
+    margin-top: 0.5em;
     text-align: left;
     font-size: 20px;
 }
@@ -16,7 +16,7 @@ input{
     color: rgb(243, 81, 12);
 }
 
-.Song-form-container, .song-form{
+.Song-form-container, .song-form, .Prompt-form-container, .prompt-form{
     display: flex;
     flex-direction: column;
 }
@@ -24,9 +24,11 @@ input{
 button{
     border: none;
     background-color: rgb(243, 81, 12);
-    padding: 20px;
+    padding: 15px;
+    margin: 0.5rem 0;
     border-radius: 10px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
+    font-family:'Times New Roman', Times, serif;
 }

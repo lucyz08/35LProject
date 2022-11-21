@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch } from "react-redux";
 import {createSongPost} from '../../actions/songFetching'
-import './songForm.css'
+import './form.css'
 
 const SongForm = () => {
     const [dataOfSong, setData] = useState({
@@ -22,10 +22,10 @@ const SongForm = () => {
             <form className="song-form" onSubmit={doSongSubmission}>
                 <h2>Creating a SongPost</h2>
 
-                <label for="song">Song</label>
+                <label className="songLabel" for="song">Song</label>
                 <input value={dataOfSong.name} onChange={(e) => setData({ ...dataOfSong, name: e.target.value })} type="song" placeholder="song" id="song" name="song"/>
 
-                <label for="artist">Artist</label>
+                <label className="artistLabel" for="artist">Artist</label>
                 <input value={dataOfSong.artist} onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })} type="artist" placeholder="artist" id="artist" name="artist"/>
                 
                 <button type="submit">Submit Song</button>

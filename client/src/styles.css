@@ -46,3 +46,11 @@ body {
 .nav li:hover{
     color: red; 
 }
+
+footer{
+    background-color: black;
+    color: rgb(255, 255, 255); 
+    padding: 8px;
+    text-align: center;
+    margin-top: auto;
+}

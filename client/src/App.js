@@ -15,6 +15,7 @@ import About from './about/About';
 import Friends from './friends/Friends';
 import Profile from './profile/Profile';
 import Navbar from './Navbar';
+import Footer from './footer';
 import PromptForm from './components/Forms/promptForm.js'
 
 const App = () => {
@@ -40,7 +41,11 @@ const App = () => {
       <Route path="/profile" element={<Profile />} />
     </Routes>
     </div>
+    <Footer/>
+   
     </>
+
+
     /*
     <>
     <Container maxidth="lg">
