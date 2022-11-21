@@ -15,6 +15,8 @@ import About from './about/About';
 import Friends from './friends/Friends';
 import Profile from './profile/Profile';
 import Navbar from './Navbar';
+import PromptForm from '../components/Forms/promptForm.js'
+import arpeggio from '../images/ArpeggioMain.png';
 
 const App = () => {
 
@@ -58,6 +60,9 @@ const App = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <SongForm/>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <PromptForm/>
             </Grid>
           </Grid>
         </Container>

@@ -12,10 +12,10 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
-app.use('/data', songRoutes);
-//app.use('/data', postRoutes);
+app.use('/songs', songRoutes);
+app.use('/prompts', promptRoutes);
 
-const CONNECTION_URL = 'mongodb+srv://pinkm:dumasSSred834.clus@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://pinkm:lejlighed921BR90o@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority';
 
 const PORT = process.env.PORT|| 5000;
 
