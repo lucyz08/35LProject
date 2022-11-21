@@ -1,0 +1,81 @@
+*{
+    background-color: black;
+}
+
+.homeTitle{
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    padding: 200px; 
+    animation: fade 6s; 
+    font-family:'Times New Roman', Times, serif;
+    height: 800px;
+    color: white; 
+    font-size: 100px; 
+}
+
+.homeHeader{
+    display: flex; 
+    justify-content: center;
+    background-color: transparent;
+    color: black; 
+    font-size: 150px; 
+    margin-bottom: 0px;
+}
+
+.subtitle{
+    background-color: transparent;
+    color: rgb(0, 0, 0); 
+    font-size: 40px;
+}
+
+@keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.promptHead{
+    color: white; 
+    display: flex; 
+    justify-content: center;
+    flex-direction: column; 
+    margin-left: 10px; 
+    margin-top: 10px; 
+}
+
+.declareP{
+    font-size: 40px; 
+}
+
+.prompt{
+    margin-left: 4px;
+}
+
+.formAnswers{
+    color: white; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    margin: 100px; 
+}
+
+.form{
+    margin:5px; 
+    color: white; 
+}
+
+.friendResponses{
+    font-size: 40px; 
+    text-decoration: underline;
+}
+
+.responses{
+    margin: 5px; 
+}

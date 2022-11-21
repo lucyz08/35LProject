@@ -45,3 +45,16 @@ label {
   color: rgb(255, 255, 255);
   margin-top: 1em;
 }
+
+.imag1{
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  object-fit: cover; 
+}
+
+.bigT{
+  font-size: 100px;
+}

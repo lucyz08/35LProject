@@ -2,7 +2,6 @@
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
-    background-color: white;
 }
 
 body {
@@ -17,10 +16,14 @@ body {
     align-items: center;
     padding: 0 1rem;
     size: 8rem;
+    position: sticky;
+    top: 0px; 
 }
 
-.site-title{
+.siteTitle{
     font-size: 2rem;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .nav ul{
@@ -33,14 +36,13 @@ body {
 
 .nav a{
     color: inherit;
-    text-decoration: none;
-}
-
-.nav li:hover{
-    color: rgb(2, 211, 247);
-    text-shadow: 0.5px 0.5px rgb(231, 247, 2);
+    text-decoration: none; 
 }
 
 .nav li.active{
-    color: rgb(230, 234, 11);
+    color: yellow; 
+}
+
+.nav li:hover{
+    color: red; 
 }

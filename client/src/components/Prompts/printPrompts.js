@@ -8,8 +8,6 @@ const Prompts = () => {
     console.log(allprompts);
     return (
         <>
-        <h1>Prompts</h1>
-        <PromptPost />
         <PromptPost />
         </>
     )
