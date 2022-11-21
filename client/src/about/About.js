@@ -8,7 +8,7 @@ export default function About(){
             <div className="title2">Frontend</div>
             <div className="front">
                 <div className="one">
-                    <img className="frontface" src="../images/Charles.png" alt=""></img>
+                    <img className="frontface" src="../images/LucyProject.png" alt=""></img>
                     <div>
                         <div className="person">
                             <h2 className="name">Lucy Zises</h2>

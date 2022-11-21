@@ -1,7 +1,21 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import './styles.css';
 
 export default function Navbar() {
-    return <nav className="nav">
+    const path = window.location.pathname
+    return (
+        <nav className="nav">
+            <Link to="/" className="siteTitle">
+            Arpeggio
+        </Link>
+        <ul>
+            <Checkact to="/profile">Profile</Checkact>
+            <Checkact to="/friends">Friends</Checkact>
+            <Checkact to="/about">About</Checkact>
+        </ul> 
+        </nav>
+    ) 
+    /*<nav className="nav">
         <Link to="/" className="site-title">
             Arpeggio
         </Link>
@@ -9,8 +23,8 @@ export default function Navbar() {
             <Checkact to="/profile">Profile</Checkact>
             <Checkact to="/friends">Friends</Checkact>
             <Checkact to="/about">About</Checkact>
-        </ul>
-    </nav>
+        </ul> 
+    </nav> */
 }
 
 function Checkact({to, children, ...props}) {

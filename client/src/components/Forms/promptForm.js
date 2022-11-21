@@ -16,17 +16,28 @@ const PromptForm = () => {
         dispatch(createPromptPost(dataOfPrompt));
     }
     return (
-        <Paper>
-            <form autoComplete="off" noValidate onSubmit={doSongSubmission}>
-            <Typography variant="h6">Creating a Prompt</Typography>
+        <div className="Prompt-form-container">
+            <form className="prompt-form" onSubmit={doSongSubmission}>
+                <h2>Creating a Prompt</h2>
 
-            <TextField name="prompt" variant="outlined" label="Prompt" fullwidth="true" 
-            value={dataOfPrompt.prompt} 
-            onChange={(e) => setData({ ...dataOfPrompt, prompt: e.target.value })}/>
+                <label className="promptLabel" for="prompt">Prompt</label>
+                <input value={dataOfPrompt.prompt} onChange={(e) => setData({ ...dataOfPrompt, prompt: e.target.value })} type="prompt" placeholder="prompt" id="prompt" name="prompt"/>
 
-            <Button variant="contained" color="primary" size="large" type="submit" fullwidth="true">Submit Song</Button>
+                <button type="submit">Submit Prompt</button>
             </form>
-        </Paper>
+        </div>
+
+        // <Paper>
+        //     <form autoComplete="off" noValidate onSubmit={doSongSubmission}>
+        //     <Typography variant="h6">Creating a Prompt</Typography>
+
+        //     <TextField name="prompt" variant="outlined" label="Prompt" fullwidth="true" 
+        //     value={dataOfPrompt.prompt} 
+        //     onChange={(e) => setData({ ...dataOfPrompt, prompt: e.target.value })}/>
+
+        //     <Button variant="contained" color="primary" size="large" type="submit" fullwidth="true">Submit Prompt</Button>
+        //     </form>
+        // </Paper>
 
     );
 }

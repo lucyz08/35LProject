@@ -28,9 +28,12 @@ export const createPrompt = async (req, res) => {
 export const getRandPrompt = async (req, res) => {
     try {
         const allPrompt = await possiblePrompt.find();
-        
+        const numDoc = await possiblePrompt.countDocuments();
+        const randInx = Math.floor(Math.random() * numDoc)
+        const randPrompt = allPrompt[randInx];
+        res.status(200).json(randPrompt)
     } catch (error) {
-        res.status(404).json( {message : error.message });
+        res.status(406).json( {message : error.message });
     }
 }
 

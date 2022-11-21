@@ -7,8 +7,16 @@ import {getPrompts} from './actions/promptFetching';
 import Songs from './components/Songs/printSongs';
 import Prompts from './components/Prompts/printPrompts';
 import SongForm from './components/Forms/songForm.js';
+import './App.css'
+
+import { Routes, Route } from 'react-router-dom';
+import Home from './home/Home';
+import About from './about/About';
+import Friends from './friends/Friends';
+import Profile from './profile/Profile';
+import Navbar from './Navbar';
+import Footer from './footer';
 import PromptForm from './components/Forms/promptForm.js'
-import arpeggio from './images/ArpeggioMain.png';
 
 const App = () => {
 
@@ -21,11 +29,33 @@ const App = () => {
     dispatch(getPrompts());
 }, [dispatch]);
 
+
   return (
+    <>
+    <Navbar/>
+    <div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/friends" element={<Friends />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
+    </div>
+    <Footer/>
+   
+    </>
+
+
+    /*
+    <>
     <Container maxidth="lg">
       <AppBar position="static" color="inherit">
         <Typography variant="h2" align="center">Arpeggio</Typography>
+<<<<<<< HEAD
         <img src={arpeggio} alt="arpeggio" height="200" />
+=======
+        <img className="imag1" src={arpeggio} alt="arpeggio" />
+>>>>>>> 999a538a203dceb03e73ea669576d344ceea30cf
       </AppBar>
       <Grow in>
         <Container>
@@ -40,6 +70,22 @@ const App = () => {
         </Container>
       </Grow>
     </Container>
+    </>
+    */
+
+  /* bruuuuh
+   <>
+  <Navbar />
+  <div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/friends" element={<Friends />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
+  </div>
+</>  */
+
 
 /* <>
   <div className="App">

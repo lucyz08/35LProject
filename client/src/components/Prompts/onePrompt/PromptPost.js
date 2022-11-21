@@ -2,7 +2,7 @@ import React from 'react';
 
 const PromptPost = () => {
     return (
-        <h4>PromptSoup</h4>
+        <h4>Song that makes you feel old</h4>
     );
 }
 

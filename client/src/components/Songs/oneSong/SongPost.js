@@ -1,8 +1,9 @@
 import React from "react";
+import '../printsongs.css';
 
 const SongPost = () => {
     return (
-        <h1>SongPost</h1>
+        <h2 className="songs">First Love by Adele</h2>
     );
 }
 
