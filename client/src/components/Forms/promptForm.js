@@ -24,7 +24,7 @@ const PromptForm = () => {
             value={dataOfPrompt.prompt} 
             onChange={(e) => setData({ ...dataOfPrompt, prompt: e.target.value })}/>
 
-            <Button variant="contained" color="primary" size="large" type="submit" fullwidth="true">Submit Song</Button>
+            <Button variant="contained" color="primary" size="large" type="submit" fullwidth="true">Submit Prompt</Button>
             </form>
         </Paper>
 

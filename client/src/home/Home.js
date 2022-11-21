@@ -38,7 +38,7 @@ const Home = () => {
     </div>
     <div className="formAnswers">
         <div className="form">
-            Song form goes here 
+            <SongForm/> 
         </div>
         <div className="responses">
             <div className="friendResponses">

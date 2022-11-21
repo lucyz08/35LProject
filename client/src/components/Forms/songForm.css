@@ -1,0 +1,32 @@
+.songForm{
+    background-color: rgb(0, 0, 0);
+}
+
+label{
+    color: rgb(255, 255, 255);
+    margin-top: 5em;
+    text-align: left;
+    font-size: 20px;
+}
+
+input{
+    margin: 0.5rem 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(243, 81, 12);
+}
+
+.Song-form-container, .song-form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    border: none;
+    background-color: rgb(243, 81, 12);
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}

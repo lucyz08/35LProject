@@ -62,8 +62,8 @@
     color: white; 
     display: flex; 
     flex-direction: row; 
-    justify-content: space-around; 
-    margin: 100px; 
+    justify-content: space-evenly; 
+    margin: 5px; 
 }
 
 .form{
