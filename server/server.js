@@ -15,7 +15,7 @@ app.use(cors());
 app.use('/songs', songRoutes);
 app.use('/prompts', promptRoutes);
 
-const CONNECTION_URL = 'mongodb+srv://pinkm:dumasSSred834.clus@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mongodb.net/test';
 
 const PORT = process.env.PORT|| 5000;
 

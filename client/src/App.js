@@ -25,17 +25,11 @@ const App = () => {
     <Container maxidth="lg">
       <AppBar position="static" color="inherit">
         <Typography variant="h2" align="center">Arpeggio</Typography>
-        <img src={arpeggio} alt="arpeggio" height="60" />
+        <img src={arpeggio} alt="arpeggio" height="200" />
       </AppBar>
       <Grow in>
         <Container>
           <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-            <Grid item xs={12} sm={7}>
-              <Songs />
-            </Grid>
-            <Grid item xs={12} sm={7}>
-              <Prompts />
-            </Grid>
             <Grid item xs={12} sm={4}>
               <SongForm/>
             </Grid>
