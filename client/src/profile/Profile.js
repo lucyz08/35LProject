@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
 import {getPrompts} from '../actions/promptFetching';
+import Songs from '../components/Songs/printSongs';
+import Prompts from '../components/Prompts/printPrompts';
 
 const Profile = () => {
 
@@ -22,8 +24,13 @@ const Profile = () => {
         <h1 className="head">all about you</h1>
     </div>
     <div className="todayAnswer">
-            <h2 className="tprompt">Today's Prompt:</h2>
-        <h2 className="tresponse">Your response</h2>
+            <h2 className="tprompt">Today: </h2>
+            <div className="todayprompt">
+                <Prompts/>
+            </div>
+            <div className="todayresponse">
+                <h2 className="tresponse">Your respons will go here</h2>
+            </div>
     </div>
     <div>
         <div className="friendPlay">

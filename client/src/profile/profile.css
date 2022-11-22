@@ -11,22 +11,13 @@
     animation: fade 6s; 
 }
 
-.todayAnswer{
-    display: flex; 
-    justify-content: center; 
-    color: white; 
-    margin-top: 15px; 
-    flex-direction:column;
-    align-items: center; 
-}
-
 .friendPlay{
     display: flex; 
     justify-content: space-around; 
     margin-left: 200px; 
     margin-right: 200px; 
     margin-top: 50px; 
-    margin-bottom: 100px; 
+    margin-bottom: 200px; 
     color: white; 
 }
 
@@ -39,4 +30,22 @@
 @-webkit-keyframes fade{
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+
+.tprompt{
+    text-decoration: underline; 
+}
+
+.todayprompt{
+    font-size: 25px; 
+}
+
+.todayAnswer{
+    display: flex; 
+    justify-content: center; 
+    color: white; 
+    margin-top: 15px; 
+    flex-direction:column;
+    align-items: center; 
 }
