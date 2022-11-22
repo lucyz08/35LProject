@@ -2,11 +2,21 @@
     background-color: rgb(0, 0, 0);
 }
 
-.songLabel, .artistLabel, .promptLabel{
+.songLabel, .artistLabel {
     color: rgb(255, 255, 255);
     margin-top: 0.5em;
+    margin-right: 0.5em;
     text-align: left;
     font-size: 20px;
+}
+
+.promptLabel{
+    color: rgb(255, 255, 255);
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    font-size: 25px;
+    display: inline-block;
+    text-align: center;
 }
 
 input{
@@ -16,9 +26,14 @@ input{
     color: rgb(243, 81, 12);
 }
 
-.Song-form-container, .song-form, .Prompt-form-container, .prompt-form{
+.Song-form-container, .song-form {
     display: flex;
     flex-direction: column;
+}
+.Prompt-form-container, .prompt-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 button{
@@ -31,4 +46,5 @@ button{
     font-size: 20px;
     font-weight: 600;
     font-family:'Times New Roman', Times, serif;
+    margin-left: 0.5em;
 }

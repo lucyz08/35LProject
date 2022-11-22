@@ -1,9 +1,28 @@
 .main-footer{
-    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255); 
-    padding: 8px;
-    text-align: center;
-    margin-top: auto;
-    bottom: 0;
-    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 1rem;
+    size: 8rem;
+    position: relative;
+    top: 0px; 
+    margin-top: 5px;
+}
+
+.col{
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-evenly; 
+    margin: 10px; 
+    width: 20%;
+}
+
+.row{
+    color: white; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly; 
+    margin: 20px; 
 }

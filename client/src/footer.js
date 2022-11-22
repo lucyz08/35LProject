@@ -1,7 +1,6 @@
 import "./footer.css"
 
-import React from 'react'
-
+import React from 'react';
 
 const Footer = () => {
     return (
@@ -11,15 +10,21 @@ const Footer = () => {
                 <div className="row">
                     {/* column 1 */}
                     <div className="col">
-                        <h4>This is a footer</h4>
+                        <p>This website was made by Jake, Gene, Rohan, Pink, and Lucy for a CS35L Project.</p>
                     </div>
                     {/* column 2 */}
                     <div className="col">
-                    <h4>Here we can put links to other pages</h4>
+                        <p>Links to other pages can go here</p>
                     </div>
                     {/* column 3 */}
                     <div className="col">
-                    <h4>here we can put the github</h4>
+                        <p>Check out our github repository!</p>
+                        <div>
+                            <a className="github" href="https://github.com/lucyz08/35LProject" target="_blank" rel="noreferrer">
+                                <i class="fa-brands fa-square-github"></i>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
