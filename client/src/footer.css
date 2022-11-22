@@ -1,0 +1,28 @@
+.main-footer{
+    color: rgb(255, 255, 255); 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 1rem;
+    size: 8rem;
+    position: relative;
+    top: 0px; 
+    margin-top: 5px;
+}
+
+.col{
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-evenly; 
+    margin: 10px; 
+    width: 20%;
+}
+
+.row{
+    color: white; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly; 
+    margin: 20px; 
+}

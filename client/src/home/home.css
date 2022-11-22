@@ -62,7 +62,7 @@
     color: white; 
     display: flex; 
     flex-direction: row; 
-    justify-content: space-around; 
+    justify-content: space-evenly; 
     margin: 100px; 
 }
 
@@ -78,4 +78,11 @@
 
 .responses{
     margin: 5px; 
+}
+
+.proForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

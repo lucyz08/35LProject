@@ -8,6 +8,7 @@ import {getPrompts} from '../actions/promptFetching';
 import Songs from '../components/Songs/printSongs';
 import Prompts from '../components/Prompts/printPrompts';
 import SongForm from '../components/Forms/songForm.js';
+import PromptForm from "../components/Forms/promptForm";
 
 const Home = () => {
 
@@ -38,7 +39,7 @@ const Home = () => {
     </div>
     <div className="formAnswers">
         <div className="form">
-            Song form goes here 
+            <SongForm/> 
         </div>
         <div className="responses">
             <div className="friendResponses">
@@ -51,6 +52,11 @@ const Home = () => {
             <Songs/>
             <Songs/>
             <Songs/>
+        </div>
+    </div>
+    <div className="proForm">
+        <div className="form">
+            <PromptForm/> 
         </div>
     </div>
     </div>

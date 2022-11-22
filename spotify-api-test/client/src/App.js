@@ -3,9 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 //must include a file in src called passwords.js containing export constants CLIENT_ID and CLIENT_SECRET
-import { CLIENT_ID, CLIENT_SECRET } from './passwords';
+import { CLIENT_ID, CLIENT_SECRET, CONNECTION_URL } from './passwords';
+// const mongoose = require("mongoose");
+
+
 
 function App() {
+
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [songs, setSongs] = useState([]);
@@ -24,6 +28,21 @@ function App() {
     .then(data => setAccessToken(data.access_token))
   }, [])
 
+  async function addToDatabase(data){
+    console.log(data)
+    //   const newRohanTestSong = new rohanTestSong({ 
+    //     name: data.name,
+    //     artists: ['hello'],
+    //     spotifyID: data.external_ids,
+    //     albumCoverURL: data.album.images[0].url
+    //   })
+    //   try {
+    //     await newRohanTestSong.save();
+    //     console.log(newRohanTestSong);
+    // } catch (error) {
+    //     console.log(error)
+    // }
+  }
   //Search
   async function search() {
 
@@ -72,10 +91,7 @@ function App() {
           {songs.map( (song, i) => {
             console.log(song);
             return (
-              <div onClick={() => {
-                window.location.href=song.external_urls.spotify;
-                //some code to make that your song of the day
-              }}>
+              <div onClick={() => addToDatabase(song)}>
             <Card>
               <Card.Img src = {song.album.images[0].url}/>
               <Card.Body>
