@@ -15,16 +15,6 @@ export default function Navbar() {
         </ul> 
         </nav>
     ) 
-    /*<nav className="nav">
-        <Link to="/" className="site-title">
-            Arpeggio
-        </Link>
-        <ul>
-            <Checkact to="/profile">Profile</Checkact>
-            <Checkact to="/friends">Friends</Checkact>
-            <Checkact to="/about">About</Checkact>
-        </ul> 
-    </nav> */
 }
 
 function Checkact({to, children, ...props}) {

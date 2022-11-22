@@ -1,5 +1,42 @@
-.header{
+.head{
     display: flex; 
-    justify-content: center;
-    color: white;
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    background-image: url("./sand.jpg");
+    height: 800px; 
+    object-fit: cover; 
+    color: black; 
+    font-size: 45px; 
+    animation: fade 6s; 
+}
+
+.todayAnswer{
+    display: flex; 
+    justify-content: center; 
+    color: white; 
+    margin-top: 15px; 
+    flex-direction:column;
+    align-items: center; 
+}
+
+.friendPlay{
+    display: flex; 
+    justify-content: space-around; 
+    margin-left: 200px; 
+    margin-right: 200px; 
+    margin-top: 50px; 
+    margin-bottom: 100px; 
+    color: white; 
+}
+
+
+@keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

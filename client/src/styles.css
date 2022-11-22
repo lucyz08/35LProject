@@ -40,9 +40,9 @@ body {
 }
 
 .nav li.active{
-    color: yellow; 
+    color: rgb(219, 107, 59); 
 }
 
 .nav li:hover{
-    color: red; 
+    color: rgb(238, 195, 22); 
 }

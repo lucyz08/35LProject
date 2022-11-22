@@ -10,3 +10,4 @@ export const createSong = (newPost) => API.post("/songs", newPost);
 //for prompt fetching
 export const fetchPrompts = () => API.get("/prompts");
 export const createPrompt = (newPost) => API.post("/prompts", newPost);
+
