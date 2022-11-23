@@ -12,6 +12,12 @@ export default function Navbar() {
             <Checkact to="/profile">Profile</Checkact>
             <Checkact to="/friends">Friends</Checkact>
             <Checkact to="/about">About</Checkact>
+            <Checkact to="/login">Sign In</Checkact>
+            <Checkact to="/signup">Sign Up</Checkact>
+            <Checkact to="/login">Log Out</Checkact>
+
+
+
         </ul> 
         </nav>
     ) 

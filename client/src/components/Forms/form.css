@@ -1,8 +1,8 @@
-.songForm, .promptForm{
+.songForm, .promptForm, .SignupForm{
     background-color: rgb(0, 0, 0);
 }
 
-.songLabel, .artistLabel, .promptLabel{
+.songLabel, .artistLabel, .promptLabel, .signupUsernameLabel, .signupPasswordLabel{
     color: rgb(255, 255, 255);
     margin-top: 0.5em;
     text-align: left;
@@ -19,6 +19,12 @@ input{
 .Song-form-container, .song-form, .Prompt-form-container, .prompt-form{
     display: flex;
     flex-direction: column;
+}
+
+.Signup-form, .Signup-form-container, .Signin-form-container, .Signin-form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 }
 
 button{

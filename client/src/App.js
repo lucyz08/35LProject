@@ -1,12 +1,8 @@
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {getSongs} from './actions/songFetching';
 import {getPrompts} from './actions/promptFetching';
-import Songs from './components/Songs/printSongs';
-import Prompts from './components/Prompts/printPrompts';
-import SongForm from './components/Forms/songForm.js';
 import './App.css'
 
 import { Routes, Route } from 'react-router-dom';
@@ -16,19 +12,21 @@ import Friends from './friends/Friends';
 import Profile from './profile/Profile';
 import Navbar from './Navbar';
 import Footer from './footer';
-import PromptForm from './components/Forms/promptForm.js'
+import Login from './Auth/login';
+import Signup from './Auth/signup';
+import Logout from './logout/logout';
 
 const App = () => {
-
   const dispatch = useDispatch();
 
+  const user = localStorage.getItem("token");
+  console.log(user)
   useEffect(() => {
       dispatch(getSongs());
   }, [dispatch]);
   useEffect(() => {
     dispatch(getPrompts());
 }, [dispatch]);
-
 
   return (
     <>
@@ -39,6 +37,10 @@ const App = () => {
       <Route path="/about" element={<About />} />
       <Route path="/friends" element={<Friends />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/" element={<Logout />} />
+
     </Routes>
     </div>
     <Footer/>
@@ -51,11 +53,7 @@ const App = () => {
     <Container maxidth="lg">
       <AppBar position="static" color="inherit">
         <Typography variant="h2" align="center">Arpeggio</Typography>
-<<<<<<< HEAD
-        <img src={arpeggio} alt="arpeggio" height="200" />
-=======
         <img className="imag1" src={arpeggio} alt="arpeggio" />
->>>>>>> 999a538a203dceb03e73ea669576d344ceea30cf
       </AppBar>
       <Grow in>
         <Container>
