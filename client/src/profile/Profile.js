@@ -29,13 +29,13 @@ const Profile = () => {
                 <Prompts/>
             </div>
             <div className="todayresponse">
-                <h2 className="tresponse">Your respons will go here</h2>
+                <h2 className="tresponse">Your response will go here</h2>
             </div>
     </div>
     <div>
         <div className="friendPlay">
             <div className="friends">
-                <h3 className="friendtitle">Your Friends</h3>
+                <h3 className="friendTitle">Your Friends</h3>
                 <div className="yourfriends">
                     put friends here
                 </div>

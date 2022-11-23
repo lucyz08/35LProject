@@ -7,17 +7,17 @@
     height: 800px; 
     object-fit: cover; 
     color: black; 
-    font-size: 45px; 
-    animation: fade 6s; 
+    font-size: 6vw; 
+    animation: fade 4s; 
 }
 
 .friendPlay{
     display: flex; 
     justify-content: space-around; 
-    margin-left: 200px; 
-    margin-right: 200px; 
-    margin-top: 50px; 
-    margin-bottom: 200px; 
+    margin-left: 20vw; 
+    margin-right: 20vw; 
+    margin-top: 5vw; 
+    margin-bottom: 20vw; 
     color: white; 
 }
 
@@ -34,12 +34,32 @@
 
 
 .tprompt{
-    text-decoration: underline; 
+    text-decoration: underline;
+    font-size: 4.5vw;
 }
 
 .todayprompt{
-    font-size: 25px; 
+    font-size: 3vw; 
 }
+
+.tresponse{
+    font-size: 3.5vw;
+}
+
+.friendTitle, .playlistTitle{
+    font-size: 2.75vw;
+    text-align: center;
+}
+
+.yourfriends, .yourplaylist{
+    font-size: 2.3vw;
+    text-align: center;
+}
+
+.friendPlay, .playlist{
+    justify-content: space-evenly;
+}
+
 
 .todayAnswer{
     display: flex; 

@@ -19,13 +19,13 @@ body {
     position: sticky;
     top: 0px; 
     width: 100%;
-    height: 50px;
+    height: 5vw;
 }
 
 .siteTitle{
-    font-size: 2rem;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    font-size: 4vw;
+    margin-top: 0.25vw;
+    margin-bottom: 0.25vw;
 }
 
 .nav ul{
@@ -53,8 +53,8 @@ body {
 .navBut {
     /*removes default border on button element*/
     border: 0;
-    height: 25px;
-    width: 25px;
+    height: 3vw;
+    width: 3vw;
     padding: 0.5rem;
     border-radius: 20%;
     background-color: rgb(219, 107, 59);
@@ -62,7 +62,7 @@ body {
 
     position: absolute;
     top: 35%;
-    right: 25px;
+    right: 3%;
     transform: translateY(-50%);
     display: none;
 }
@@ -77,12 +77,12 @@ body {
     }
     .nav-menu ul{
         position: absolute;
-        top: 50px;
+        top: 5vw;
         left: 0;
 
         flex-direction: column;
         width: 100%;
-        height: 100px;
+        height: 7vw;
         background-color: black;
         color: white;
         display: none
