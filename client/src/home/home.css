@@ -8,9 +8,10 @@
     align-items: center; 
     flex-direction: column;
     padding: 200px; 
-    animation: fade 6s; 
+    animation: fade 4s; 
     font-family:'Times New Roman', Times, serif;
-    height: 800px;
+    height: 30%;
+    width: 100%;
     color: white; 
     font-size: 100px; 
 }
@@ -20,14 +21,16 @@
     justify-content: center;
     background-color: transparent;
     color: black; 
-    font-size: 150px; 
+    font-size: 15vw; 
     margin-bottom: 0px;
 }
 
 .subtitle{
     background-color: transparent;
     color: rgb(0, 0, 0); 
-    font-size: 40px;
+    font-size: 5vw;
+    width: 100%;
+    text-align: center;
 }
 
 @keyframes fade{
@@ -46,16 +49,16 @@
     display: flex; 
     justify-content: center;
     flex-direction: column; 
-    margin-left: 10px; 
-    margin-top: 10px; 
+    margin-left: 1vw; 
+    margin-top: 1vw; 
 }
 
 .declareP{
-    font-size: 40px; 
+    font-size: 4.5vw; 
 }
 
 .prompt{
-    margin-left: 4px;
+    margin-left: 0.25vw;
 }
 
 .formAnswers{
@@ -63,21 +66,22 @@
     display: flex; 
     flex-direction: row; 
     justify-content: space-evenly; 
-    margin: 100px; 
+    margin: 10vw; 
 }
 
 .form{
-    margin:5px; 
+    margin: 2vw; 
     color: white; 
 }
 
 .friendResponses{
-    font-size: 40px; 
+    font-size: 4.5vw; 
     text-decoration: underline;
+    font-weight: bold;
 }
 
 .responses{
-    margin: 5px; 
+    margin: 1vw; 
 }
 
 .proForm{
@@ -85,4 +89,5 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5.5vw; 
 }

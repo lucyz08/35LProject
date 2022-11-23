@@ -2,11 +2,11 @@
     display: flex; 
     justify-content: center;
     align-items: center; 
-    padding: 200px; 
+    padding: 20vw; 
     color: white;
-    animation: fade 6s; 
+    animation: fade 4s; 
     font-family:'Times New Roman', Times, serif;
-    font-size: 70px;
+    font-size: 7vw;
 }
 
 @keyframes fade{

@@ -1,5 +1,71 @@
-.header{
+.head{
     display: flex; 
-    justify-content: center;
-    color: white;
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    background-image: url("./sand.jpg");
+    height: 800px; 
+    object-fit: cover; 
+    color: black; 
+    font-size: 6vw; 
+    animation: fade 4s; 
+}
+
+.friendPlay{
+    display: flex; 
+    justify-content: space-around; 
+    margin-left: 20vw; 
+    margin-right: 20vw; 
+    margin-top: 5vw; 
+    margin-bottom: 20vw; 
+    color: white; 
+}
+
+
+@keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.tprompt{
+    text-decoration: underline;
+    font-size: 4.5vw;
+}
+
+.todayprompt{
+    font-size: 3vw; 
+}
+
+.tresponse{
+    font-size: 3.5vw;
+}
+
+.friendTitle, .playlistTitle{
+    font-size: 2.75vw;
+    text-align: center;
+}
+
+.yourfriends, .yourplaylist{
+    font-size: 2.3vw;
+    text-align: center;
+}
+
+.friendPlay, .playlist{
+    justify-content: space-evenly;
+}
+
+
+.todayAnswer{
+    display: flex; 
+    justify-content: center; 
+    color: white; 
+    margin-top: 15px; 
+    flex-direction:column;
+    align-items: center; 
 }
