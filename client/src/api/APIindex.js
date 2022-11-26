@@ -14,3 +14,6 @@ export const createPrompt = (newPost) => API.post("/prompts", newPost);
 //for user fetching
 export const signIn = (newPost) => API.post("/user/signin", newPost);
 export const signUp = (newPost) => API.post("/user/signup", newPost);
+
+//for user editing
+export const addFriend = (newPost) => API.put("/user/newfriend", newPost)
