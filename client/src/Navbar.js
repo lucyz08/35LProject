@@ -45,7 +45,8 @@ export default function Navbar() {
                 {user ? (
                     <ul>
                         <Checkact to="/profile">Profile</Checkact>
-                        <Checkact to="/friends">Friends</Checkact>                    </ul>
+                        <Checkact to="/friends">Friends</Checkact>                    
+                    </ul>
                 ) : (
                     <ul>
                         <Checkact to="/signin">Sign In</Checkact>

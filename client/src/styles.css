@@ -12,6 +12,7 @@ body {
     background-color: black;
     color: rgb(255, 255, 255); 
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
@@ -23,22 +24,37 @@ body {
 }
 
 .logOutButton {
-    color: rgb(255, 255, 255);
-    transform: translateY(250%);
-
+    border: none;
+    background-color: rgb(243, 81, 12);
+    color: white;
+    padding: 1vw;
+    margin: 0vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-family:'Times New Roman', Times, serif;
+    margin-right: 1vw;
 }
+
+
 .siteTitle{
     font-size: 4vw;
     margin-top: 0.25vw;
     margin-bottom: 0.25vw;
 }
 
+.siteTitle :hover{
+    color: rgb(238, 195, 22); 
+}
+
 .nav ul{
     padding: 0; 
     margin: 0;
     margin-left: auto;
+    margin-right: 1rem;
     list-style: none;
-    display: flex; 
+    display: inline-flex; 
     gap: 1rem;
 }
 
@@ -66,8 +82,8 @@ body {
     cursor: pointer;
 
     position: absolute;
-    top: 35%;
-    right: 3%;
+    top: 20%;
+    right: 10%;
     transform: translateY(-50%);
     display: none;
 }
@@ -111,7 +127,6 @@ body {
     .nav li:hover{
         color: rgb(238, 195, 22); 
     }
-
 
     .nav-menu.expanded ul {
         display: block

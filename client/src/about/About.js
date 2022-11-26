@@ -72,7 +72,7 @@ export default function About(){
                             <a className="linkedin" href="https://www.linkedin.com/in/rohanjaain" target="_blank" rel="noreferrer">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
-                            <a className="github" href="https://github.com/dohboiroh" target="_blank" rel="noreferrer">
+                            <a className="github" href="https://github.com/rohanjaain" target="_blank" rel="noreferrer">
                                 <i class="fa-brands fa-square-github"></i>
                             </a>
                         </div>

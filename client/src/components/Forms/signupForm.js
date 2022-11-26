@@ -18,9 +18,9 @@ export const SignUpForm = () => {
     }
     return (
         <div className="Signup-form-container">
-            <h2>Welcome!</h2>
+            <h2 className="signUpHeading">Welcome!</h2>
             <form className="Signup-form" onSubmit={doAuthSubmission}>
-                <h3>Sign Up</h3>
+                <h3 className="confirmPassword">Sign Up</h3>
                 <label className="username" for="username">Username</label>
                 <input value={dataOfUser.username} onChange={(e) => setData({ ...dataOfUser, username: e.target.value })} type="username" placeholder="username" id="username" name="username"/>
 
