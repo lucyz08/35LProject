@@ -1,13 +1,64 @@
-.big{
+.friendPic{
     display: flex; 
-    justify-content: center;
+    justify-content: center; 
     align-items: center; 
-    padding: 200px; 
-    color: white;
+    color: white; 
+    background-image: url("./theBoys2.jpg");
+    background-size: cover; 
+    overflow: hidden; 
+    height: 750px;  
+    color: black; 
+    font-size: 45px; 
     animation: fade 6s; 
-    font-family:'Times New Roman', Times, serif;
-    font-size: 70px;
 }
+
+.picText{
+    background-color: transparent; 
+    font-size: 4.5vw; 
+    color: white; 
+}
+
+.friendplay{
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    justify-content: space-around;
+    margin-top: 2vw; 
+    margin-left: 10vw;
+    margin-right: 10vw; 
+    margin-bottom: 5vw;
+}
+
+.friends{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.friendTitle{
+    text-decoration: underline; 
+
+}
+
+.playlist{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+
+.addFriend{
+    color: white; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 5vw;
+}
+
+.findTitle{
+    text-decoration: underline;
+}
+
 
 @keyframes fade{
     0% { opacity: 0; }

@@ -7,7 +7,7 @@
     height: 800px; 
     object-fit: cover; 
     color: black; 
-    font-size: 45px; 
+    font-size: 4.5vw; 
     animation: fade 6s; 
 }
 
@@ -34,7 +34,6 @@
 
 
 .tprompt{
-    text-decoration: underline; 
 }
 
 .todayprompt{

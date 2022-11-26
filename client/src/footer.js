@@ -23,7 +23,7 @@ const Footer = () => {
                                 Lucy
                         </a>
                         ,&nbsp;
-                        <a className="gitlink" href="https://www.linkedin.com/in/lucyzises" target="_blank" rel="noreferrer">
+                        <a className="gitlink" href="https://www.linkedin.com/in/elizabeth-manka-16b245253" target="_blank" rel="noreferrer">
                                 Pink
                         </a>
                         , and&nbsp;
