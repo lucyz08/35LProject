@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 // // import {CONNECTION_URL, CLIENT_ID, CLIENT_SECRET} from './passwords.js';
 var SpotifyWebApi = require('spotify-web-api-node');
 const express = require('express')
 let token = "";
-const CONNECTION_URL = "mongodb+srv://admin:admin@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority"
+const CONNECTION_URL = "mongodb+srv://rohanj:IAmJake1@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(CONNECTION_URL);
 
 const songsSchema = new mongoose.Schema({
@@ -17,7 +17,7 @@ const songsSchema = new mongoose.Schema({
     albumCoverURL: String
 });
 
-const rohanTestSong = mongoose.model('rohanTestSong', songsSchema);
+const rohanTestSong = mongoose.model('song', songsSchema);
 
 async function addSongToDB(songInfo) {
   const newSong = new rohanTestSong({
@@ -59,18 +59,20 @@ const scopes = [
   
 var spotifyApi = new SpotifyWebApi({
     clientId: '4a484f64e7f04e2ea48e43b0aa731916',
-    clientSecret: 'd34501a462014810aeddb210cbc170a8',
+    clientSecret: 'a25959caa7614a2b91ecb5753de9403b',
     redirectUri: 'http://localhost:8888/callback'
   });
   
+
+
   const app = express();
   
-  app.get('/login', (req, res) => {
+  app.get('/spotify-login', (req, res) => {
     res.redirect(spotifyApi.createAuthorizeURL(scopes));
   });
 
   app.get('/', (req, res) => {
-    res.redirect('/login');
+    res.redirect('/spotify-login');
   });
   
   app.get('/callback', (req, res) => {
@@ -83,7 +85,7 @@ var spotifyApi = new SpotifyWebApi({
       res.send(`Callback Error: ${error}`);
       return;
     }
-  
+
     spotifyApi.authorizationCodeGrant(code)
       .then(data => {
         const access_token = data.body['access_token'];
@@ -172,6 +174,33 @@ async function getPlaylistTracks(playlistId) {
   return tracks;
 }
 
+async function getMultiplePlaylistTracks(playlistIds) {
+  let tracks = [];
+  for (let item of playlistIds){
+  const data = await spotifyApi.getPlaylistTracks(item, {
+    offset: 1,
+    limit: 100,
+    fields: 'items'
+  })
+  for (let track_obj of data.body.items) {
+    artistsL = []
+    for (let item of track_obj.track.artists){
+      artistsL.push(item.name)
+    }
+    const track = {
+      name: track_obj.track.album.name,
+      artists: artistsL,
+      album: track_obj.track.album.name,
+      spotifyID: track_obj.track.id,
+      albumCoverURL: track_obj.track.album.images[0].url
+    }
+    tracks.push(track);
+  }
+} 
+  console.log(tracks);
+  return tracks;
+}
+
 
 async function createPlaylistWithTracks(name, description, songs, imageuri = null){
     let newPlaylistID = null;
@@ -197,8 +226,8 @@ async function createPlaylistWithTracks(name, description, songs, imageuri = nul
     console.log('Something went wrong!', err);
   });
 
-  //Add this later when we figure out what songs to do
-  //spotifyApi.uploadCustomPlaylistCoverImage(newPlaylistID, )
+  // Add this later when we figure out what songs to do
+  // spotifyApi.uploadCustomPlaylistCoverImage(newPlaylistID, )
 }
 
 //this will take the id and prepend the correct test so that that it will correctly access the other functions
@@ -244,6 +273,21 @@ async function returnAllSongsInDB(){
 }
 
 
+
+async function searchPlaylists(searchTerm){
+  let playlists = await spotifyApi.searchPlaylists(searchTerm)
+  .then(function(data) {
+    output_playlists = []
+    for (let item of data.body.playlists.items){
+      output_playlists.push(item.id);
+    }
+    console.log(output_playlists);
+    return output_playlists;
+  }, function(err) {
+    console.log('Something went wrong!', err);
+  });
+}
+
 app.get('/data', (req, res) => {
     getMyData();
     res.send('Success! You can now close the window.');
@@ -252,7 +296,9 @@ app.get('/data', (req, res) => {
 app.get('/createplaylist', (req,res) => {
     //createPlaylist('bob', 'jones', )//FIXME);
     songsInput = [];
-    let output =  getPlaylistTracks('1ZlGR6X06p0WFIBSSs8RgZ')
+    playlistInput = [
+      '3WPuV7Q2Uy8nUthfZywVFa']
+    let output =  getMultiplePlaylistTracks(playlistInput)
     .then(function(data){
       console.log(data);
       for (index in data){
@@ -269,4 +315,9 @@ app.get('/allsongs', (req,res) => {
     console.log(data)
     res.send(data);
   })
+})
+
+app.get('/searchplaylists', (req,res) => {
+  searchPlaylists('Nirvana')
+  res.send("Hello son!")
 })

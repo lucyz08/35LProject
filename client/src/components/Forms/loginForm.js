@@ -17,9 +17,9 @@ export const SignInForm = () => {
     }
     return (
         <div className="Signin-form-container">
-            <h2>Welcome Back!</h2>
+            <h2 className="signInHeading">Welcome Back!</h2>
             <form className="Signin-form" onSubmit={doAuthSubmission}>
-                <h3>Sign In</h3>
+                <h3 className="signinLabel">Sign In</h3>
                 <label className="username" for="username">Username</label>
                 <input value={dataOfUser.prompt} onChange={(e) => setData({ ...dataOfUser, username: e.target.value })} type="username" placeholder="username" id="username" name="username"/>
 
