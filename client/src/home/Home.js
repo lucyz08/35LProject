@@ -14,6 +14,13 @@ const Home = () => {
 
     const dispatch = useDispatch();
   
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    useEffect(() => {
+        const token = user?.token
+
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [])
+
     useEffect(() => {
         dispatch(getSongs());
     }, [dispatch]);
@@ -37,11 +44,12 @@ const Home = () => {
             <Prompts/>
         </h1>
     </div>
-    <div className="formAnswers">
-        <div className="form">
-            <SongForm/> 
-        </div>
-        <div className="responses">
+    {user ? (
+        <div className="formAnswers">
+            <div className="form">
+                <SongForm/> 
+            </div>
+            <div className="responses">
             <div className="friendResponses">
                 Friend Responses
             </div>
@@ -53,12 +61,17 @@ const Home = () => {
             <Songs/>
             <Songs/>
         </div>
-    </div>
-    <div className="proForm">
-        <div className="form">
-            <PromptForm/> 
+        <div className="proForm">
+            <div className="form">
+                <PromptForm/> 
+            </div>
         </div>
-    </div>
+        </div>
+    ) : (
+        <div>
+            <h1>Log In or Sign Up For Access</h1>
+        </div>
+    )}
     </div>
     </>
     )
