@@ -8,6 +8,7 @@ import promptRoutes from './routes/promptRoutes.js'
 import userRoutes from './routes/userRoutes.js';
 import dotenv from 'dotenv'
 dotenv.config()
+mongoose.set('useFindAndModify', false);
 
 const app = express();
 
@@ -23,6 +24,6 @@ const CONNECTION_URL = 'mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn
 
 const PORT = process.env.PORT|| 5000;
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:5000`)))
   .catch((error) => console.log(`failed connection`));
