@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 
 const userInfo = new mongoose.Schema({
     username: {type: String},
-    password: { type: String },
     friends: [{
         type: String
     }],
