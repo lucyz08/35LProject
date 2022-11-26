@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getAuthCheck } from "../../actions/userFetching";
+import { signin } from "../../actions/userFetching";
 import './form.css'
 
 export const SignInForm = () => {
@@ -13,7 +13,7 @@ export const SignInForm = () => {
 
     const doAuthSubmission = (e) =>{
         e.preventDefault();
-        dispatch(getAuthCheck(dataOfUser));
+        dispatch(signin(dataOfUser));
     }
     return (
         <div className="Signin-form-container">

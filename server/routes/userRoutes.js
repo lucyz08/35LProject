@@ -1,10 +1,10 @@
 import express from 'express';
 
-import {getUserProfile, createUserProfile} from '../controllers/userFetchBack.js';
+import {signIn, signUp} from '../controllers/userFetchBack.js';
 
 const router = express.Router();
 
-router.get('/', getUserProfile);
-router.post('/', createUserProfile);
+router.post('/signin', signIn);
+router.post('/signup', signUp);
 
 export default router;

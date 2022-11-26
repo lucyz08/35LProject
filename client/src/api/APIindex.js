@@ -12,5 +12,5 @@ export const fetchPrompts = () => API.get("/prompts");
 export const createPrompt = (newPost) => API.post("/prompts", newPost);
 
 //for user fetching
-export const fetchAuth = (newPost) => API.post("/auths", newPost);
-export const createUser = (newPost) => API.post("/users", newPost);
+export const signIn = (newPost) => API.post("/user/signin", newPost);
+export const signUp = (newPost) => API.post("/user/signup", newPost);

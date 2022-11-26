@@ -22,6 +22,11 @@ body {
     height: 5vw;
 }
 
+.logOutButton {
+    color: rgb(255, 255, 255);
+    transform: translateY(250%);
+
+}
 .siteTitle{
     font-size: 4vw;
     margin-top: 0.25vw;

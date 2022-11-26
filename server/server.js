@@ -6,7 +6,6 @@ import cors from 'cors';
 import songRoutes from './routes/songRoutes.js';
 import promptRoutes from './routes/promptRoutes.js'
 import userRoutes from './routes/userRoutes.js';
-import authRoutes from './routes/authRoutes.js';
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -18,8 +17,7 @@ app.use(cors());
 
 app.use('/songs', songRoutes);
 app.use('/prompts', promptRoutes);
-app.use('/users', userRoutes);
-app.use('/auths', authRoutes);
+app.use('/user', userRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mongodb.net/test';
 

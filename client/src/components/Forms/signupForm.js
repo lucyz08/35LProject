@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {createUserProfile} from '../../actions/userFetching'
+import {signup} from '../../actions/userFetching'
 import './form.css'
 
 export const SignUpForm = () => {
     const [dataOfUser, setData] = useState({
-        username: '', password: ''
+        username: '', password: '', confirmPassword: '',
     });
 
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const SignUpForm = () => {
     const doAuthSubmission = (e) =>{
         e.preventDefault();
         console.log(dataOfUser);
-        dispatch(createUserProfile(dataOfUser));
+        dispatch(signup(dataOfUser));
     }
     return (
         <div className="Signup-form-container">
@@ -26,6 +26,9 @@ export const SignUpForm = () => {
 
                 <label className="password" for="password">Password</label>
                 <input value={dataOfUser.password} onChange={(e) => setData({ ...dataOfUser, password: e.target.value })} type="password" placeholder="password" id="password" name="password"/>
+
+                <label className="confirmPassword" for="confirmPassword">Confirm Password</label>
+                <input value={dataOfUser.confirmPassword} onChange={(e) => setData({ ...dataOfUser, confirmPassword: e.target.value })} type="confirmPassword" placeholder="confirm password" id="confirmPassword" name="confirmPassword"/>
 
                 <button type="submit">Create Profile</button>
             </form>
