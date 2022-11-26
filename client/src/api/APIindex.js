@@ -11,3 +11,6 @@ export const createSong = (newPost) => API.post("/songs", newPost);
 export const fetchPrompts = () => API.get("/prompts");
 export const createPrompt = (newPost) => API.post("/prompts", newPost);
 
+//for user fetching
+export const signIn = (newPost) => API.post("/user/signin", newPost);
+export const signUp = (newPost) => API.post("/user/signup", newPost);

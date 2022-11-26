@@ -5,6 +5,9 @@ import cors from 'cors';
 
 import songRoutes from './routes/songRoutes.js';
 import promptRoutes from './routes/promptRoutes.js'
+import userRoutes from './routes/userRoutes.js';
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 
@@ -14,8 +17,9 @@ app.use(cors());
 
 app.use('/songs', songRoutes);
 app.use('/prompts', promptRoutes);
+app.use('/user', userRoutes);
 
-const CONNECTION_URL = 'mongodb+srv://pinkm:lejlighed921BR90o@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://GeneBordegaray:Gene2003@35lproject.tnn1kyn.mongodb.net/test';
 
 const PORT = process.env.PORT|| 5000;
 

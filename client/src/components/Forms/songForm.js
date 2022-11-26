@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useDispatch } from "react-redux";
 import {createSongPost} from '../../actions/songFetching'
 import './form.css'
@@ -20,7 +19,7 @@ const SongForm = () => {
     return (
         <div className="Song-form-container">
             <form className="song-form" onSubmit={doSongSubmission}>
-                <h2>Creating a SongPost</h2>
+                <h2 className="songHead">Creating a SongPost</h2>
 
                 <label className="songLabel" for="song">Song</label>
                 <input value={dataOfSong.name} onChange={(e) => setData({ ...dataOfSong, name: e.target.value })} type="song" placeholder="song" id="song" name="song"/>

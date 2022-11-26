@@ -21,7 +21,7 @@ function App() {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body:'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+      body:'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + "4a484f64e7f04e2ea48e43b0aa731916"
     }
     fetch('https://accounts.spotify.com/api/token', AuthParameters)
     .then(result => result.json())
