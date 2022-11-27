@@ -16,18 +16,11 @@ import Users from '../components/Users/printUsers'
 import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
 import FriendForm from "../components/Forms/friendForm.js";
-import FriendSongs from '../components/Songs/printFriendSongs.js'
+import Friends from "../friends/Friends";
 
 const Home = () => {
 
     const dispatch = useDispatch();
-  
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-    useEffect(() => {
-        const token = user?.token
-
-        setUser(JSON.parse(localStorage.getItem('profile')))
-    }, [])
 
     useEffect(() => {
         dispatch(getSongs());
@@ -45,7 +38,33 @@ useEffect(() => {
     dispatch(newPlaylist());
 }, [dispatch]);
 
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    useEffect(() => {
+        const token = user?.token
 
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [])
+
+    const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
+    useEffect(() => {
+        setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
+    }, [])
+    console.log(friendResponses.playlist1)
+    const results = [];
+    if (user)
+    {
+        if (friendResponses.playlist1)
+        {
+            for (const song of friendResponses.playlist1) {
+                results.push(
+                <div key={song.id}>
+                    <h2>name: {song}</h2>
+                    <hr />
+                </div>,
+                );
+            }
+        }
+    }
 
     return (
     <>
@@ -71,11 +90,18 @@ useEffect(() => {
             <div className="friendResponses">
                 Friend Responses
             </div>
-            <FriendSongs/>
+            <div>
+                {results}
+            </div>
         </div>
         <div className="proForm">
             <div className="form">
                 <PromptForm/> 
+            </div>
+        </div>
+        <div className="proForm">
+            <div className="form">
+                <FriendForm/> 
             </div>
         </div>
         </div>

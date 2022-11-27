@@ -10,20 +10,8 @@ export const getSongs = () =>async (dispatch) => {
     }
 }
 
-export const getFriendSongs = (post) =>async (dispatch) => {
-    try {
-        console.log(post)
-        const {data} = await api.fetchFriendSongs(post);
-
-        dispatch({type: 'FETCH_FRIEND_SONGS', payload: data});
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
 export const createSongPost = (post) => async (dispatch) => {
     try {
-        console.log(post)
         const {data} = await api.createSong(post);
         dispatch({type: 'CREATESONG', payload: data});
 

@@ -4,8 +4,13 @@ const songsSchema = new mongoose.Schema({
     name: String,
     artist: String,
     user: String,
+    postData: {
+      type: Date,
+      default: new Date()
+    }
 });
 
-const SongPostMessage = mongoose.model('Song', songsSchema);
+export const SongPostMessage = mongoose.model('Song', songsSchema);
+export const tempSongPostMessage = mongoose.model('tempSong', songsSchema)
 
-export default SongPostMessage;
+export default {SongPostMessage, tempSongPostMessage};

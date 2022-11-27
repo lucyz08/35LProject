@@ -23,7 +23,6 @@ const SongForm = () => {
         setData({ ...dataOfSong, username: user.result.username })
         dispatch(createSongPost(dataOfSong));
     }
-    
     return (
         <div className="Song-form-container">
             <form className="song-form" onSubmit={doSongSubmission}>
