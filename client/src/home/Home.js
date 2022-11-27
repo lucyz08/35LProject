@@ -7,8 +7,10 @@ import {getSongs} from '../actions/songFetching';
 import {getPrompts} from '../actions/promptFetching';
 import Songs from '../components/Songs/printSongs';
 import Prompts from '../components/Prompts/printPrompts';
+import Users from '../components/Users/printUsers'
 import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
+import FriendForm from "../components/Forms/friendForm.js";
 
 const Home = () => {
 
@@ -46,18 +48,25 @@ const Home = () => {
                 Friend Responses
             </div>
             <Songs/>
-            <Songs/>
-            <Songs/>
-            <Songs/>
-            <Songs/>
-            <Songs/>
-            <Songs/>
         </div>
     </div>
     <div className="proForm">
         <div className="form">
             <PromptForm/> 
         </div>
+    </div>
+    <div className="friendForm">
+        <div className="form">
+            <FriendForm/> 
+        </div>
+    </div>
+    <div className="userHead">
+        <h1 className="declareP">
+            AVID 
+        </h1>
+        <h1 className="user">
+            <Users/>
+        </h1>
     </div>
     </div>
     </>

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import UserProfile from '../models/userModel.js';
+import UserData from '../models/userDataModel.js';
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -44,6 +45,16 @@ export const signUp = async (req, res) => {
             return res.status(400).send({ message: "Passwords do not match"});
         }
 
+        const newUser = await new UserData({ username,
+            friends: [],
+            playlist1: [],
+            playlist2: [],
+            playlist3: [],
+            playlist4: [],
+            playlist4: [],
+            song: null
+
+        }).save()
         const hashPassword = await bcrypt.hash(password, 12);
 
         const result = await new UserProfile({username, password: hashPassword}).save();
@@ -51,6 +62,40 @@ export const signUp = async (req, res) => {
         res.status(201).json({ result, token});
     } catch (error) {
         res.status(409).json({ message: error.message });
+    }
+}
+
+
+export const addFriend = async (req, res) => {
+    const friend = req.body[0]
+    const user = req.body[1]
+    try {
+        const userProfile = await UserData.findOne({username: user.username});
+        if (!userProfile) {
+            return res.status(400).json({message: "No user logged in"})
+        }
+        const friendProfile = await UserData.findOne({username: friend.username});
+        if (!friendProfile)
+        {
+            return res.status(400).json({message: "That user is not registered in our system"})
+        }
+
+        const curr = await UserData.find({username: user.username}).select('friends')
+
+        const currFriends = curr[0].friends
+        if (currFriends.includes(friend.username))
+        {
+            return res.status(400).json({message: "You are already following this user"})
+        }
+
+
+        const currUser = await UserData.findOneAndUpdate({username: user.username}, 
+            { $push: {friends: friend.username}},
+            {new: true})
+        res.status(200).json(currUser);
+
+    } catch(error) {
+        res.status(404).json( {message:error.message})
     }
 }
 

@@ -19,3 +19,19 @@ export const signup = (post) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const addFriend = (post) => async (dispatch) => {
+    try {
+        const currUsername = JSON.parse(localStorage.getItem('profile'))
+        const you = currUsername.result.username
+        const filter = {"username": you}
+
+        const usrAndFriend = [post, filter]
+        
+        const {data} = await api.addFriend(usrAndFriend);
+        dispatch({type: 'FRIEND', payload: data})
+        window.location.reload();
+    } catch(error) {
+        console.log(error.response.data.message);
+    }
+}
