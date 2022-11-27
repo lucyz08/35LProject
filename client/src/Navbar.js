@@ -10,6 +10,7 @@ export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    const [data, setUserData] = useState(JSON.parse(localStorage.getItem('userdata')))
 
     const logout = () => {
         dispatch({type: 'LOGOUT'});
@@ -23,6 +24,13 @@ export default function Navbar() {
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
     console.log(user)
+
+    useEffect(() => {
+        const token = user?.token
+
+        setUserData(JSON.parse(localStorage.getItem('userdata')))
+    }, [])
+    console.log(data)
     return (
         <nav className="nav">
             <Link to="/" className="siteTitle">
