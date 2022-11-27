@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const songsSchema = new mongoose.Schema({
     name: String,
-    artists: [String],
+    artist: String,
     user: String,
 });
 
