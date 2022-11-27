@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 
 import {getSongs} from './actions/songFetching';
 import {getPrompts} from './actions/promptFetching';
+import {setUserData} from './actions/userFetching';
 import './App.css'
 
 import { Routes, Route } from 'react-router-dom';
@@ -24,6 +25,10 @@ const App = () => {
   useEffect(() => {
     dispatch(getPrompts());
 }, [dispatch]);
+useEffect(() => {
+  dispatch(setUserData());
+}, [dispatch]);
+
 
   return (
     <>

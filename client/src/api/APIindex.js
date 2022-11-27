@@ -17,3 +17,6 @@ export const signUp = (newPost) => API.post("/user/signup", newPost);
 
 //for user editing
 export const addFriend = (newPost) => API.put("/user/newfriend", newPost)
+export const fetchUser = (post) => API.put("/user/data", post);
+
+export const createPlaylist = (newPost) => API.put("/user/playlist", newPost);

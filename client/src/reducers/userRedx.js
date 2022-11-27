@@ -1,10 +1,12 @@
 
 
-const userReducer = (state = {curUsr: null}, action) => {
+const userReducer = (state = {currentUser: null}, action) => {
     switch(action.type) {
         case 'FRIEND':
             localStorage.setItem('userdata', JSON.stringify({...action?.payload}))
-            return {...state, curUsr: action?.payload}
+            return {...state, currentUser: action?.payload}
+        case 'CREATE_PLAYLIST':
+            return action.payload
         default:
             return state;
     }

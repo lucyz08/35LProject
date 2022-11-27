@@ -74,6 +74,9 @@ export const addFriend = async (req, res) => {
         if (!userProfile) {
             return res.status(400).json({message: "No user logged in"})
         }
+        if (friend.username==user.username){
+            return res.status(400).json({message: "Cannot follow yourself"})
+        }
         const friendProfile = await UserData.findOne({username: friend.username});
         if (!friendProfile)
         {
@@ -98,5 +101,49 @@ export const addFriend = async (req, res) => {
         res.status(404).json( {message:error.message})
     }
 }
+
+export const getUser = async (req, res) => {
+    const user = req.body;
+    try {
+        const data = await UserData.findOne({username: user.username})
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(405).json(user)
+    }
+}
+
+
+export const makePlaylist = async (req, res) => {
+    const user = req.body;
+    try {
+        const userF = await UserData.findOne({username: user.username}).select('friends')
+
+        const userfriends = userF.friends
+        if (userfriends == null || userfriends <0)
+        {
+            return res.status(400).json({message: "no friends"})
+        }
+        const playlist = []
+        const len = userfriends.length
+       
+        
+        for (var i = 0; i < len; i++)
+        {
+            const friend = userfriends[i]
+            const fsong = await UserData.find({username: friend}).select('song')
+            if (fsong != null){
+                playlist.push(fsong[0].song)
+            }
+            
+        }
+
+        res.status(200).json(playlist)
+
+    } catch (error) {
+        res.status(400).json({message: "Could not make playlist"})
+    }
+}
+
+
 
 export default router;

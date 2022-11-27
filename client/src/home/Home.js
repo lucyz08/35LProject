@@ -5,6 +5,11 @@ import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
 import {getPrompts} from '../actions/promptFetching';
+import { getPlaylists } from "../actions/userFetching";
+import { setUserData } from "../actions/userFetching";
+
+import { newPlaylist } from "../actions/userFetching";
+
 import Songs from '../components/Songs/printSongs';
 import Prompts from '../components/Prompts/printPrompts';
 import Users from '../components/Users/printUsers'
@@ -22,6 +27,16 @@ const Home = () => {
     useEffect(() => {
       dispatch(getPrompts());
   }, [dispatch]);
+useEffect(() => {
+    dispatch(setUserData());
+}, [dispatch]);
+useEffect(() => {
+    dispatch(getPlaylists());
+}, [dispatch]);
+useEffect(() => {
+    dispatch(newPlaylist());
+}, [dispatch]);
+
 
 
     return (
