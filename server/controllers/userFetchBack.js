@@ -45,6 +45,16 @@ export const signUp = async (req, res) => {
             return res.status(400).send({ message: "Passwords do not match"});
         }
 
+        const newUser = await new UserData({ username,
+            friends: [],
+            playlist1: [],
+            playlist2: [],
+            playlist3: [],
+            playlist4: [],
+            playlist4: [],
+            song: null
+
+        }).save()
         const hashPassword = await bcrypt.hash(password, 12);
 
         const result = await new UserProfile({username, password: hashPassword}).save();

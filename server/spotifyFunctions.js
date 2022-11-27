@@ -1,168 +1,140 @@
 import SpotifyWebApi from 'spotify-web-api-node'
 import mongoose from 'mongoose';
 import SongPostMessage from './models/songModel.js';
+import {spotifyApi} from './server.js';
 
-async function initSpotifyAPI(){
-    var spotifyApi = new SpotifyWebApi({
-        clientId: '4a484f64e7f04e2ea48e43b0aa731916',
-        clientSecret: 'a25959caa7614a2b91ecb5753de9403b',
-        redirectUri: 'http://localhost:8888/callback'
-    })
-    return spotifyApi
+
+//SCOPE OF PERMISSIONS FOR SPOTIFY
+export const scopes = [
+    'ugc-image-upload',
+    // 'user-read-playback-state',
+    // 'user-modify-playback-state',
+    // 'user-read-currently-playing',
+    // 'streaming',
+    // 'app-remote-control',
+    // 'user-read-email',
+    'user-read-private',
+    'playlist-read-collaborative',
+    'playlist-modify-public',
+    'playlist-read-private',
+    'playlist-modify-private',
+    'user-library-modify',
+    'user-library-read',
+    'user-top-read',
+    // 'user-read-playback-position',
+    // 'user-read-recently-played',
+    // 'user-follow-read',
+    // 'user-follow-modify'
+  ];
+
+//GET MY PROFILE DATA
+export async function getMyData() {
+    try {
+        const me = await spotifyApi.getMe();
+        console.log(me.body);
+        getUserPlaylistIDs(me.body.id);
+    } catch (error) {
+        console.log(error.body.error.message);
+    }
+ }
+
+//GET USER PLAYLIST INFORMATION
+ export async function getUserPlaylistIDs(userName) {
+    const data = await spotifyApi.getUserPlaylists(userName)
+    let playlistIDs = []
+    for (let currentObj of data.body.items) {
+      console.log(currentObj.name + ": " + currentObj.id)
+      playlistIDs.push(currentObj.id)
+    }
+    return playlistIDs
+  }
+
+
+//SEARCH FOR A TRACK
+export async function trackSearch(searchQuery){
+    try {
+       const data = await spotifyApi.searchTracks(searchQuery)
+       let searchResults = []
+       for (let track of data.body.tracks.items){
+           searchResults.push(createSongObject(track))
+       }
+       console.log(searchResults)
+       return searchResults
+    } catch (error) {
+        console.log('Something went wrong!', error);
+    }
 }
 
-
-
-export function createSongObject(rawObject){
-    artistsT = []
-    for (index in rawObject.body.artists){
-      artistsT.push(rawObject.body.artists[index].name)
+//PARSES THROUGH SONG RAW OBJECT AND RETURNS USEFUL INFROMATION
+function createSongObject(rawObject){
+    let artistsList = []
+    for (let artist of rawObject.artists){
+      artistsList.push(artist.name)
     }
-    songInfo = {
-      name: rawObject.body.name,
-      artists: artistsT,
-      album: rawObject.body.album.name,
-      spotifyID: rawObject.body.id,
-      albumCoverURL: rawObject.body.album.images[0].url
+    let songInfo = {
+      name: rawObject.name,
+      artists: artistsList,
+      album: rawObject.album.name,
+      spotifyID: rawObject.id,
+      albumCoverURL: rawObject.album.images[0].url
     }
     return songInfo
   }
 
-export async function trackSearch(searchQuery){
-    await spotifyApi.searchTracks(searchQuery)
-    .then(
-        function(data){
-            searchResults = []
-            for (let track of data.body.tracks){
-                searchResults.push(createSongObject(track))
-            }
-            return searchResults
-        }, function(err) {
-            console.log('Something went wrong!', err);
+//CREATES A PLAYLIST WITH TRACK NAME
+export async function createPlaylistWithTracks(name, description, tracks, imageuri = null){
+    try {
+        const data = await spotifyApi.createPlaylist(name, { 'description': description, 'public': true })
+        let newPlaylistID = data.body.id;
+        console.log('Created playlist!');
+        
+        let inputTracks = []
+        for (let track of tracks){
+            inputTracks.push(createSpotifyPrepend(track))
         }
-    )
+
+        console.log(inputTracks)
+
+        await spotifyApi.addTracksToPlaylist(newPlaylistID, inputTracks)
+        console.log('Added tracks to playlist!');
+
+        //ADDING A PLAYLIST IMAGE
+        // if (imageuri =! null){
+        // await spotifyApi.uploadCustomPlaylistCoverImage(newPlaylistID, imageuri)
+        //     console.log("Added Image Uri")
+        //     }
+    } catch (error) {
+        console.log('Something went wrong!', error);
+    }
 }
 
-
-
-export async function addToSongsDB(trackID) {
-    songDataRaw = await spotifyApi.getTrack(trackID)
-    .then(
-        function(data){
-            createSongObject(track.body)
-        }, function(err) {
-            console.log('Something went wrong!', err);
-        }
-    )
-
-    const newSong = new SongPostMessage({
-        name: songInfo.name,
-        artists: songInfo.artists,
-        album: songInfo.album,
-        spotifyID: songInfo.spotifyID,
-        albumCoverURL: songInfo.albumCoverURL
-        })
-      try {
-          await newSong.save();
-          console.log("Success!")
-      } catch (error) {
-          console.log(error.message);
-      }
-}
-
-async function getMyData() {
-    if (token == null){
-     console.log("Error no token")
-    }
-   (async () => {
-     const me = await spotifyApi.getMe();
-     //console.log(me.body);
-     getUserPlaylistIDs(me.body.id);
-   })().catch(e => {
-     console.error(e);
-   });
- }
-
-
-
-//Returns a list of playlist IDs from userName's profile
- async function getUserPlaylistIDs(userName) {
-    try{
-        const data = await spotifyApi.getUserPlaylists(userName)
-        let playlistIDs = []
-        for (let currentObj of data.body.items) {
-            console.log(currentObj.id)
-            playlistIDs.push(currentObj.id)
-        }
-        return playlistIDs
-    }
-    catch{
-
-    }
-  }
-
-//Gets all the tracks on a specific playlist
-  async function getPlaylistTracks(playlistId) {
-    const data = await spotifyApi.getPlaylistTracks(playlistId, {
-      offset: 1,
-      limit: 100,
-      fields: 'items'
-    })
-    let tracks = [];
-    for (let track_obj of data.body.items) {
-      artistsL = []
-      for (let item of track_obj.track.artists){
-        artistsL.push(item.name)
-      }
-      const track = {
-        name: track_obj.track.album.name,
-        artists: artistsL,
-        album: track_obj.track.album.name,
-        spotifyID: track_obj.track.id,
-        albumCoverURL: track_obj.track.album.images[0].url
-      }
-      tracks.push(track);
-    }
-    console.log(tracks);
-    return tracks;
-  }
-
-  async function createPlaylistWithTracks(name, description, songs, imageuri = null){
-    let newPlaylistID = null;
-    spotifyApi.setAccessToken(token);
-
-  await spotifyApi.createPlaylist(name, { 'description': description, 'public': true })
-  .then(function(data) {
-    console.log('Created playlist!');
-    newPlaylistID = data.body.id;
-    console.log(newPlaylistID);
-  }, function(err) {
-    console.log('Something went wrong!', err);
-  });
-
-  for (index in songs){
-    songs[index] = createSpotifyPrepend(songs[index]);
-  }
-
-  await spotifyApi.addTracksToPlaylist(newPlaylistID, songs)
-  .then(function(data) {
-    console.log('Added tracks to playlist!');
-  }, function(err) {
-    console.log('Something went wrong!', err);
-  });
-
-  //Add this later when we figure out what songs to do
-  if (imageuri != null){
-    try{
-        spotifyApi.uploadCustomPlaylistCoverImage(newPlaylistID, imageuri)
-    }
-    catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-  }
-    
-}
-
+//ADD THE spotify:track to the prepend
 function createSpotifyPrepend(id){
     return "spotify:track:" + id
+}
+
+
+export async function addSongObjectToDB(songInfo) {
+    const newSong = new SongPostMessage({
+      name: songInfo.name,
+      artists: songInfo.artists,
+      album: songInfo.album,
+      spotifyID: songInfo.spotifyID,
+      albumCoverURL: songInfo.albumCoverURL
+      })
+    try {
+        await newSong.save();
+        console.log("Success!")
+    } catch (error) {
+        console.log(error.message);
+    }
+  }
+
+  export async function addSongIDToDB(songID) {
+    try {
+        data = await spotifyApi.getTrack(songID)
+        addSongObjectToDB(createSongObject(data))    
+    } catch (error) {
+        console.log(error)   
+    }
   }

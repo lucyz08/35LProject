@@ -29,7 +29,6 @@ export const addFriend = (post) => async (dispatch) => {
         const usrAndFriend = [post, filter]
         
         const {data} = await api.addFriend(usrAndFriend);
-        //const {data} = await api.addFriend(usrAndFriend)
         dispatch({type: 'FRIEND', payload: data})
         window.location.reload();
     } catch(error) {
