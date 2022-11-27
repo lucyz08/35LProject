@@ -14,6 +14,7 @@ export default function Navbar() {
     const logout = () => {
         dispatch({type: 'LOGOUT'});
         setUser(null);
+        window.location.reload()
     }
     
     useEffect(() => {

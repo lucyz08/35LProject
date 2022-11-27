@@ -11,6 +11,7 @@ import Users from '../components/Users/printUsers'
 import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
 import FriendForm from "../components/Forms/friendForm.js";
+import FriendSongs from '../components/Songs/printFriendSongs.js'
 
 const Home = () => {
 
@@ -55,7 +56,7 @@ const Home = () => {
             <div className="friendResponses">
                 Friend Responses
             </div>
-            <Songs/>
+            <FriendSongs/>
         </div>
         <div className="proForm">
             <div className="form">

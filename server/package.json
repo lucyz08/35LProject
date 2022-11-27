@@ -20,6 +20,6 @@
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.29",
-    "spotify-web-api-node": "^5.0.2"
+    "node-modules": "^1.0.1"
   }
 }

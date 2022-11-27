@@ -13,7 +13,6 @@ export const SignUpForm = () => {
 
     const doAuthSubmission = (e) =>{
         e.preventDefault();
-        console.log(dataOfUser);
         dispatch(signup(dataOfUser));
     }
     return (

@@ -6,6 +6,7 @@ const API = axios.create({ baseURL: 'http://localhost:5000'});
 //sogns connections
 export const fetchSongs = () => API.get("/songs");
 export const createSong = (newPost) => API.post("/songs", newPost);
+export const fetchFriendSongs = (newPost) => API.post("/songs/friendsongs", newPost)
 
 //for prompt fetching
 export const fetchPrompts = () => API.get("/prompts");

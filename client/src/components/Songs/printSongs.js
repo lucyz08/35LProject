@@ -6,8 +6,6 @@ import './printsongs.css'
 
 const Songs = () => {
     const allsongs = useSelector((state) => state.songs);
-
-    console.log(allsongs);
     return (
         <>
             <SongPost />

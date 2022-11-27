@@ -1,18 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {createSongPost} from '../../actions/songFetching'
 import './form.css'
 
 const SongForm = () => {
     const [dataOfSong, setData] = useState({
-        name: '', artist: ''
+        name: '', artist: '', username: '',
     });
 
     const dispatch = useDispatch();
+  
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    useEffect(() => {
+        const token = user?.token
+
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [])
 
     const doSongSubmission = (e) =>{
         e.preventDefault();
+        setData({ ...dataOfSong, username: user.result.username })
         dispatch(createSongPost(dataOfSong));
     }
     
@@ -26,7 +34,7 @@ const SongForm = () => {
 
                 <label className="artistLabel" for="artist">Artist</label>
                 <input value={dataOfSong.artist} onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })} type="artist" placeholder="artist" id="artist" name="artist"/>
-                
+
                 <button type="submit">Submit Song</button>
             </form>
         </div>
