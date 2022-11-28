@@ -17,10 +17,10 @@ body {
     align-items: center;
     padding: 0 1rem;
     size: 8rem;
-    position: sticky;
+    position: relative;
     top: 0px; 
     width: 100%;
-    height: 5vw;
+    height: 4vw;
 }
 
 .logOutButton {
@@ -31,15 +31,14 @@ body {
     margin: 0vw;
     border-radius: 1vw;
     cursor: pointer;
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     font-weight: 500;
     font-family:'Times New Roman', Times, serif;
     margin-right: 1vw;
 }
 
-
 .siteTitle{
-    font-size: 4vw;
+    font-size: 2.75vw;
     margin-top: 0.25vw;
     margin-bottom: 0.25vw;
 }
@@ -58,13 +57,17 @@ body {
     gap: 1rem;
 }
 
+a{
+    font-weight: lighter;
+}
+
 .nav a{
     color: inherit;
     text-decoration: none; 
 }
 
 .nav li.active{
-    color: rgb(219, 107, 59); 
+    color: rgb(243, 81, 12); 
 }
 
 .nav li:hover{
@@ -74,16 +77,16 @@ body {
 .navBut {
     /*removes default border on button element*/
     border: 0;
-    height: 3vw;
-    width: 3vw;
+    height: 2.5vw;
+    width: 2.5vw;
     padding: 0.5rem;
     border-radius: 20%;
-    background-color: rgb(219, 107, 59);
+    background-color: rgb(243, 81, 12);
     cursor: pointer;
 
     position: absolute;
-    top: 20%;
-    right: 10%;
+    top: 15%;
+    right: 9%;
     transform: translateY(-50%);
     display: none;
 }
@@ -98,7 +101,7 @@ body {
     }
     .nav-menu ul{
         position: absolute;
-        top: 5vw;
+        top: 4vw;
         left: 0;
 
         flex-direction: column;

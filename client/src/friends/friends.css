@@ -6,15 +6,15 @@
     background-image: url("./theBoys2.jpg");
     background-size: cover; 
     overflow: hidden; 
-    height: 750px;  
+    height: 600px;  
     color: black; 
     font-size: 45px; 
-    animation: fade 6s; 
+    animation: fade 4s; 
 }
 
 .picText{
     background-color: transparent; 
-    font-size: 4.5vw; 
+    font-size: 4vw; 
     color: white; 
 }
 

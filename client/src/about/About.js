@@ -52,7 +52,7 @@ export default function About(){
                             <p className="desc">Major: Computer Science</p>
                         </div>
                         <div>
-                            <a className="linkedin" href="https://www.linkedin.com/in/jake-ekoniak" target="_blank" rel="noreferrer">
+                            <a className="linkedin" href="https://www.linkedin.com/in/genebordegaray/" target="_blank" rel="noreferrer">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                             <a className="github" href="https://github.com/genebordegaray" target="_blank" rel="noreferrer">
