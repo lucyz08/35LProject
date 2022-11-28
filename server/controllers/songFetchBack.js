@@ -19,7 +19,7 @@ export const createSongPost = async (req, res) => {
 
     const newSongPostMessage = new tempSongPostMessage({ name: req.body.name, artist: req.body.artist, user: req.body.username})
     try {
-        await UserData.findOneAndUpdate({username: newSongPostMessage.user, song: newSongPostMessage.name})
+        await UserData.findOneAndUpdate({username: newSongPostMessage.user}, {'$set': {song: newSongPostMessage.name}})
         await newSongPostMessage.save()
 
         res.status(201).json(newSongPostMessage);

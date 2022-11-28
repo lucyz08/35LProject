@@ -49,7 +49,7 @@ useEffect(() => {
     useEffect(() => {
         setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
     }, [])
-    //console.log(friendResponses.playlist1)
+    console.log(friendResponses)
     const results = [];
     if (user)
     {
