@@ -11,7 +11,7 @@ const Footer = () => {
                     {/* column 1 */}
                     <div className="col">
                         Made by&nbsp;
-                        <a className="gitlink" href="https://www.linkedin.com/in/lucyzises" target="_blank" rel="noreferrer">
+                        <a className="gitlink" href="https://www.linkedin.com/in/genebordegaray/" target="_blank" rel="noreferrer">
                                 Gene
                         </a>
                         ,&nbsp;
@@ -34,10 +34,6 @@ const Footer = () => {
                     {/* column 2 */}
                     <ul className="links">
                         <Checkact to="/" className="link">Home</Checkact>
-                        |
-                        <Checkact to="/profile" className="link">Profile</Checkact>
-                        |
-                        <Checkact to="/friends" className="link">Friends</Checkact>
                         |
                         <Checkact to="/about" className="link">About</Checkact>
                         |

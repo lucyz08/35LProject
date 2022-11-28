@@ -1,4 +1,5 @@
 import './friends.css';
+import FriendForm from "../components/Forms/friendForm.js";
 
 export default function Friends() {
   return (
@@ -23,10 +24,11 @@ export default function Friends() {
         </div>
       </div>
     </div>
-    <div className="addFriend">
-      <h1 className="findTitle">Add Friends</h1>
-      <div>Put friend search bar here</div>
-    </div>
+    <div className="proForm">
+            <div className="form">
+                <FriendForm/> 
+            </div>
+        </div>
     
     </>
   )

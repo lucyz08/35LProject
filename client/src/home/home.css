@@ -16,21 +16,37 @@
     font-size: 100px; 
 }
 
+.homeLink{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .homeHeader{
     display: flex; 
     justify-content: center;
     background-color: transparent;
     color: black; 
-    font-size: 15vw; 
+    font-size: 11vw; 
     margin-bottom: 0px;
 }
 
 .subtitle{
     background-color: transparent;
     color: rgb(0, 0, 0); 
-    font-size: 5vw;
+    font-size: 3.5vw;
     width: 100%;
     text-align: center;
+}
+
+.loggedOutWarn{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: white;
+    text-align: center;
+    font-size: 3.5vw;
+    font-weight: lighter;
+
 }
 
 @keyframes fade{
@@ -54,7 +70,7 @@
 }
 
 .declareP{
-    font-size: 4.5vw; 
+    font-size: 3.5vw; 
 }
 
 .prompt{
@@ -75,7 +91,7 @@
 }
 
 .friendResponses{
-    font-size: 4.5vw; 
+    font-size: 4vw; 
     text-decoration: underline;
     font-weight: bold;
 }

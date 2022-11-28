@@ -17,7 +17,7 @@ const FriendForm = () => {
     }
     return (
         <div className="Add-friend">
-            <h2>Follow your friends on Arpeggio</h2>
+            <h2>Find Friends on Arpeggio</h2>
             <form className="AddFriend-form" onSubmit={doFriendSubmission}>
                 <label className="username" for="username">Username</label>
                 <input value={dataOfFriend.username} onChange={(e) => setData({ ...dataOfFriend, username: e.target.value })} type="username" placeholder="username" id="username" name="username"/>

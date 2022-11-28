@@ -19,7 +19,7 @@ export const SignUpForm = () => {
         <div className="Signup-form-container">
             <h2 className="signUpHeading">Welcome!</h2>
             <form className="Signup-form" onSubmit={doAuthSubmission}>
-                <h3 className="confirmPassword">Sign Up</h3>
+                <h3 className="signupLabel">Sign Up</h3>
                 <label className="username" for="username">Username</label>
                 <input value={dataOfUser.username} onChange={(e) => setData({ ...dataOfUser, username: e.target.value })} type="username" placeholder="username" id="username" name="username"/>
 
@@ -27,7 +27,7 @@ export const SignUpForm = () => {
                 <input value={dataOfUser.password} onChange={(e) => setData({ ...dataOfUser, password: e.target.value })} type="password" placeholder="password" id="password" name="password"/>
 
                 <label className="confirmPassword" for="confirmPassword">Confirm Password</label>
-                <input value={dataOfUser.confirmPassword} onChange={(e) => setData({ ...dataOfUser, confirmPassword: e.target.value })} type="confirmPassword" placeholder="confirm password" id="confirmPassword" name="confirmPassword"/>
+                <input value={dataOfUser.confirmPassword} onChange={(e) => setData({ ...dataOfUser, confirmPassword: e.target.value })} type="password" placeholder="confirm password" id="confirmPassword" name="confirmPassword"/>
 
                 <button type="submit">Create Profile</button>
             </form>

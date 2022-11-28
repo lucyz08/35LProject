@@ -99,15 +99,10 @@ useEffect(() => {
                 <PromptForm/> 
             </div>
         </div>
-        <div className="proForm">
-            <div className="form">
-                <FriendForm/> 
-            </div>
-        </div>
         </div>
     ) : (
         <div>
-            <h1>Log In or Sign Up For Access</h1>
+            <h1 className="loggedOutWarn"><a className="homeLink" href="http://localhost:3000/signin">Log In</a> or <a className="homeLink" href="http://localhost:3000/signup">Sign Up</a> for Access</h1>
         </div>
     )}
     </div>
