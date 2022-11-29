@@ -6,7 +6,7 @@ import './form.css'
 
 const SongForm = () => {
     const [dataOfSong, setData] = useState({
-        name: '', artist: '', username: '',
+        name: '', artist: '', username: '', prompt: '',
     });
 
     const dispatch = useDispatch();
@@ -18,9 +18,13 @@ const SongForm = () => {
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
 
+    const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
+    useEffect(() => {
+        setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+    }, [])
     const doSongSubmission = (e) =>{
         e.preventDefault();
-        setData({ ...dataOfSong, username: user.result.username })
+        setData({ ...dataOfSong, username: user.result.username, prompt: prompt})
         dispatch(createSongPost(dataOfSong));
     }
     return (
@@ -37,22 +41,6 @@ const SongForm = () => {
                 <button type="submit">Submit Song</button>
             </form>
         </div>
-
-        // <Paper>
-        //     <form className="song-form" autoComplete="off" noValidate onSubmit={doSongSubmission}>
-        //     <Typography className="header" variant="h6">Creating a SongPost</Typography>
-
-        //     <TextField className="nameBox" name="name" variant="outlined" label="Name" fullwidth="true" 
-        //     value={dataOfSong.name} 
-        //     onChange={(e) => setData({ ...dataOfSong, name: e.target.value })}/>
-
-        //     <TextField className="artistBox" name="artist" variant="outlined" label="Artist" fullwidth="true" 
-        //     value={dataOfSong.artist} 
-        //     onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })}/>
-
-        //     <Button className="submitButton" variant="contained" size="large" type="submit" fullwidth="true">Submit Song</Button>
-        //     </form>
-        // </Paper>
     );
 }
 

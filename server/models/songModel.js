@@ -4,10 +4,7 @@ const songsSchema = new mongoose.Schema({
     name: String,
     artist: String,
     user: String,
-    postData: {
-      type: Date,
-      default: new Date()
-    }
+    prompt: String,
 });
 
 export const SongPostMessage = mongoose.model('Song', songsSchema);
