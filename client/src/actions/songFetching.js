@@ -13,6 +13,7 @@ export const getSongs = () =>async (dispatch) => {
 export const createSongPost = (post) => async (dispatch) => {
     try {
         const {data} = await api.createSong(post);
+        console.log(data)
         dispatch({type: 'CREATESONG', payload: data});
 
     } catch (error) {
