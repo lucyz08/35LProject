@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { tempSongPostMessage} from '../models/songModel.js';
+import { tempSongPostMessage, rohantempSongPostMessage} from '../models/songModel.js';
 import UserData from '../models/userDataModel.js';
 import express from 'express';
 
@@ -16,7 +16,7 @@ export const getSongPosts = async (req, res) => {
 }
 
 export const createSongPost = async (req, res) => {
-
+    
     const newSongPostMessage = new tempSongPostMessage({ name: req.body.name, artist: req.body.artist, user: req.body.username})
     try {
         await UserData.findOneAndUpdate({username: newSongPostMessage.user, song: newSongPostMessage.name})
@@ -27,5 +27,20 @@ export const createSongPost = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+
+//ROHAN ADDED MIGHT SUCK
+export const createSongResponse = async (req, res) => {
+    console.log(req.body)
+    const newSongPostMessage = new rohantempSongPostMessage({ song: req.body.song, prompt: req.body.prompt, user: req.body.user})
+    try {
+        //await UserData.findOneAndUpdate({username: newSongPostMessage.user, song: newSongPostMessage.name})
+        await newSongPostMessage.save()
+        console.log("Added song to response database!")
+        res.status(201).json(newSongPostMessage);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 
 export default router;

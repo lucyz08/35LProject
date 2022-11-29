@@ -1,9 +1,10 @@
 import express from 'express';
 
-import {getSongPosts, createSongPost} from '../controllers/songFetchBack.js';
+import {getSongPosts, createSongPost, createSongResponse} from '../controllers/songFetchBack.js';
 const router = express.Router();
 
-router.get('/', getSongPosts);
+router.get('/search', getSongPosts);
 router.post('/', createSongPost);
+router.put('/response', createSongResponse);
 
 export default router;

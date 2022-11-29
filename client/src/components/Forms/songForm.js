@@ -2,12 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {createSongPost} from '../../actions/songFetching'
+import { fetchSearch , addResponse} from "../../actions/searchFetching";
 import './form.css'
 
 const SongForm = () => {
     const [dataOfSong, setData] = useState({
-        name: '', artist: '', username: '',
+        name: '', artist: '', username: '', prompt: '',
     });
+    const [arrayOfSongs, setSongs] = useState([])
 
     const dispatch = useDispatch();
   
@@ -18,10 +20,40 @@ const SongForm = () => {
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
 
-    const doSongSubmission = (e) =>{
+    const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
+    useEffect(() => {
+        setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+    }, [])
+
+    const doSongSubmission = async (e) =>{
         e.preventDefault();
-        setData({ ...dataOfSong, username: user.result.username })
-        dispatch(createSongPost(dataOfSong));
+        //dispatch(createSongPost(dataOfSong));
+        setData({ ...dataOfSong, username: user.result.username, prompt: prompt})
+        let array = await fetchSearch(dataOfSong.name);
+        console.log(array)
+        setSongs(array)
+        //dispatch(createSongPost(dataOfSong));
+    }
+
+    function arrayToString(array){
+        var artistString = array.join(', ');
+        return artistString
+    }
+
+    const getSearchResults = (resultTracks) => {
+        console.log("this was called")
+        if (!resultTracks){
+            return null
+        }
+        return resultTracks.map((song, index) => {
+            return (<div key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>
+                <img src = {song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
+                <h3>{song.name}</h3>
+                <h3>{song.album}</h3>
+                <h3>{arrayToString(song.artists)}</h3>
+            </div>
+            )
+        })
     }
     return (
         <div className="Song-form-container">
@@ -36,6 +68,7 @@ const SongForm = () => {
 
                 <button type="submit">Submit Song</button>
             </form>
+            <div>{getSearchResults(arrayOfSongs)}</div>
         </div>
 
         // <Paper>

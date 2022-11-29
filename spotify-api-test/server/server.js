@@ -2,23 +2,37 @@ import mongoose from 'mongoose';
 // // import {CONNECTION_URL, CLIENT_ID, CLIENT_SECRET} from './passwords.js';
 import SpotifyWebApi from 'spotify-web-api-node'
 import express from 'express'
-let token = "";
 const CONNECTION_URL = "mongodb+srv://rohanj:IAmJake1@35lproject.tnn1kyn.mongodb.net/?retryWrites=true&w=majority"
+import {scopes, getMyData, trackSearch, createPlaylistWithTracks, addSongObjectToDB, authorizeUser, searchforTrack, initSpotifyToken, accessToken, addSongIDToDB} from './spotifyfunctions.js'
 import SongPostMessage from './models/songModel.js';
-import {scopes, getMyData, trackSearch, createPlaylistWithTracks, addSongObjectToDB} from './spotifyfunctions.js'
 mongoose.connect(CONNECTION_URL);
   
 export var spotifyApi = new SpotifyWebApi({
      clientId: '4a484f64e7f04e2ea48e43b0aa731916',
      clientSecret: 'a25959caa7614a2b91ecb5753de9403b',
      redirectUri: 'http://localhost:8888/callback'
-});
-  
+});  
+
+await initSpotifyToken()
+
+spotifyApi.setAccessToken(accessToken)
+let tracks = await trackSearch("Peach Pit")
+
 const app = express();
   
 app.get('/spotify-login', (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
+
+app.get('/loser', async (req, res) => {
+  try {
+    console.log("hello")
+    let data = await spotifyApi.searchTracks("Peach Pit")
+    console.log(data)
+  } catch (error) {
+    console.error('Callback Error:', error);
+  }
+})
 
 app.get('/', (req, res) => {
   res.redirect('/spotify-login');
@@ -35,32 +49,13 @@ app.get('/callback', (req, res) => {
     return;
   }
 
-  spotifyApi.authorizationCodeGrant(code)
-    .then(data => {
-      const access_token = data.body['access_token'];
-      const refresh_token = data.body['refresh_token'];
-      const expires_in = data.body['expires_in'];
-      token = access_token;
-
-      spotifyApi.setAccessToken(token);
-      spotifyApi.setAccessToken(access_token);
-      spotifyApi.setRefreshToken(refresh_token);
-      console.log('access_token:', access_token);
-      console.log('refresh_token:', refresh_token);
-      console.log(`Sucessfully retreived access token. Expires in ${expires_in} s.`);
-      res.redirect('/data');
-      setInterval(async () => {
-        const data = await spotifyApi.refreshAccessToken();
-        const access_token = data.body['access_token'];
-        console.log('The access token has been refreshed!');
-        console.log('access_token:', access_token);
-        spotifyApi.setAccessToken(access_token);
-      }, expires_in / 2 * 1000);
-    })
-    .catch(error => {
-      console.error('Error getting Tokens:', error);
-      res.send(`Error getting Tokens: ${error}`);
-    });
+  try {
+    authorizeUser(code, spotifyApi)
+    res.send("hello friend")
+  } catch (error) {
+    console.error('Error getting Tokens:', error);
+    res.send(`Error getting Tokens: ${error}`);
+  }
 });
   
   app.listen(8888, () =>
@@ -186,7 +181,7 @@ app.get('/add-songs', (req,res) => {
         songsInput.push(data[index].spotifyID)
       }
       addAnArrayOfSongsToDB(songsInput);
-      res.send("Yo what\'s up little man your playlist is coming right up");
+      res.send("Yo what\'s up little man your songs are being added right now");
     })
 })
 

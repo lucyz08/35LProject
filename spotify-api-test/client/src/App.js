@@ -28,21 +28,6 @@ function App() {
     .then(data => setAccessToken(data.access_token))
   }, [])
 
-  async function addToDatabase(data){
-    console.log(data)
-    //   const newRohanTestSong = new rohanTestSong({ 
-    //     name: data.name,
-    //     artists: ['hello'],
-    //     spotifyID: data.external_ids,
-    //     albumCoverURL: data.album.images[0].url
-    //   })
-    //   try {
-    //     await newRohanTestSong.save();
-    //     console.log(newRohanTestSong);
-    // } catch (error) {
-    //     console.log(error)
-    // }
-  }
   //Search
   async function search() {
 

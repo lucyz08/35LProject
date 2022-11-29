@@ -14,7 +14,7 @@ export const createSongPost = (post) => async (dispatch) => {
     try {
         const {data} = await api.createSong(post);
         dispatch({type: 'CREATESONG', payload: data});
-
+        console.log(data)
     } catch (error) {
         console.log(error);
     }
