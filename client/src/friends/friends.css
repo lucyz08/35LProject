@@ -40,6 +40,12 @@
 
 }
 
+.friendList {
+    text-decoration: none;
+    font-weight: lighter;
+    text-align: center;
+}
+
 .playlist{
     display: flex; 
     flex-direction: column; 

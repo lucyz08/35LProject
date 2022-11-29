@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signin } from "../../actions/userFetching";
-import './form.css'
+import './form.css';
 
 export const SignInForm = () => {
+
     const [dataOfUser, setData] = useState({
         username: '', password: ''
     });
@@ -14,7 +15,9 @@ export const SignInForm = () => {
     const doAuthSubmission = (e) =>{
         e.preventDefault();
         dispatch(signin(dataOfUser));
-    }
+    };
+
+
     return (
         <div className="Signin-form-container">
             <h2 className="signInHeading">Welcome Back!</h2>
@@ -26,7 +29,7 @@ export const SignInForm = () => {
                 <label className="password" for="password">Password</label>
                 <input value={dataOfUser.password} onChange={(e) => setData({ ...dataOfUser, password: e.target.value })} type="password" placeholder="password" id="password" name="password"/>
 
-                <button type="submit">Sign In</button>
+                <button className="submitButton">Sign In</button>
             </form>
         </div>
     );

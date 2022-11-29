@@ -32,6 +32,9 @@
     100% { opacity: 1; }
 }
 
+.friendList {
+    font-size: 2vw;
+}
 
 .tprompt{
     text-decoration: underline;
