@@ -2,53 +2,58 @@ import './profile.css'
 
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {getSongs} from '../actions/songFetching';
-import {getPrompts} from '../actions/promptFetching';
-import Songs from '../components/Songs/printSongs';
 import Prompts from '../components/Prompts/printPrompts';
-import { setUserData } from "../actions/userFetching";
 
 
 const Profile = () => {
 
-    const dispatch = useDispatch();
-  
-    useEffect(() => {
-        dispatch(getSongs());
-    }, [dispatch]);
-    useEffect(() => {
-      dispatch(getPrompts());
-    }, [dispatch]);
-    useEffect(() => {
-        dispatch(setUserData());
-    }, [dispatch]);
+    // const dispatch = useDispatch();
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-  useEffect(() => {
-      const token = user?.token
+    // const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    // useEffect(() => {
+    //     const token = user?.token
 
-      setUser(JSON.parse(localStorage.getItem('profile')))
-  }, [])
+    //     setUser(JSON.parse(localStorage.getItem('profile')))
+    // }, [])
+    // useEffect(() => {
+    //     dispatch(setUser());
+    // }, [dispatch]);
+ 
 
-  const [friendList, setFriends] = useState(JSON.parse(localStorage.getItem('userdata')))
-    useEffect(() => {
-        setFriends(JSON.parse(localStorage.getItem('userdata')))
-    }, [])
-    console.log(friendList)
-    const results = [];
-    if (user)
-    {
-        if (friendList.friends)
-        {
-            for (const friend of friendList.friends) {
-                results.push(
-                <div key={friend.id}>
-                    <h2 className="friendList">{friend}</h2>
-                </div>,
-                );
-            }
-        }
-    }
+    // const [data, setUserData] = useState(JSON.parse(localStorage.getItem('userdata')))
+    // useEffect(() => {
+    //     const token = user?.token
+
+    //     setUserData(JSON.parse(localStorage.getItem('userdata')))
+    // }, [])
+    // useEffect(() => {
+    //     dispatch(setUserData());
+    // }, [dispatch]);
+ 
+
+    
+    // const [friendDisplay, setFriends] = useState(JSON.parse(localStorage.getItem('userdata')))
+    // useEffect(() => {
+    //     setFriends(JSON.parse(localStorage.getItem('userdata')))
+    // }, [])
+    // console.log("got this far")
+    // const results = [];
+    // if (user)
+    // {
+    //     console.log("past user")
+    //     if ((friendDisplay.friends).length != 0)
+    //     console.log("past friends")
+    //     {
+    //         for (const friend of friendDisplay.friends) {
+    //             results.push(
+    //             <div key={friend.id}>
+    //                 <h2 className="friendList">{friend}</h2>
+    //                 <hr />
+    //             </div>,
+    //             );
+    //         }
+    //     }
+    // }
 
     return (
     <>
@@ -65,11 +70,12 @@ const Profile = () => {
             </div>
     </div>
     <div>
-        <div className="friendPlay">
+        <div className="profileMain">
             <div className="friends">
                 <h3 className="friendTitle">Your Friends</h3>
                 <div className="yourfriends">
-                    {results}
+                         {/* {results} */}
+                         we need to fix this
                 </div>
             </div>
             <div className="playlist">

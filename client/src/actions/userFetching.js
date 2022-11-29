@@ -4,6 +4,7 @@ export const signin = (post) =>async (dispatch) => {
     try {
         const {data} = await api.signIn(post);
         dispatch({type: 'AUTH', payload: data});
+        window.location.reload();
         window.location.assign("http://localhost:3000/profile");
     } catch (error) {
         console.log(error.message); 
@@ -15,6 +16,7 @@ export const signup = (post) => async (dispatch) => {
     try {
         const {data} = await api.signUp(post);
         dispatch({type: 'AUTH', payload: data});
+        window.location.reload();
         window.location.assign("http://localhost:3000/profile");
     } catch (error) {
         console.log(error);

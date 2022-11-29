@@ -67,7 +67,7 @@ useEffect(() => {
             for (const song of friendResponses.playlist1) {
                 results.push(
                 <div >
-                    
+                    <h2>name: {song}</h2>
                     <hr />
                 </div>,
                 );
