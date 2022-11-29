@@ -15,7 +15,7 @@ export default function Navbar() {
     const logout = () => {
         dispatch({type: 'LOGOUT'});
         setUser(null);
-        window.location.reload()
+        window.location.assign("http://localhost:3000/signin")
     }
     
     useEffect(() => {
@@ -31,6 +31,7 @@ export default function Navbar() {
         setUserData(JSON.parse(localStorage.getItem('userdata')))
     }, [])
     console.log(data)
+
     return (
         <nav className="nav">
             <Link to="/" className="siteTitle">
@@ -47,17 +48,17 @@ export default function Navbar() {
             onClick={() => {
                 logout();
             }}>Log Out</button>
-            <ul>
-                <Checkact to="/">Home</Checkact>
-                <Checkact to="/about">About</Checkact>
-            </ul>
                 {user ? (
                     <ul>
+                        <Checkact to="/">Home</Checkact>
+                        <Checkact to="/about">About</Checkact>
                         <Checkact to="/profile">Profile</Checkact>
                         <Checkact to="/friends">Friends</Checkact>                    
                     </ul>
                 ) : (
-                    <ul className="ssLinks">
+                    <ul>
+                        <Checkact to="/">Home</Checkact>
+                        <Checkact to="/about">About</Checkact>
                         <Checkact to="/signin">Sign In</Checkact>
                         <Checkact to="/signup">Sign Up</Checkact>
                     </ul>

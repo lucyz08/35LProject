@@ -99,13 +99,11 @@ a{
     }
     .nav-menu ul{
         position: relative;
-        top: 13vw;
-        margin-right: 0;
-        margin-left: 0;
+        top: 5vw;
+        z-index: 999;
         
-        flex-direction: row;
-        width: 15vw;
-        height: 10vw;
+        flex-direction: column;
+        width: 100%;
         background-color: black;
         color: white;
         display: none;
