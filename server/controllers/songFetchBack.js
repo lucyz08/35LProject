@@ -17,13 +17,8 @@ export const getSongPosts = async (req, res) => {
 }
 
 export const createSongPost = async (req, res) => {
-<<<<<<< HEAD
-    
-    const newSongPostMessage = new tempSongPostMessage({ name: req.body.name, artist: req.body.artist, user: req.body.username})
-=======
 
     const newSongPostMessage = new tempSongPostMessage({ name: req.body.name, artist: req.body.artist, user: req.body.username, prompt: req.body.prompt})
->>>>>>> main
     try {
         await UserData.findOneAndUpdate({username: newSongPostMessage.user}, {'$set': {song: newSongPostMessage.name}})
         await newSongPostMessage.save()
