@@ -7,7 +7,6 @@ const songsSchema = new mongoose.Schema({
     prompt: String,
 });
 
-export const SongPostMessage = mongoose.model('Song', songsSchema);
 export const tempSongPostMessage = mongoose.model('tempSong', songsSchema)
 
-export default {SongPostMessage, tempSongPostMessage};
+export default tempSongPostMessage;

@@ -76,3 +76,12 @@ export const newPlaylist = () => async (dispatch) => {
         console.log(error.response.data.message)
     }
 }
+
+export const compileResponses = () => async (dispatch) => {
+    try {
+        const {data} = await api.fetchResponses();
+        dispatch( {type: 'FETCH_RESPONSES', payload: data})
+    } catch (error) {
+        console.log(error.response.data.message)
+    }
+}

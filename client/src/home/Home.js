@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
 import {getPrompts} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
+import { compileResponses } from "../actions/userFetching";
 import { setUserData } from "../actions/userFetching";
 
 import { newPlaylist } from "../actions/userFetching";
@@ -33,6 +34,9 @@ useEffect(() => {
 }, [dispatch]);
 useEffect(() => {
     dispatch(newPlaylist());
+}, [dispatch]);
+useEffect(() => {
+    dispatch(compileResponses());
 }, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -62,8 +66,8 @@ useEffect(() => {
         {
             for (const song of friendResponses.playlist1) {
                 results.push(
-                <div key={song.id}>
-                    <h2>name: {song}</h2>
+                <div >
+                    
                     <hr />
                 </div>,
                 );

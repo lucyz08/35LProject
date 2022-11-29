@@ -7,6 +7,8 @@ const userReducer = (state = {currentUser: null}, action) => {
             return {...state, currentUser: action?.payload}
         case 'CREATE_PLAYLIST':
             return action.payload
+        case 'FETCH_RESPONSES':
+            return action.payload;
         default:
             return state;
     }
