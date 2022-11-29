@@ -57,7 +57,7 @@ export default function Navbar() {
                         <Checkact to="/friends">Friends</Checkact>                    
                     </ul>
                 ) : (
-                    <ul>
+                    <ul className="ssLinks">
                         <Checkact to="/signin">Sign In</Checkact>
                         <Checkact to="/signup">Sign Up</Checkact>
                     </ul>
