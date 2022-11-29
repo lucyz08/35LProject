@@ -13,20 +13,20 @@ const SongForm = () => {
   
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     useEffect(() => {
-        const token = user?.token
-
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
 
     const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+        setData({ ...dataOfSong, prompt: prompt, username: user.result.username})
     }, [])
+
     const doSongSubmission = (e) =>{
         e.preventDefault();
-        setData({ ...dataOfSong, username: user.result.username, prompt: prompt})
         dispatch(createSongPost(dataOfSong));
     }
+    
     return (
         <div className="Song-form-container">
             <form className="song-form" onSubmit={doSongSubmission}>

@@ -29,9 +29,6 @@ const Home = () => {
       dispatch(getPrompts());
   }, [dispatch]);
 useEffect(() => {
-    dispatch(setUserData());
-}, [dispatch]);
-useEffect(() => {
     dispatch(getPlaylists());
 }, [dispatch]);
 useEffect(() => {
@@ -45,6 +42,14 @@ useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [])
 
+    const [data, setUserData] = useState(JSON.parse(localStorage.getItem('userdata')))
+    useEffect(() => {
+        const token = user?.token
+
+        setUserData(JSON.parse(localStorage.getItem('userdata')))
+    }, [])
+
+    
     const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
     useEffect(() => {
         setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
