@@ -1,9 +1,16 @@
 import mongoose from 'mongoose';
 
 const songsSchema = new mongoose.Schema({
+<<<<<<< HEAD
   name: String,
   artists: [String],
   user: String,
+=======
+    name: String,
+    artist: String,
+    user: String,
+    prompt: String,
+>>>>>>> main
 });
 
 const songsSchema2 = new mongoose.Schema({

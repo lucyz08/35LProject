@@ -4,9 +4,10 @@ export const signin = (post) =>async (dispatch) => {
     try {
         const {data} = await api.signIn(post);
         dispatch({type: 'AUTH', payload: data});
-        window.location.reload();
+        window.location.assign("http://localhost:3000/profile");
     } catch (error) {
         console.log(error.message); 
+        window.location.reload();
     }
 }
 
@@ -14,9 +15,10 @@ export const signup = (post) => async (dispatch) => {
     try {
         const {data} = await api.signUp(post);
         dispatch({type: 'AUTH', payload: data});
-        window.location.reload();
+        window.location.assign("http://localhost:3000/profile");
     } catch (error) {
         console.log(error);
+        window.location.reload();
     }
 }
 
@@ -31,12 +33,11 @@ export const addFriend = (post) => async (dispatch) => {
         const {data} = await api.addFriend(usrAndFriend);
         dispatch({type: 'FRIEND', payload: data})
         window.location.reload();
+        
     } catch(error) {
         console.log(error.response.data.message);
     }
 }
-
-
 
 export const getPlaylists = () => async (dispatch) => {
     try{
