@@ -20,7 +20,7 @@ const songsSchema2 = new mongoose.Schema({
 
 const songsSchema3 = new mongoose.Schema({
   song: Object,
-  prompt: Object,
+  prompt: String,
   user: String
 })
 

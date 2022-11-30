@@ -12,6 +12,7 @@ import playlistRoutes from './routes/playlistRoutes.js'
 import dotenv from 'dotenv'
 import { initSpotifyToken } from './spotifyFunctions.js';
 dotenv.config()
+mongoose.set("useFindAndModify", false);
 
 const app = express();
 

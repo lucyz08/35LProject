@@ -8,6 +8,7 @@ const userReducer = (state = {currentUser: null}, action) => {
         case 'CREATE_PLAYLIST':
             return action.payload
         case 'FETCH_RESPONSES':
+            localStorage.setItem('userresponse', JSON.stringify({...action?.payload}))
             return action.payload;
         default:
             return state;

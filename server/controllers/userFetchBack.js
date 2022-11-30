@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import UserProfile from '../models/userModel.js';
 import UserData from '../models/userDataModel.js';
-import tempSongPostMessage from '../models/songModel.js';
+import tempSongPostMessage, { rohantempSongPostMessage } from '../models/songModel.js';
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -145,9 +145,10 @@ export const makePlaylist = async (req, res) => {
     }
 }
 
+
 export const compileResponses = async (req, res) => {
     try {
-        const allresponses = await tempSongPostMessage.find();
+        const allresponses = await rohantempSongPostMessage.find();
         if (!allresponses) {
             res.status(400).json( {message: "no all responses"})
         }
@@ -172,7 +173,7 @@ export const compileResponses = async (req, res) => {
 
        for (var u = 0; u < numUsers; u++) {
             const user = allusers[u];
-            const userResponse = await tempSongPostMessage.find({user: user.username})
+            const userResponse = await rohantempSongPostMessage.find({user: user.username})
             //only saves non empty responses
             if (userResponse.length != 0)
                 { responseByUser.push(userResponse) }
@@ -294,9 +295,7 @@ export const compileResponses = async (req, res) => {
            }
 
        }
-
-       
-    res.status(200).json(allresponses)
+    res.status(200).json(responseByUser)
     } catch (error) {
         res.status(400).json( {message: "Error updating all users playlists in compileResponses"})
     }

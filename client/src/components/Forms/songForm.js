@@ -21,6 +21,7 @@ const SongForm = () => {
     const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+        setData({ ...dataOfSong, prompt: prompt.prompt, username: user.result.username})
     }, [])
 
     const doSongSubmission = async (e) =>{
@@ -44,7 +45,7 @@ const SongForm = () => {
             return null
         }
         return resultTracks.map((song, index) => {
-            return (<div key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>
+            return (<div key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt.prompt}))}>
                 <img src = {song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
                 <h3>{song.name}</h3>
                 <h3>{song.album}</h3>
