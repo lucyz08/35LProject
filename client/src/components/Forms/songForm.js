@@ -39,6 +39,11 @@ const SongForm = () => {
         return artistString
     }
 
+    const setCurPrompt = () => {
+        var curPrompt = localStorage.getItem('currentPrompt');
+        localStorage.setItem("cp", curPrompt);
+    }
+
     const getSearchResults = (resultTracks) => {
         console.log("this was called")
         if (!resultTracks){
@@ -71,7 +76,7 @@ const SongForm = () => {
                 <label className="artistLabel" for="artist">Artist</label>
                 <input value={dataOfSong.artist} onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })} type="artist" placeholder="artist" id="artist" name="artist"/>
 
-                <button type="submit">Submit Song</button>
+                <button onClick={setCurPrompt} type="submit">Submit Song</button>
             </form>
             <div>{getSearchResults(arrayOfSongs)}</div>
         </div>

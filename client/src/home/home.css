@@ -31,6 +31,15 @@
     margin-bottom: 0px;
 }
 
+.thankYou{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: white;
+    text-align: center;
+    font-size: 3.5vw;
+    font-weight: lighter;
+}
+
 .subtitle{
     background-color: transparent;
     color: white; 
