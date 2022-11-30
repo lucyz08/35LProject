@@ -99,11 +99,6 @@ useEffect(() => {
                 {results}
             </div>
         </div>
-        <div className="proForm">
-            <div className="form">
-                <PromptForm/> 
-            </div>
-        </div>
         </div>
     ) : (
         <div>

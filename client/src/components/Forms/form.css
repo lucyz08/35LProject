@@ -64,6 +64,7 @@ input{
 .Song-form-container, .song-form {
     display: flex;
     flex-direction: column;
+    width: 75vh
 }
 .Prompt-form-container, .prompt-form {
     display: flex;
@@ -90,3 +91,72 @@ button{
     font-family:'Times New Roman', Times, serif;
     margin-left: 1vw;
 }
+
+.songImg{
+    padding: 5px;
+    background-color:rgb(33, 32, 32); 
+}
+
+.individualSong{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    margin-top: 8px;
+    overflow: hidden; 
+    background-color: rgb(33, 32, 32); 
+}
+
+.songartist{
+    background-color: transparent;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    width: 30vh;
+}
+
+.songName{
+    font-size:1.25vw;
+    background-color: transparent; 
+    padding:2px;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.artistName{
+    font-size: 1vw;
+    background-color:transparent; 
+    color:rgba(205, 205, 205, 0.86);
+    padding: 2px;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.album{
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end;
+    background-color: transparent;
+}
+
+.albumName{
+    font-size: 1.3vw;
+    color: rgba(205, 205, 205, 0.86);
+    background-color: transparent;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+    margin-right: 10px
+}
+
+
+
+
+
+
+
+
+
+
