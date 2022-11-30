@@ -34,7 +34,7 @@ export const createSongResponse = async (req, res) => {
     console.log(req.body)
     const newSongPostMessage = new rohantempSongPostMessage({ song: req.body.song, prompt: req.body.prompt, user: req.body.user})
     try {
-        //await UserData.findOneAndUpdate({username: newSongPostMessage.user, song: newSongPostMessage.name})
+        await UserData.findOneAndUpdate({username: newSongPostMessage.user, song: newSongPostMessage.name})
         await newSongPostMessage.save()
         console.log("Added song to response database!")
         res.status(201).json(newSongPostMessage);

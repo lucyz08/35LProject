@@ -8,6 +8,7 @@ import {getPrompts} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";
 import { setUserData } from "../actions/userFetching";
+import { addResponse } from "../actions/searchFetching";
 
 import { newPlaylist } from "../actions/userFetching";
 
@@ -28,6 +29,12 @@ const Home = () => {
     }
 
     const dispatch = useDispatch();
+
+    var songVar = localStorage.getItem('songSubmitted');
+    // var cP = localStorage.setItem('CP');
+    console.log(songVar);
+
+    console.log(songVar);
 
     useEffect(() => {
         dispatch(getSongs());
@@ -101,26 +108,33 @@ useEffect(() => {
         <h1 className="homeHeader">Arpeggio</h1>
         <h3 className="subtitle">a new way to share music</h3>
     </h1>
-    <div className="promptHead">
-        <h1 className="declareP">
-            Current Prompt: 
-        </h1>
-        <h1 className="prompt">
+    {songVar ? (
+        <h1> </h1>
+
+    ) : (
+        <div className="promptHead">
+            <h1 className="declareP">
+                Current Prompt:
+            </h1>
+            <h1 className="prompt">
             {prompt.prompt}
         </h1>
-    </div>
-    {user ? (
+        </div>
+        
+    )}
+
+     {user ? (
         <div className="formAnswers">
             <div className="form">
-                <SongForm/> 
+                {songVar ? (
+                    <h1 className="thankYou">Thank you for submitting!</h1>       
+                ) : (
+                    <SongForm />
+                )
+                }
+                
             </div>
             <div className="responses">
-            <div className="friendResponses">
-                Submit a Prompt
-            </div>
-            <div>
-                <PromptForm/>
-            </div>
         </div>
         </div>
     ) : (

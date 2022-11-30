@@ -21,10 +21,14 @@ export const addResponse = (songInfo) => async (dispatch) => {
     //console.log(songInfo)
     const IdObj = {"trackID": songInfo.song.spotifyID}
     try {
+        console.log("songinfo:")
         console.log(songInfo)
         let data = await api.addSongToDB(IdObj)
         console.log(data)
+
         dispatch(createSongPost(songInfo));
+        localStorage.setItem("songSubmitted", true);
+        window.location.reload();
     } catch(error) {
         console.log(error)
     }

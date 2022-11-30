@@ -1,6 +1,7 @@
 .topPic {
     display: flex; 
-    background: url('./sand.jpg') no-repeat center;
+    background: url('./sand.jpg') no-repeat center fixed;
+    background-size: cover;
     justify-content: center;
     align-items: center; 
     padding: 250px; 
@@ -79,6 +80,9 @@
     text-align: center;
     text-decoration: underline;
     align-items: center;
+    margin-left: 10vw; 
+    margin-right: 10vw; 
+    
 }
 
 .yourfriends, .yourplaylist{

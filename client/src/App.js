@@ -15,6 +15,7 @@ import Navbar from './Navbar';
 import Footer from './footer';
 import Login from './components/Auth/signin';
 import SignUp from './components/Auth/signup';
+import Welcome from './welcome/welcome';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ useEffect(() => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/signin" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/welcome" element={<Welcome /> } />
 
     </Routes>
     </div>
