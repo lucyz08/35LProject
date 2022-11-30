@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
 import {getPrompts} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
+import { compileResponses } from "../actions/userFetching";
 import { setUserData } from "../actions/userFetching";
 
 import { newPlaylist } from "../actions/userFetching";
@@ -20,6 +21,11 @@ import Friends from "../friends/Friends";
 
 const Home = () => {
 
+    function arrayToString(array){
+        var artistString = array.join(', ');
+        return artistString
+    }
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -33,6 +39,9 @@ useEffect(() => {
 }, [dispatch]);
 useEffect(() => {
     dispatch(newPlaylist());
+}, [dispatch]);
+useEffect(() => {
+    dispatch(compileResponses());
 }, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -49,21 +58,29 @@ useEffect(() => {
         setUserData(JSON.parse(localStorage.getItem('userdata')))
     }, [])
 
-    
+    const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
+    useEffect(() => {
+        setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+    }, [])
+    console.log(prompt)
+
     const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
     useEffect(() => {
         setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
     }, [])
     console.log(friendResponses)
     const results = [];
-    if (user)
+    if (data)
     {
-        if (friendResponses.playlist1)
+        if (friendResponses.playlist1.length > 0)
         {
-            for (const song of friendResponses.playlist1) {
+            for (const iter of friendResponses.playlist1) {
                 results.push(
-                <div key={song.id}>
-                    <h2>name: {song}</h2>
+                <div >
+                    <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
+                    <h2>Song: {iter.song.name} </h2>
+                    <h2>Album: {iter.song.album} </h2>
+                    <h2>Artist: {arrayToString(iter.song.artists)} </h2>
                     <hr />
                 </div>,
                 );
@@ -80,10 +97,10 @@ useEffect(() => {
     </h1>
     <div className="promptHead">
         <h1 className="declareP">
-            Daily Prompt: 
+            Current Prompt: 
         </h1>
         <h1 className="prompt">
-            <Prompts/>
+            {prompt.prompt}
         </h1>
     </div>
     {user ? (

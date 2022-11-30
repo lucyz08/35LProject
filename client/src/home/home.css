@@ -78,22 +78,31 @@
 }
 
 .formAnswers{
+    margin-top: 0.75vw;
     color: white; 
     display: flex; 
     flex-direction: row; 
     justify-content: space-evenly; 
+    align-items: flex-start;
     margin: 10vw; 
 }
 
 .form{
-    margin: 2vw; 
+    margin: 1vw; 
     color: white; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .friendResponses{
-    font-size: 4vw; 
-    text-decoration: underline;
+    font-size: 4.5vw; 
+    margin-top: 0.75vw;
+    text-decoration: none;
     font-weight: bold;
+    text-align: center;
 }
 
 .responses{
@@ -104,6 +113,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: 5.5vw; 
 }

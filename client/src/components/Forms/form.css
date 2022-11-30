@@ -4,7 +4,7 @@
     margin-right: 1rem;
 }
 
-.songLabel, .artistLabel, .promptLabel, .username, .password, .confirmPassword{
+.songLabel, .artistLabel, .username, .password, .confirmPassword{
     color: rgb(255, 255, 255);
     margin-top: 0.75vw;
     margin-right: 0.75vw;
@@ -13,13 +13,14 @@
     font-weight: lighter;
 }
 
-.promptLabel, .songHead {
+.promptHeading, .songHead {
     color: rgb(255, 255, 255);
     margin-top: 0.75vw;
     margin-right: 0.75vw;
-    font-size: 4vw;
+    font-size: 4.5vw;
     display: inline-block;
     text-align: center;
+    font-weight: bold;
 }
 
 .Add-friend{
@@ -61,12 +62,16 @@ input{
     color: rgb(243, 81, 12);
 }
 
+<<<<<<< HEAD
 .Song-form-container, .song-form {
     display: flex;
     flex-direction: column;
     width: 75vh
 }
 .Prompt-form-container, .prompt-form {
+=======
+.Song-form-container, .song-form, .Prompt-form-container, .prompt-form {
+>>>>>>> origin/HEAD
     display: flex;
     flex-direction: column;
     justify-content: center;

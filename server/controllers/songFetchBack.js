@@ -9,7 +9,7 @@ const router = express.Router();
 //handling of song data
 export const getSongPosts = async (req, res) => { 
     try {
-        const postSongMessages = await tempSongPostMessage.find({});
+        const postSongMessages = await rohantempSongPostMessage.find({});
         res.status(200).json(postSongMessages);
     } catch (error) {
         res.status(404).json({ message: error.message });

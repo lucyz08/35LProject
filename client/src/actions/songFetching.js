@@ -1,6 +1,6 @@
 import * as api from '../api/APIindex';
 
-export const getSongs = () =>async (dispatch) => {
+export const getSongs = () => async (dispatch) => {
     try {
         const {data} = await api.fetchSongs();
 

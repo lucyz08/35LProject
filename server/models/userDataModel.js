@@ -6,19 +6,19 @@ const userInfo = new mongoose.Schema({
         type: String
     }],
     playlist1: [{
-        type: String
+        type: Object
     }],
     playlist2: [{
-        type: String
+        type: Object
     }],
     playlist3: [{
-        type: String
+        type: Object
     }],
     playlist4: [{
-        type: String
+        type: Object
     }],
     playlist5: [{
-        type: String
+        type: Object
     }],
     song: { type: String }
 })

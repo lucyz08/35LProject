@@ -20,12 +20,13 @@ export const signUp = (newPost) => API.post("/user/signup", newPost);
 export const addFriend = (newPost) => API.put("/user/newfriend", newPost)
 export const fetchUser = (post) => API.put("/user/data", post);
 
-export const createPlaylist = (newPost) => API.put("/user/playlist", newPost);
-
-
 //for search fetching
 export const fetchSearch = (searchQuery) => API.put("/search/query", searchQuery);
 export const addSongToDB = (songID) => API.put("/search/addsong", songID)
 
 //for playlist creation in spotify
 export const createSpotifyPlist = (codeAndPlaylistInfo) => API.put("/playlist/create-playlist", codeAndPlaylistInfo)
+
+//for playlist creation
+export const createPlaylist = (newPost) => API.put("/user/playlist", newPost);
+export const fetchResponses = () => API.get("/user/responses");

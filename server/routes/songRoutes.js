@@ -4,7 +4,7 @@ import {getSongPosts, createSongPost, createSongResponse} from '../controllers/s
 const router = express.Router();
 
 router.get('/search', getSongPosts);
-router.post('/', createSongPost);
+router.get('/', getSongPosts);
 router.put('/response', createSongResponse);
 
 export default router;
