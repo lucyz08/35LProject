@@ -44,10 +44,6 @@ export default function Navbar() {
         </button>
         <div
             className= { isNavExpanded ? "nav-menu expanded" : "nav-menu" }> 
-            <button className="logOutButton"
-            onClick={() => {
-                logout();
-            }}>Log Out</button>
                 {user ? (
                     <ul>
                         <Checkact to="/">Home</Checkact>
@@ -63,6 +59,10 @@ export default function Navbar() {
                         <Checkact to="/signup">Sign Up</Checkact>
                     </ul>
                 )}
+                 <button className="logOutButton"
+            onClick={() => {
+                logout();
+            }}>Log Out</button>
         </div>
         </nav>
     ) 

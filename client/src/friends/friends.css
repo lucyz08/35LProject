@@ -1,21 +1,25 @@
 .friendPic{
     display: flex; 
-    justify-content: center; 
+    background: url('./theBoys2.jpg') no-repeat center;
+    background-size: cover;
+    justify-content: center;
     align-items: center; 
-    color: white; 
-    background-image: url("./theBoys2.jpg");
-    background-size: cover; 
-    overflow: hidden; 
-    height: 600px;  
-    color: black; 
-    font-size: 45px; 
-    animation: fade 4s; 
+    padding: 300px; 
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+
 }
 
 .picText{
-    background-color: transparent; 
-    font-size: 4vw; 
-    color: white; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: flex-start;
+    background: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 8px #000000;
+    font-size: 6vw; 
+
 }
 
 .friendplay{

@@ -4,16 +4,14 @@
 
 .homeTitle{
     display: flex; 
+    background: url('./musicHall.jpg') no-repeat center;
     justify-content: center;
     align-items: center; 
-    flex-direction: column;
     padding: 200px; 
-    animation: fade 4s; 
-    font-family:'Times New Roman', Times, serif;
     height: 30%;
     width: 100%;
-    color: white; 
-    font-size: 100px; 
+    display: flex; 
+    flex-direction: column;
 }
 
 .homeLink{
@@ -24,16 +22,17 @@
 
 .homeHeader{
     display: flex; 
+    flex-direction: column;
     justify-content: center;
     background-color: transparent;
-    color: black; 
+    color: white; 
     font-size: 11vw; 
     margin-bottom: 0px;
 }
 
 .subtitle{
     background-color: transparent;
-    color: rgb(0, 0, 0); 
+    color: white; 
     font-size: 3.5vw;
     width: 100%;
     text-align: center;

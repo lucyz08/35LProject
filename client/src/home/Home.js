@@ -91,7 +91,7 @@ useEffect(() => {
     return (
     <>
     <div className="outside">
-    <h1 className="homeTitle" style={{backgroundImage: `url("../images/musicHall.jpg")`}}>
+    <h1 className="homeTitle">
         <h1 className="homeHeader">Arpeggio</h1>
         <h3 className="subtitle">a new way to share music</h3>
     </h1>
