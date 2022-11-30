@@ -45,14 +45,19 @@ const SongForm = () => {
             return null
         }
         return resultTracks.map((song, index) => {
-            return (<div key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt.prompt}))}>
-                <img src = {song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                <h3>{song.name}</h3>
-                <h3>{song.album}</h3>
-                <h3>{arrayToString(song.artists)}</h3>
+            return (<div className="individualSong" key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>
+                <div>
+                    <img className="songImg" src = {song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                </div>
+                <div className="songartist">
+                        <h3 className="songName">{song.name}</h3>
+                        <h3 className="artistName">{arrayToString(song.artists)}</h3>
+                </div>
+                <div className="album">
+                        <h3 className="albumName">{song.album}</h3>
+                </div>
             </div>
-            )
-        })
+        )})
     }
     
     return (
