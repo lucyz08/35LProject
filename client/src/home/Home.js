@@ -18,6 +18,7 @@ import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
 import FriendForm from "../components/Forms/friendForm.js";
 import Friends from "../friends/Friends";
+import '../components/Forms/form.css'
 
 const Home = () => {
 
@@ -76,12 +77,17 @@ useEffect(() => {
         {
             for (const iter of friendResponses.playlist1) {
                 results.push(
-                <div >
-                    <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                    <h2>Song: {iter.song.name} </h2>
-                    <h2>Album: {iter.song.album} </h2>
-                    <h2>Artist: {arrayToString(iter.song.artists)} </h2>
-                    <hr />
+                <div className="individualSong">
+                    <div>
+                        <img className="songImg" src = {iter.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">Song: {iter.song.name} </h3>
+                        <h3 className="artistName">Album: {iter.song.album} </h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">Artist: {arrayToString(iter.song.artists)} </h3>
+                    </div>
                 </div>,
                 );
             }
@@ -110,10 +116,10 @@ useEffect(() => {
             </div>
             <div className="responses">
             <div className="friendResponses">
-                Friend Responses
+                Submit a Prompt
             </div>
             <div>
-                {results}
+                <PromptForm/>
             </div>
         </div>
         </div>

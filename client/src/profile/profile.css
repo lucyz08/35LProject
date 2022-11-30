@@ -25,8 +25,8 @@
     display: flex; 
     justify-content: space-around; 
     align-items: flex-start;
-    margin-left: 15vw; 
-    margin-right: 15vw; 
+    margin-left: 10vw; 
+    margin-right: 10vw; 
     margin-top: 5vw; 
     margin-bottom: 20vw; 
     color: rgb(255, 255, 255); 
@@ -53,11 +53,24 @@
 }
 
 .todayprompt{
-    font-size: 3vw; 
+    font-size: 3vw;
 }
+
 
 .tresponse{
     font-size: 3vw;
+    height: 9.5vh;
+    overflow-y: scroll;
+    margin-bottom: 5vh;
+}
+
+.tresponse::-webkit-scrollbar{
+    display: none;
+}
+
+.friendRec{
+    display: flex;
+    flex-direction: row; 
 }
 
 .friendTitle, .playlistTitle{
@@ -72,6 +85,15 @@
     font-size: 2.3vw;
     text-align: center;
     justify-content: center;
+}
+
+.yourplaylist{
+    overflow-y:scroll;
+    height: 60vh;
+}
+
+.yourplaylist::-webkit-scrollbar{
+    display: none;
 }
 
 .friendList{
@@ -90,4 +112,105 @@
     margin-top: 15px; 
     flex-direction:column;
     align-items: center; 
+}
+
+.yourplaylist{
+    width: 90vh;
+}
+
+.profileSongImg{
+    padding: 5px;
+    background-color:rgb(33, 32, 32); 
+}
+
+.profileIndividualSong{
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    margin-top: 8px;
+    overflow: hidden; 
+    background-color: rgb(33, 32, 32); 
+}
+
+.songartist{
+    background-color: transparent;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.songName{
+    font-size: 14px; 
+    background-color: transparent; 
+    padding:2px;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.artistName{
+    display: flex; 
+    justify-content: flex-start;
+    font-size: 10px;
+    background-color:transparent; 
+    color:rgba(205, 205, 205, 0.86);
+    padding: 2px;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.album{
+    display: flex; 
+    align-items: center;
+    background-color: transparent;
+    padding: 2px;
+}
+
+.albumName{
+    font-size: 12px;
+    color: rgba(205, 205, 205, 0.86);
+    background-color: transparent;
+    margin-right: 2vh;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+    width: 32vh;
+    display: flex; 
+    justify-content: flex-start;
+}
+
+
+.friend{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color:  rgb(33, 32, 32); 
+    padding: 2px;
+    margin-top: 8px;
+    margin-right: 5px;
+    width: 15vh;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.friendName{
+    font-size: 15px;
+    color: rgba(205, 205, 205, 0.86);
+    background-color: transparent;
+    margin-right: 2vh;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.friendPrompt{
+    display: flex; 
+    justify-content: flex-start;
+    font-size: 2vw;
+    margin-top: 1.5vh;
 }

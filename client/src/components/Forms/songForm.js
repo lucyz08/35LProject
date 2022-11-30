@@ -46,8 +46,8 @@ const SongForm = () => {
         }
         return resultTracks.map((song, index) => {
             return (<div className="individualSong" key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>
-                <div>
-                    <img className="songImg" src = {song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                <div className="songDiv">
+                    <img className="songImg" src = {song.albumCoverURL} width={60} height={60} alt="Image cannot be displayed"/>
                 </div>
                 <div className="songartist">
                         <h3 className="songName">{song.name}</h3>
@@ -64,16 +64,18 @@ const SongForm = () => {
         <div className="Song-form-container">
             <form className="song-form" onSubmit={doSongSubmission}>
                 <h2 className="songHead">Creating a SongPost</h2>
-
-                <label className="songLabel" for="song">Song</label>
                 <input value={dataOfSong.name} onChange={(e) => setData({ ...dataOfSong, name: e.target.value })} type="song" placeholder="song" id="song" name="song"/>
-
-                <label className="artistLabel" for="artist">Artist</label>
-                <input value={dataOfSong.artist} onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })} type="artist" placeholder="artist" id="artist" name="artist"/>
-
-                <button type="submit">Submit Song</button>
+                <button type="submit">Search</button>
             </form>
-            <div>{getSearchResults(arrayOfSongs)}</div>
+            <div className="songList">
+                <div className="listLegend">
+                    <div className="legendTitle">TITLE</div>
+                    <div className="legendAlbum">ALBUM</div>
+                </div>
+                <div className="searchResults">
+                    {getSearchResults(arrayOfSongs)}
+                </div>
+            </div>
         </div>
     );
 }

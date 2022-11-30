@@ -51,8 +51,7 @@ const Profile = () => {
             for (const friend of data.friends) {
                 friendResults.push(
                 <div >
-                    <div>User: {friend}</div>
-                    <hr />
+                    <div>{friend}</div>
                 </div>,
                 );
             }
@@ -70,14 +69,17 @@ const Profile = () => {
                 {
                     console.log(response.song.name)
                     displayResponse.push(
-                    <div >
+                    <div className="profileIndividualSong">
                         <div>
-                        <img src = {response.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {response.song.name}</h3>
-                        <h3>Album: {response.song.album}</h3>
-                        <h3>Artist: {arrayToString(response.song.artists)}</h3>
+                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
                         </div>
-                        <hr />
+                        <div className="songartist">
+                            <h3 className="songName">Song: {response.song.name}</h3>
+                            <h3 className="artistName">Album: {response.song.album}</h3>
+                        </div>
+                        <div className="album">
+                            <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
+                        </div>
                     </div>,
                     );
                 }
@@ -92,19 +94,26 @@ const Profile = () => {
         if (data.playlist1.length > 0)
         {
             playlist1Results.push(
-            <div>Prompt: {data.playlist1[0].prompt}</div>
+            <div className="friendPrompt">Prompt: {data.playlist1[0].prompt}</div>
             )
             for (const iter of data.playlist1) {
                 playlist1Results.push(
-                <div >
+                <div className="friendRec">
+                    <div className="friend">
+                        <h3 className="friendName">{iter.user}</h3>
+                    </div>
+                <div className="profileIndividualSong">
                     <div>
-                        <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {iter.song.name}</h3>
-                        <h3>Album: {iter.song.album}</h3>
-                        <h3>Artist: {arrayToString(iter.song.artists)}</h3>
-                        <h3>Friend: {iter.user}</h3>
-                        </div>
-                    <hr />
+                        <img className="profileSongImg" src = {iter.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">{iter.song.name}</h3>
+                        <h3 className="artistName">{arrayToString(iter.song.artists)}</h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">{iter.song.album}</h3>
+                    </div>
+                </div>
                 </div>,
                 );
             }
@@ -116,19 +125,26 @@ const Profile = () => {
         if (data.playlist2.length > 0)
         {
             playlist2Results.push(
-                <div>Prompt: {data.playlist2[0].prompt}</div>
+                <div className="friendPrompt">Prompt: {data.playlist2[0].prompt}</div>
             )
             for (const iter of data.playlist2) {
                 playlist2Results.push(
-                <div >
+                    <div className="friendRec">
+                    <div className="friend">
+                        <h3 className="friendName">{iter.user}</h3>
+                    </div>
+                <div className="profileIndividualSong">
                     <div>
-                        <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {iter.song.name}</h3>
-                        <h3>Album: {iter.song.album}</h3>
-                        <h3>Artist: {arrayToString(iter.song.artists)}</h3>
-                        <h3>Friend: {iter.user}</h3>
-                        </div>
-                    <hr />
+                        <img className="profileSongImg" src = {iter.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">{iter.song.name}</h3>
+                        <h3 className="artistName">{arrayToString(iter.song.artists)}</h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">{iter.song.album}</h3>
+                    </div>
+                </div>
                 </div>,
                 );
             }
@@ -140,19 +156,26 @@ const Profile = () => {
         if (data.playlist3.length > 0)
         {
             playlist3Results.push(
-                <div>Prompt: {data.playlist3[0].prompt}</div>
+                <div className="friendPrompt">Prompt: {data.playlist3[0].prompt}</div>
             )
             for (const iter of data.playlist3) {
                 playlist3Results.push(
-                <div >
+                <div className="friendRec">
+                    <div className="friend">
+                        <h3 className="friendName">{iter.user}</h3>
+                    </div>
+                <div className="profileIndividualSong">
                     <div>
-                        <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {iter.song.name}</h3>
-                        <h3>Album: {iter.song.album}</h3>
-                        <h3>Artist: {arrayToString(iter.song.artists)}</h3>
-                        <h3>Friend: {iter.user}</h3>
-                        </div>
-                    <hr />
+                        <img className="profileSongImg" src = {iter.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">{iter.song.name}</h3>
+                        <h3 className="artistName">{arrayToString(iter.song.artists)}</h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">{iter.song.album}</h3>
+                    </div>
+                </div>
                 </div>,
                 );
             }
@@ -164,19 +187,26 @@ const Profile = () => {
         if (data.playlist4.length > 0)
         {
             playlist4Results.push(
-                <div>Prompt: {data.playlist4[0].prompt}</div>
+                <div className="friendPrompt">Prompt: {data.playlist4[0].prompt}</div>
             )
             for (const iter of data.playlist4) {
                 playlist4Results.push(
-                <div >
+                <div className="friendRec">
+                    <div className="friend">
+                        <h3 className="friendName">{iter.user}</h3>
+                    </div>
+                <div className="profileIndividualSong">
                     <div>
-                        <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {iter.song.name}</h3>
-                        <h3>Album: {iter.song.album}</h3>
-                        <h3>Artist: {arrayToString(iter.song.artists)}</h3>
-                        <h3>Friend: {iter.user}</h3>
-                        </div>
-                    <hr />
+                        <img className="profileSongImg" src = {iter.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">{iter.song.name}</h3>
+                        <h3 className="artistName">{arrayToString(iter.song.artists)}</h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">{iter.song.album}</h3>
+                    </div>
+                </div>
                 </div>,
                 );
             }
@@ -188,19 +218,26 @@ const Profile = () => {
         if (data.playlist5.length > 0)
         {
             playlist5Results.push(
-                <div>Prompt: {data.playlist5[0].prompt}</div>
+                <div className="friendPrompt">Prompt: {data.playlist5[0].prompt}</div>
             )
             for (const iter of data.playlist5) {
                 playlist5Results.push(
-                <div >
+                <div className="friendRec">
+                    <div className="friend">
+                        <h3 className="friendName">{iter.user}</h3>
+                    </div>
+                <div className="profileIndividualSong">
                     <div>
-                        <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                        <h3>Song: {iter.song.name}</h3>
-                        <h3>Album: {iter.song.album}</h3>
-                        <h3>Artist: {arrayToString(iter.song.artists)}</h3>
-                        <h3>Friend: {iter.user}</h3>
-                        </div>
-                    <hr />
+                        <img className="profileSongImg" src = {iter.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">{iter.song.name}</h3>
+                        <h3 className="artistName">{arrayToString(iter.song.artists)}</h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">{iter.song.album}</h3>
+                    </div>
+                </div>
                 </div>,
                 );
             }

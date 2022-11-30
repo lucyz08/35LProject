@@ -20,7 +20,6 @@ const PromptForm = () => {
         <div className="Prompt-form-container">
             <form className="prompt-form" onSubmit={doSongSubmission}>
 
-                <label className="promptHeading" for="prompt">Write a Prompt</label>
                 <input value={dataOfPrompt.prompt} onChange={(e) => setData({ ...dataOfPrompt, prompt: e.target.value })} type="prompt" placeholder="prompt" id="prompt" name="prompt"/>
 
                 <button type="submit">Submit Prompt</button>
