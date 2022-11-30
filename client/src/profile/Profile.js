@@ -2,12 +2,15 @@ import './profile.css'
 
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import Prompts from '../components/Prompts/printPrompts';
-
+import { compileResponses } from '../actions/userFetching';
 
 const Profile = () => {
 
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(compileResponses());
+    }, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     useEffect(() => {
@@ -69,12 +72,15 @@ const Profile = () => {
         }
     }
 
-
+    
     const playlist1Results = [];
     if (data)
     {
-        if (data.playlist1)
+        if (data.playlist1.length > 0)
         {
+            playlist1Results.push(
+            <div>Prompt: {data.playlist1[0].prompt}</div>
+            )
             for (const song of data.playlist1) {
                 playlist1Results.push(
                 <div >
@@ -88,8 +94,11 @@ const Profile = () => {
     const playlist2Results = [];
     if (data)
     {
-        if (data.playlist2)
+        if (data.playlist2.length > 0)
         {
+            playlist2Results.push(
+                <div>Prompt: {data.playlist2[0].prompt}</div>
+            )
             for (const song of data.playlist2) {
                 playlist2Results.push(
                 <div >
@@ -103,8 +112,11 @@ const Profile = () => {
     const playlist3Results = [];
     if (data)
     {
-        if (data.playlist3)
+        if (data.playlist3.length > 0)
         {
+            playlist3Results.push(
+                <div>Prompt: {data.playlist3[0].prompt}</div>
+            )
             for (const song of data.playlist3) {
                 playlist3Results.push(
                 <div >
@@ -118,8 +130,11 @@ const Profile = () => {
     const playlist4Results = [];
     if (data)
     {
-        if (data.playlist4)
+        if (data.playlist4.length > 0)
         {
+            playlist4Results.push(
+                <div>Prompt: {data.playlist4[0].prompt}</div>
+            )
             for (const song of data.playlist4) {
                 playlist4Results.push(
                 <div >
@@ -133,8 +148,11 @@ const Profile = () => {
     const playlist5Results = [];
     if (data)
     {
-        if (data.playlist5)
+        if (data.playlist5.length > 0)
         {
+            playlist5Results.push(
+                <div>Prompt: {data.playlist5[0].prompt}</div>
+            )
             for (const song of data.playlist5) {
                 playlist5Results.push(
                 <div >
@@ -154,7 +172,7 @@ const Profile = () => {
     <div className="todayAnswer">
             <h2 className="tprompt">Current Prompt: </h2>
             <div className="todayprompt">
-                {prompt.prompt}
+                Response: {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>

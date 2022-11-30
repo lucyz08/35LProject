@@ -19,7 +19,7 @@ const SongForm = () => {
     const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
-        setData({ ...dataOfSong, prompt: prompt, username: user.result.username})
+        setData({ ...dataOfSong, prompt: prompt.prompt, username: user.result.username})
     }, [])
 
     const doSongSubmission = (e) =>{

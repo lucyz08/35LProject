@@ -295,8 +295,6 @@ export const compileResponses = async (req, res) => {
            }
 
        }
-
-    console.log(responseByUser)
     res.status(200).json(responseByUser)
     } catch (error) {
         res.status(400).json( {message: "Error updating all users playlists in compileResponses"})
