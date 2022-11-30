@@ -102,6 +102,7 @@ const Profile = () => {
                         <h3>Song: {iter.song.name}</h3>
                         <h3>Album: {iter.song.album}</h3>
                         <h3>Artist: {arrayToString(iter.song.artists)}</h3>
+                        <h3>Friend: {iter.user}</h3>
                         </div>
                     <hr />
                 </div>,
@@ -125,6 +126,7 @@ const Profile = () => {
                         <h3>Song: {iter.song.name}</h3>
                         <h3>Album: {iter.song.album}</h3>
                         <h3>Artist: {arrayToString(iter.song.artists)}</h3>
+                        <h3>Friend: {iter.user}</h3>
                         </div>
                     <hr />
                 </div>,
@@ -148,6 +150,7 @@ const Profile = () => {
                         <h3>Song: {iter.song.name}</h3>
                         <h3>Album: {iter.song.album}</h3>
                         <h3>Artist: {arrayToString(iter.song.artists)}</h3>
+                        <h3>Friend: {iter.user}</h3>
                         </div>
                     <hr />
                 </div>,
@@ -171,6 +174,7 @@ const Profile = () => {
                         <h3>Song: {iter.song.name}</h3>
                         <h3>Album: {iter.song.album}</h3>
                         <h3>Artist: {arrayToString(iter.song.artists)}</h3>
+                        <h3>Friend: {iter.user}</h3>
                         </div>
                     <hr />
                 </div>,
@@ -194,6 +198,7 @@ const Profile = () => {
                         <h3>Song: {iter.song.name}</h3>
                         <h3>Album: {iter.song.album}</h3>
                         <h3>Artist: {arrayToString(iter.song.artists)}</h3>
+                        <h3>Friend: {iter.user}</h3>
                         </div>
                     <hr />
                 </div>,
