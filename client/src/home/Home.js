@@ -53,21 +53,26 @@ useEffect(() => {
         setUserData(JSON.parse(localStorage.getItem('userdata')))
     }, [])
 
-    
+    const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
+    useEffect(() => {
+        setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
+    }, [])
+    console.log(prompt)
+
     const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
     useEffect(() => {
         setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
     }, [])
     console.log(friendResponses)
     const results = [];
-    if (user)
+    if (data)
     {
-        if (friendResponses.playlist1)
+        if (friendResponses.playlist1.length > 0)
         {
             for (const song of friendResponses.playlist1) {
                 results.push(
                 <div >
-                    <h2>name: {song}</h2>
+                    <h2>name: {song.name}</h2>
                     <hr />
                 </div>,
                 );
@@ -84,10 +89,10 @@ useEffect(() => {
     </h1>
     <div className="promptHead">
         <h1 className="declareP">
-            Daily Prompt: 
+            Current Prompt: 
         </h1>
         <h1 className="prompt">
-            <Prompts/>
+            {prompt.prompt}
         </h1>
     </div>
     {user ? (

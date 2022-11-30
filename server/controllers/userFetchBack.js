@@ -145,6 +145,7 @@ export const makePlaylist = async (req, res) => {
     }
 }
 
+
 export const compileResponses = async (req, res) => {
     try {
         const allresponses = await tempSongPostMessage.find();
@@ -295,8 +296,8 @@ export const compileResponses = async (req, res) => {
 
        }
 
-       
-    res.status(200).json(allresponses)
+    console.log(responseByUser)
+    res.status(200).json(responseByUser)
     } catch (error) {
         res.status(400).json( {message: "Error updating all users playlists in compileResponses"})
     }
