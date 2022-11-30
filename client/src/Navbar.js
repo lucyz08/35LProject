@@ -49,7 +49,7 @@ export default function Navbar() {
                         <Checkact to="/">Home</Checkact>
                         <Checkact to="/about">About</Checkact>
                         <Checkact to="/profile">Profile</Checkact>
-                        <Checkact to="/friends">Friends</Checkact>                    
+                        <Checkact to="/friends">Friends</Checkact>
                     </ul>
                 ) : (
                     <ul>

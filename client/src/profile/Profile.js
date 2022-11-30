@@ -52,7 +52,6 @@ const Profile = () => {
                 friendResults.push(
                 <div >
                     <div>User: {friend}</div>
-                    <hr />
                 </div>,
                 );
             }

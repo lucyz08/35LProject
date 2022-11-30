@@ -1,6 +1,7 @@
 .topPic {
     display: flex; 
-    background: url('./sand.jpg') no-repeat center;
+    background: url('./sand.jpg') no-repeat center fixed;
+    background-size: cover;
     justify-content: center;
     align-items: center; 
     padding: 250px; 
@@ -25,8 +26,8 @@
     display: flex; 
     justify-content: space-around; 
     align-items: flex-start;
-    margin-left: 15vw; 
-    margin-right: 15vw; 
+    margin-left: 10vw; 
+    margin-right: 10vw; 
     margin-top: 5vw; 
     margin-bottom: 20vw; 
     color: rgb(255, 255, 255); 
@@ -66,6 +67,9 @@
     text-align: center;
     text-decoration: underline;
     align-items: center;
+    margin-left: 10vw; 
+    margin-right: 10vw; 
+    
 }
 
 .yourfriends, .yourplaylist{
