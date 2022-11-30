@@ -28,4 +28,4 @@ export const SongPostMessage = mongoose.model('Song', songsSchema2);
 export const tempSongPostMessage = mongoose.model('tempSong', songsSchema)
 export const rohantempSongPostMessage = mongoose.model('Response', songsSchema3)
 
-export default {SongPostMessage, tempSongPostMessage};
+export default tempSongPostMessage;
