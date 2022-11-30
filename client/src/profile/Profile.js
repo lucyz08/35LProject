@@ -51,11 +51,7 @@ const Profile = () => {
             for (const friend of data.friends) {
                 friendResults.push(
                 <div >
-<<<<<<< HEAD
                     <div>{friend}</div>
-=======
-                    <div>User: {friend}</div>
->>>>>>> origin/HEAD
                 </div>,
                 );
             }
