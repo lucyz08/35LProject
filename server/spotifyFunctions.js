@@ -2,7 +2,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import {spotifyApi} from './server.js';
 import mongoose from 'mongoose';
 import {SongPostMessage} from './models/songModel.js';
-//import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 
 //==============================================
@@ -21,7 +21,9 @@ import {SongPostMessage} from './models/songModel.js';
 export let accessToken = null
 
  export async function initSpotifyToken(){ 
+  console.log("bitch1")
     try {
+      console.log("bitch")
         accessToken = await fetch('https://accounts.spotify.com/api/token', AuthParameters)
         .then(results => results.json())
         .then(data => {

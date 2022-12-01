@@ -23,11 +23,12 @@ const SongForm = () => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
         setData({ ...dataOfSong, prompt: prompt.prompt, username: user.result.username})
     }, [])
+    console.log(prompt.prompt)
 
     const doSongSubmission = async (e) =>{
         e.preventDefault();
         //dispatch(createSongPost(dataOfSong));
-        setData({ ...dataOfSong, username: user.result.username, prompt: prompt})
+        setData({ ...dataOfSong, username: user.result.username, prompt: prompt.prompt})
         let array = await fetchSearch(dataOfSong.name);
         console.log(array)
         setSongs(array)

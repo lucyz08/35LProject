@@ -59,6 +59,7 @@ const Profile = () => {
     }
 
     const displayResponse = []
+    console.log(responses)
     if (data)
     {
         if (responses)
