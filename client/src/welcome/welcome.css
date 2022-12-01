@@ -1,10 +1,10 @@
 .drumPic{
     display: flex; 
-    background: url('./welcomeImage.jpeg') no-repeat center fixed;
+    background: url('./desertDude.jpeg') no-repeat center fixed;
     background-size: cover;
     justify-content: center;
     align-items: center; 
-    padding: 100px; 
+    padding: 200px; 
     height: auto;
     width: 100%;
     display: flex; 
@@ -16,18 +16,16 @@
     justify-content: space-around; 
     align-items: flex-start;
     background: none;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 8px #000000;
+    color: black;
     font-size: 5vw; 
 }
 
 .welcomeSub{
     background-color: transparent;
-    color: white; 
+    color: black; 
     font-size: 3vw;
     width: 100%;
     text-align: center;
-    text-shadow: 2px 2px 8px #000000;
 
 }
 
@@ -36,20 +34,29 @@
     color: white;
     text-align: center;
     margin-bottom: 3vw;
-    text-shadow: 2px 2px 8px #000000;
 
 }
 
+
 .tagline{
+    margin-top: 2vw;
     background-color: transparent;
     font-weight: bold;
     margin-bottom: 0.5vw;
     font-size: 3.5vw;
 }
 
-.instructions{
+.instructionManual{
+    margin-top: 3vw;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.instructions1, .instructions2, .instructions3{
     background-color: transparent;
-    font-size: 2vw;
+    width: 20%;
+    font-size: 1.5vw;
 }
 
 .link1, .link2, .link3{

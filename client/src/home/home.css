@@ -86,6 +86,13 @@
     margin-left: 0.25vw;
 }
 
+.promptHeading{
+    margin-top: 0.75vw;
+    color: white;
+    font-size: 4.5vw;
+    text-align: center;
+}
+
 .formAnswers{
     margin-top: 0.75vw;
     color: white; 
@@ -94,6 +101,10 @@
     justify-content: space-evenly; 
     align-items: flex-start;
     margin: 4vw; 
+}
+
+.noResposne{
+    color:white;
 }
 
 .form{
@@ -105,6 +116,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.recentReponses{
+    font-size: 3.5vw;
+}
+
+.homePrompt{
+    font-size: 2.5vw;
+}
+
 
 .friendResponses{
     font-size: 4.5vw; 
@@ -119,6 +139,7 @@
 }
 
 .proForm{
+    margin: 1vw; 
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -42,6 +42,10 @@ const Profile = () => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
     }, [])
 
+    const reloadFunc = () => {
+        window.location.reload();
+    }
+
 
     const friendResults = [];
     if (data)
@@ -252,7 +256,7 @@ const Profile = () => {
     <div className="todayAnswer">
             <h2 className="tprompt">Current Prompt: </h2>
             <div className="todayprompt">
-                Response: {prompt.prompt}
+                {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>
