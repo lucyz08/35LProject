@@ -50,7 +50,7 @@ const Profile = () => {
         {
             for (const friend of data.friends) {
                 friendResults.push(
-                <div >
+                <div>
                     <div>{friend}</div>
                 </div>,
                 );
@@ -71,7 +71,7 @@ const Profile = () => {
                     displayResponse.push(
                     <div className="profileIndividualSong">
                         <div>
-                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
                         </div>
                         <div className="songartist">
                             <h3 className="songName">Song: {response.song.name}</h3>
@@ -84,14 +84,13 @@ const Profile = () => {
                     );
                 }
             }
-            /*
             if ((displayResponse).length == 0 ){
                 displayResponse.push(
                     <div>
                         No data brah
                     </div>
                 )
-            } */
+            }
         }
     }
 
@@ -268,7 +267,7 @@ const Profile = () => {
     </div>
     <div>
         <div className="profileMain">
-            <div className="friends">
+            <div className="profilefriends">
                 <h3 className="friendTitle">Your Friends</h3>
                 <div className="yourfriends">
                          {friendResults}

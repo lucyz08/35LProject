@@ -47,9 +47,9 @@ export default function Navbar() {
                 {user ? (
                     <ul>
                         <Checkact to="/">Home</Checkact>
-                        <Checkact to="/about">About</Checkact>
                         <Checkact to="/profile">Profile</Checkact>
                         <Checkact to="/friends">Friends</Checkact>
+                        <Checkact to="/about">About</Checkact>
                     </ul>
                 ) : (
                     <ul>
@@ -60,9 +60,9 @@ export default function Navbar() {
                     </ul>
                 )}
                  <button className="logOutButton"
-            onClick={() => {
-                logout();
-            }}>Log Out</button>
+                    onClick={() => {
+                    logout();
+                }}>Log Out</button>
         </div>
         </nav>
     ) 

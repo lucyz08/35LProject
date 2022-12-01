@@ -29,7 +29,7 @@
     margin-left: 10vw; 
     margin-right: 10vw; 
     margin-top: 5vw; 
-    margin-bottom: 20vw; 
+    margin-bottom: 5vw;
     color: rgb(255, 255, 255); 
 }
 
@@ -44,9 +44,6 @@
     100% { opacity: 1; }
 }
 
-.friendList {
-    font-size: 2vw;
-}
 
 .tprompt{
     text-decoration: underline;
@@ -60,7 +57,7 @@
 
 .tresponse{
     font-size: 3vw;
-    height: 9.5vh;
+    height: 8.9vh;
     overflow-y: scroll;
     margin-bottom: 5vh;
 }
@@ -75,36 +72,36 @@
 }
 
 .friendTitle, .playlistTitle{
-
     font-size: 2.75vw;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
     align-items: center;
     margin-left: 10vw; 
     margin-right: 10vw; 
-    
+}
+
+.friendTitle{
+    width: 100%
 }
 
 .yourfriends, .yourplaylist{
     font-size: 2.3vw;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .yourplaylist{
     overflow-y:scroll;
-    height: 60vh;
+    max-height: 43vh;
 }
 
 .yourplaylist::-webkit-scrollbar{
     display: none;
 }
 
-.friendList{
-    justify-content: center;
-}
 
-.friends, .playlist {
+.profilefriends, .playlist {
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -219,4 +216,9 @@
     justify-content: flex-start;
     font-size: 2vw;
     margin-top: 1.5vh;
+}
+
+.profileIndividual{
+    display: flex; 
+    justify-content: center; 
 }
