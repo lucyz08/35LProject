@@ -50,7 +50,11 @@ const Profile = () => {
         {
             for (const friend of data.friends) {
                 friendResults.push(
+<<<<<<< HEAD
                 <div>
+=======
+                <div >
+>>>>>>> tmp
                     <div>{friend}</div>
                 </div>,
                 );
