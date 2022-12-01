@@ -65,7 +65,7 @@ useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
     console.log(prompt)
-
+    //dont displat
     return (
     <>
     <div className="outside">
