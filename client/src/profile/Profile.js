@@ -59,7 +59,7 @@ const Profile = () => {
     }
 
     const displayResponse = []
-    console.log(Object.keys(responses))
+   // console.log(Object.keys(responses))
     if (data)
     {
         if (responses)
