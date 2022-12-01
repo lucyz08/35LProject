@@ -96,27 +96,6 @@ const Profile = () => {
                     }
                 };
               })}
-            // console.log(responses)
-            // for (const response of responses[0]) {
-            //     if (response.prompt === prompt.prompt)
-            //     {
-            //         console.log(response.song.name)
-            //         displayResponse.push(
-            //         <div className="profileIndividualSong">
-            //             <div>
-            //                 <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
-            //             </div>
-            //             <div className="songartist">
-            //                 <h3 className="songName">Song: {response.song.name}</h3>
-            //                 <h3 className="artistName">Album: {response.song.album}</h3>
-            //             </div>
-            //             <div className="album">
-            //                 <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
-            //             </div>
-            //         </div>,
-            //         );
-            //     }
-            // }
         }
     }
 

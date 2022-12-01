@@ -64,82 +64,7 @@ useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
     console.log(prompt)
-<<<<<<< HEAD
     //dont displat
-=======
-
-    const [responses, setResponse] = useState(JSON.parse(localStorage.getItem('userresponse')))
-    useEffect(() => {
-        setResponse(JSON.parse(localStorage.getItem('userresponse')))
-    }, [])
-
-    const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
-    useEffect(() => {
-        setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
-    }, [])
-    console.log(friendResponses)
-    const results = [];
-    if (data)
-    {
-        if (friendResponses.playlist1.length > 0)
-        {
-            for (const iter of friendResponses.playlist1) {
-                results.push(
-                <div >
-                    <img src = {iter.song.albumCoverURL} width={250} height={250} alt="Image cannot be displayed"/>
-                    <h2>Song: {iter.song.name} </h2>
-                    <h2>Album: {iter.song.album} </h2>
-                    <h2>Artist: {arrayToString(iter.song.artists)} </h2>
-                    <hr />
-                </div>,
-                );
-            }
-        }
-    }
-
-    const displayResponse = []
-    if (data)
-    {
-        if (responses)
-        {
-            console.log(responses)
-            for (const response of responses[0]) {
-                if (response.prompt === prompt.prompt && response.song.name.length != 0 )
-                {
-                    console.log(response.song.name)
-                    displayResponse.push(
-                    <div className="profileIndividualSong">
-                        <div>
-                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
-                        </div>
-                        <div className="songartist">
-                            <h3 className="songName">Song: {response.song.name}</h3>
-                            <h3 className="artistName">Album: {response.song.album}</h3>
-                        </div>
-                        <div className="album">
-                            <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
-                        </div>
-                    </div>,
-                    );
-                }
-                else{
-                    displayResponse.push(
-                        <div className="noResposne">No response yet.</div>
-                    );
-                }
-            }
-            if ((displayResponse).length == 0){
-                displayResponse.push(
-                    <div>
-                        No response yet.
-                    </div>
-                )
-            }
-        }
-    }
-
-
->>>>>>> 2323bd37f8273dee449345ca286b214aaae99e96
     return (
     <>
     <div className="outside">
@@ -147,28 +72,15 @@ useEffect(() => {
         <h1 className="homeHeader">Arpeggio</h1>
         <h3 className="subtitle">a new way to share music</h3>
     </h1>
-    {songVar ? (
-            <div className="todayAnswer">
-            <h2 className="recentReponses">Your Recent Reponses: </h2>
-            <div className="homePrompt">
-                {prompt.prompt}
-            </div>
-            <div className="todayresponse">
-                <h2 className="tresponse">{displayResponse}</h2>
-            </div>
-            </div>
-
-    ) : (
-        <div className="promptHead">
-            <h1 className="declareP">
-                Current Prompt:
-            </h1>
-            <h1 className="prompt">
-            {prompt.prompt}
+    <div className="promptHead">
+        <h1 className="declareP">
+            Current Prompt:
         </h1>
-        </div>
-        
-    )}
+        <h1 className="prompt">
+        {prompt.prompt}
+    </h1>
+    </div>
+
 
      {user ? (
         <div className="formAnswers">
