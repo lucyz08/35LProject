@@ -21,7 +21,9 @@ import fetch from "node-fetch";
 export let accessToken = null
 
  export async function initSpotifyToken(){ 
+  console.log("bitch1")
     try {
+      console.log("bitch")
         accessToken = await fetch('https://accounts.spotify.com/api/token', AuthParameters)
         .then(results => results.json())
         .then(data => {

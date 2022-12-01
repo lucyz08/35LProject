@@ -21,12 +21,6 @@ import FriendForm from "../components/Forms/friendForm.js";
 import Friends from "../friends/Friends";
 
 const Home = () => {
-
-    function arrayToString(array){
-        var artistString = array.join(', ');
-        return artistString
-    }
-
     const dispatch = useDispatch();
 
     var songVar = localStorage.getItem('songSubmitted');
