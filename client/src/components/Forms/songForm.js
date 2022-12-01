@@ -39,9 +39,16 @@ const SongForm = () => {
         return artistString
     }
 
-    const setCurPrompt = () => {
-        var curPrompt = localStorage.getItem('currentPrompt');
+    const setInfoToDisplay = () => {
+        var curPrompt = this.resultTracks.dataOfSong.prompt;
         localStorage.setItem("cp", curPrompt);
+
+        var curSong = this.resultTracks.song.name
+        localStorage.setItem("cS", curSong);
+
+        var curSongImg = this.resultTracks.song.albumCoverURL
+        localStorage.setItem("cSImg", curSongImg);
+
     }
 
     const getSearchResults = (resultTracks) => {
@@ -71,10 +78,7 @@ const SongForm = () => {
                 <h2 className="songHead">Creating a SongPost</h2>
                 <input value={dataOfSong.name} onChange={(e) => setData({ ...dataOfSong, name: e.target.value })} type="song" placeholder="song" id="song" name="song"/>
 
-                <label className="artistLabel" for="artist">Artist</label>
-                <input value={dataOfSong.artist} onChange={(e) => setData({ ...dataOfSong, artist: e.target.value })} type="artist" placeholder="artist" id="artist" name="artist"/>
-
-                <button onClick={setCurPrompt} type="submit">Submit Song</button>
+                <button type="submit">Submit Song</button>
             </form>
             <div className="songList">
                 <div className="listLegend">

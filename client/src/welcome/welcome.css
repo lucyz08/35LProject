@@ -1,14 +1,24 @@
 .drumPic{
     display: flex; 
-    background: url('./welcomeImage.jpeg') no-repeat center fixed;
+    background: url('./welcomePic2.jpg') no-repeat center fixed;
     background-size: cover;
     justify-content: center;
     align-items: center; 
-    padding: 100px; 
+    padding: 200px; 
     height: auto;
     width: 100%;
     display: flex; 
     flex-direction: column;
+}
+
+.gradient{
+    background: linear-gradient(to bottom, rbga(255,255,255,0.5), rbga(0,0,0,1));
+    z-index: 999;
+}
+
+.titleArea{
+    background-image: linear-gradient(to bottom, rbga(0,0,0,0), rbga(0,0,0,1));
+    z-index: 999;
 }
 
 .welcomeTitle{
@@ -16,8 +26,7 @@
     justify-content: space-around; 
     align-items: flex-start;
     background: none;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 8px #000000;
+    color: white;
     font-size: 5vw; 
 }
 
@@ -27,7 +36,14 @@
     font-size: 3vw;
     width: 100%;
     text-align: center;
-    text-shadow: 2px 2px 8px #000000;
+
+}
+
+.fluff{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    color:rgb(177, 173, 173);
 
 }
 
@@ -35,21 +51,44 @@
     background-color: transparent;
     color: white;
     text-align: center;
-    margin-bottom: 3vw;
-    text-shadow: 2px 2px 8px #000000;
-
+    margin-bottom: 3.5vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
+
 .tagline{
+    margin-top: 2vw;
     background-color: transparent;
     font-weight: bold;
-    margin-bottom: 0.5vw;
+    margin-bottom: 5vw;
     font-size: 3.5vw;
 }
 
-.instructions{
+.instructionManual{
+    margin-top: 3vw;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+.instructions1, .instructions2, .instructions3{
     background-color: transparent;
     font-size: 2vw;
+    align-items: center;
+    margin-bottom: 0.5vw;
+}
+
+
+.col1, .col2, .col3{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 8vh;
+    padding: 8vh;
+    width: 35%;
+    overflow: wrap;
+
 }
 
 .link1, .link2, .link3{

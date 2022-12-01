@@ -13,6 +13,9 @@ const Profile = () => {
     }
 
     const dispatch = useDispatch();
+
+    const currUsername = JSON.parse(localStorage.getItem('profile'))
+    const you = currUsername.result.username
     
     useEffect(() => {
         dispatch(compileResponses());
@@ -41,6 +44,10 @@ const Profile = () => {
     useEffect(() => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
     }, [])
+
+    const reloadFunc = () => {
+        window.location.reload();
+    }
 
 
     const friendResults = [];
@@ -276,9 +283,9 @@ const Profile = () => {
         <h1 className="head">all about you</h1>
     </div>
     <div className="todayAnswer">
-            <h2 className="tprompt">Current Prompt: </h2>
+            <h2 className="tprompt">Recent Prompts: </h2>
             <div className="todayprompt">
-                Response: {prompt.prompt}
+                {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>
@@ -286,10 +293,10 @@ const Profile = () => {
     </div>
     <div>
         <div className="profileMain">
-            <div className="friends">
-                <h3 className="friendTitle">Your Friends</h3>
-                <div className="yourfriends">
-                         {friendResults}
+            <div className="userInfo">
+                <h3 className="curName">Logged In As:</h3>
+                <div className="yourName">
+                         {you}
                 </div>
             </div>
             <div className="playlist">
