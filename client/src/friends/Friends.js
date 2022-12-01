@@ -58,13 +58,6 @@ export default function Friends() {
           {results}
         </div>
       </div>
-      <div className="playlist">
-        <h1 className="friendTitle">Your Daily Playlist</h1>
-        <div className="playlistSongs">
-          <div>song1</div>
-          <div>song2</div>
-        </div>
-      </div>
     </div>
     <div className="proForm">
             <div className="form">
