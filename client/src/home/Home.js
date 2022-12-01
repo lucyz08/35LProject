@@ -22,12 +22,6 @@ import Friends from "../friends/Friends";
 import '../components/Forms/form.css'
 
 const Home = () => {
-
-    function arrayToString(array){
-        var artistString = array.join(', ');
-        return artistString
-    }
-
     const dispatch = useDispatch();
 
     var songVar = localStorage.getItem('songSubmitted');
@@ -71,11 +65,6 @@ useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
     console.log(prompt)
-
-    const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
-    useEffect(() => {
-        setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
-    }, [])
 
     return (
     <>

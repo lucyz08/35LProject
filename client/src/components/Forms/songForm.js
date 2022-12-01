@@ -32,7 +32,6 @@ const SongForm = () => {
         let array = await fetchSearch(dataOfSong.name);
         console.log(array)
         setSongs(array)
-        //dispatch(createSongPost(dataOfSong));
     }
 
     function arrayToString(array){
