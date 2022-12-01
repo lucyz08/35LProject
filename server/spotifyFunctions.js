@@ -2,7 +2,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import {spotifyApi} from './server.js';
 import mongoose from 'mongoose';
 import {SongPostMessage} from './models/songModel.js';
-import fetch from "node-fetch";
+//import fetch from "node-fetch";
 
 
 //==============================================
