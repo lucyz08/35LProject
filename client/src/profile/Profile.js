@@ -42,7 +42,7 @@ const Profile = () => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
     }, [])
 
-
+    console.log(data)
     const friendResults = [];
     if (data)
     {
@@ -59,33 +59,40 @@ const Profile = () => {
     }
 
     const displayResponse = []
+    console.log(responses)
     if (data)
     {
-        if (responses)
+        if (responses[0].length > 0)
         {
-            console.log(responses)
-            for (const response of responses[0]) {
-                if (response.prompt === prompt.prompt)
-                {
-                    console.log(response.song.name)
-                    displayResponse.push(
-                    <div className="profileIndividualSong">
-                        <div>
-                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
-                        </div>
-                        <div className="songartist">
-                            <h3 className="songName">Song: {response.song.name}</h3>
-                            <h3 className="artistName">Album: {response.song.album}</h3>
-                        </div>
-                        <div className="album">
-                            <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
-                        </div>
-                    </div>,
-                    );
+            for (var i = 0; i < responses.length; i++)
+            {
+                for (const response of responses[i]) {
+                        if (response.prompt === response.prompt)
+                        {
+                            if(response.song.user === response.username)
+                            {
+                                console.log(response.song.name)
+                                displayResponse.push(
+                                <div className="profileIndividualSong">
+                                    <div>
+                                        <img className="profileSongImg" src = {response.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                                    </div>
+                                    <div className="songartist">
+                                        <h3 className="songName">Song: {response.song.name}</h3>
+                                        <h3 className="artistName">Album: {response.song.album}</h3>
+                                    </div>
+                                    <div className="album">
+                                        <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
+                                    </div>
+                                </div>,
+                                );
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
+
 
     
     const playlist1Results = [];
