@@ -2,7 +2,7 @@ import './welcome.css'
 
 export default function Welcome(){
     return(
-        <>
+        <div className="gradient">
         <div className="drumPic">
         
         <div className="titleArea">
@@ -13,18 +13,24 @@ export default function Welcome(){
         <div className="aboutSect">
             <h2 className="tagline">Get prompts, post a song.</h2>
         <div className="instructionManual">
-            <p className="instructions1">You'll be prompted with a question. Respond by searching for a song.</p>
-            <p className="instructions2">Add friends. See their responses.</p>
-            <p className="instructions3">Browse playlists of responses, organized by prompt.</p>
-        </div>
-        </div>
+        
+            <div className="col1">
+                <h1 className="instructions1">Our Purpose</h1>
+                <p className="fluff">Arpeggio aims to give people a new way to share what they're listening to</p>
+            </div>
 
-        <div className="redirect">
-            <h1 className="getSharing">Get sharing!</h1>
-            <h2 className="welcomeLinks"><a className="link1" href="http://localhost:3000/">Home</a> • <a className="link2" href="http://localhost:3000/profile">Profile</a> • <a className="link3" href="http://localhost:3000/friends">Friends</a></h2>
-        </div>
-  
+            <div  className="col2">
+                <h1 className="instructions2">Untethered Creativity</h1>
+                <p className="fluff">Search for songs through Spotify's entire song database</p>      
+            </div>
 
-        </>
+            <div  className="col3">
+                <h1 className="instructions3">Find Your Sound</h1>
+                <p className="fluff">Expand your taste with playlists curated just for you based on what your friends are listening to</p>
+            </div>
+        
+        </div>
+        </div>
+        </div>
     )
 }

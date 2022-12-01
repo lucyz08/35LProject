@@ -22,6 +22,7 @@
 
 }
 
+
 .profileMain{
     display: flex; 
     justify-content: space-around; 
@@ -29,7 +30,7 @@
     margin-left: 10vw; 
     margin-right: 10vw; 
     margin-top: 5vw; 
-    margin-bottom: 20vw; 
+    margin-bottom: 3vw; 
     color: rgb(255, 255, 255); 
 }
 
@@ -49,7 +50,7 @@
 }
 
 .tprompt{
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 4vw;
 }
 
@@ -74,15 +75,25 @@
     flex-direction: row; 
 }
 
-.friendTitle, .playlistTitle{
+.playlistTitle{
 
     font-size: 2.75vw;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
     align-items: center;
     margin-left: 10vw; 
     margin-right: 10vw; 
-    
+    width: 70%;
+}
+
+.curName{
+    font-size: 2.75vw;
+    margin-bottom: 1.3vw;
+}
+
+.yourName{
+    text-align: center;
+    font-size: 2.75vw;
 }
 
 .yourfriends, .yourplaylist{

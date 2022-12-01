@@ -131,6 +131,13 @@ useEffect(() => {
                     );
                 }
             }
+            if ((displayResponse).length == 0){
+                displayResponse.push(
+                    <div>
+                        No response yet.
+                    </div>
+                )
+            }
         }
     }
 
