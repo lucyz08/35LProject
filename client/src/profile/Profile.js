@@ -84,6 +84,14 @@ const Profile = () => {
                     );
                 }
             }
+            /*
+            if ((displayResponse).length == 0 ){
+                displayResponse.push(
+                    <div>
+                        No data brah
+                    </div>
+                )
+            } */
         }
     }
 

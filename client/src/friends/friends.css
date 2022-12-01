@@ -22,6 +22,7 @@
 
 }
 
+
 .friendplay{
     color: white; 
     display: flex; 
@@ -36,11 +37,13 @@
 .friends{
     display: flex; 
     flex-direction: column; 
-    align-items: center; 
+    align-items: flex-start;
 }
+
 
 .friendTitle{
     text-decoration: underline; 
+    margin-bottom: 6px; 
 
 }
 
@@ -78,4 +81,45 @@
 @-webkit-keyframes fade{
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+
+.friendResponse{
+    display: flex; 
+    flex-direction: row; 
+}
+
+.friendIndividualSong{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    overflow: hidden; 
+    background-color: rgb(33, 32, 32); 
+}
+
+.friendsFriend{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color:  rgb(33, 32, 32); 
+    padding: 2px;
+    margin-right: 5px;
+    width: 15vh;
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.prompt{
+    margin-bottom: 3px; 
+    margin-top: 8px; 
+}
+
+.playlistSongs{
+    height: 45vh; 
+    overflow: scroll; 
+}
+
+.playlistSongs::-webkit-scrollbar{
+    display: none; 
 }
