@@ -12,9 +12,10 @@
 }
 
 .gradient{
-    background: linear-gradient(to bottom, rbga(255,255,255,0.5), rbga(0,0,0,1));
+    background-image: black;
     z-index: 999;
 }
+
 
 .titleArea{
     background-image: linear-gradient(to bottom, rbga(0,0,0,0), rbga(0,0,0,1));
@@ -48,7 +49,6 @@
 }
 
 .aboutSect, .redirect{
-    background-color: transparent;
     color: white;
     text-align: center;
     margin-bottom: 3.5vw;
@@ -56,6 +56,13 @@
     margin-right: 5vw;
 }
 
+.aboutSect{
+    background-color: transparent;
+}
+
+.redirect{
+    background-color: transparent;
+}
 
 .tagline{
     margin-top: 2vw;
