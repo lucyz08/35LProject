@@ -93,6 +93,12 @@
     text-align: center;
 }
 
+.noResponse{
+    font-size: 1.5vw;
+    font-weight: lighter;
+    color: rgb(177, 173, 173);
+}
+
 .formAnswers{
     margin-top: 0.75vw;
     color: white; 

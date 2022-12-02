@@ -24,7 +24,7 @@ body {
 
 .logOutButton {
     border: none;
-    background-color: red; 
+    background-color: rgb(243, 81, 12); 
     color: white;
     padding: 0.75vw;
     margin: 0vw;
@@ -46,7 +46,7 @@ body {
     margin-bottom: 0.25vw;
 }
 
-.siteTitle :hover{
+.siteTitle:hover{
     color: rgb(238, 195, 22); 
 }
 
@@ -104,7 +104,7 @@ a{
     }
     .nav-menu ul{
         position: relative;
-        top: 5vw;
+        top: 10vw;
         z-index: 999;
         
         flex-direction: column;
@@ -126,7 +126,7 @@ a{
         padding: 0rem 0;
     }
 
-    .nav-menu li :hover{
+    .nav-menu li:hover{
         color: rgb(238, 195, 22); 
     }  
 

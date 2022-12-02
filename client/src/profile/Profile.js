@@ -12,6 +12,9 @@ const Profile = () => {
         return artistString
     }
 
+    const currUsername = JSON.parse(localStorage.getItem('profile'))
+    const you = currUsername.result.username
+
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -86,7 +89,7 @@ const Profile = () => {
             }
             if ((displayResponse).length == 0){
                 displayResponse.push(
-                    <div>
+                    <div className="noResponse">
                         No response yet.
                     </div>
                 )
@@ -257,9 +260,9 @@ const Profile = () => {
         <h1 className="head">all about you</h1>
     </div>
     <div className="todayAnswer">
-            <h2 className="tprompt">Current Prompt: </h2>
+            <h2 className="tprompt">Recent Prompts: </h2>
             <div className="todayprompt">
-                Response: {prompt.prompt}
+                {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>
@@ -267,10 +270,10 @@ const Profile = () => {
     </div>
     <div>
         <div className="profileMain">
-            <div className="profilefriends">
-                <h3 className="friendTitle">Your Friends</h3>
-                <div className="yourfriends">
-                         {friendResults}
+            <div className="userInfo">
+                <h3 className="curName">Logged In As:</h3>
+                <div className="yourName">
+                         {you}
                 </div>
             </div>
             <div className="playlist">

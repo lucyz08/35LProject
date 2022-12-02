@@ -125,15 +125,10 @@ useEffect(() => {
                     </div>,
                     );
                 }
-                else{
-                    displayResponse.push(
-                        <div className="noResposne">No response yet.</div>
-                    );
-                }
             }
             if ((displayResponse).length == 0){
                 displayResponse.push(
-                    <div>
+                    <div className="noResponse">
                         No response yet.
                     </div>
                 )
