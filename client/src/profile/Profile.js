@@ -265,9 +265,9 @@ const Profile = () => {
         <h1 className="head">all about you</h1>
     </div>
     <div className="todayAnswer">
-            <h2 className="tprompt">Current Prompt: </h2>
+            <h2 className="tprompt">Recent Prompts: </h2>
             <div className="todayprompt">
-                Response: {prompt.prompt}
+                {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>

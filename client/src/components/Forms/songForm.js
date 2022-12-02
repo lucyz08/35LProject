@@ -78,7 +78,7 @@ const SongForm = () => {
                 <h2 className="songHead">Creating a SongPost</h2>
                 <input value={dataOfSong.name} onChange={(e) => setData({ ...dataOfSong, name: e.target.value })} type="song" placeholder="song" id="song" name="song"/>
 
-                <button type="submit">Submit Song</button>
+                <button type="submit">Search</button>
             </form>
             <div className="songList">
                 <div className="listLegend">
