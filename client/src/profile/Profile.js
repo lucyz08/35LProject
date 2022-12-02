@@ -13,9 +13,6 @@ const Profile = () => {
     }
 
     const dispatch = useDispatch();
-
-    const currUsername = JSON.parse(localStorage.getItem('profile'))
-    const you = currUsername.result.username
     
     useEffect(() => {
         dispatch(compileResponses());
@@ -45,10 +42,6 @@ const Profile = () => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
     }, [])
 
-    const reloadFunc = () => {
-        window.location.reload();
-    }
-
 
     const friendResults = [];
     if (data)
@@ -57,7 +50,7 @@ const Profile = () => {
         {
             for (const friend of data.friends) {
                 friendResults.push(
-                <div >
+                <div>
                     <div>{friend}</div>
                 </div>,
                 );
@@ -74,28 +67,30 @@ const Profile = () => {
             {Object.keys(responses).map((key, index) => {
                 if(responses[key][0].user === data.username)
                 {
-                    for (const songEntries of responses[key])
-                    {
-                        if (songEntries.prompt === prompt.prompt)
-                        {
-                            displayResponse.push(
-                            <div className="profileIndividualSong">
-                                <div>
-                                    <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
-                                </div>
-                                <div className="songartist">
-                                    <h3 className="songName">Song: {songEntries.song.name}</h3>
-                                    <h3 className="artistName">Album: {songEntries.song.album}</h3>
-                                </div>
-                                <div className="album">
-                                    <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
-                                </div>
-                            </div>,
-                            );
-                        }
-                    }
-                };
-              })}
+                    console.log(response.song.name)
+                    displayResponse.push(
+                    <div className="profileIndividualSong">
+                        <div>
+                            <img className="profileSongImg" src = {response.song.albumCoverURL} width={55} height={55} alt="Image cannot be displayed"/>
+                        </div>
+                        <div className="songartist">
+                            <h3 className="songName">Song: {response.song.name}</h3>
+                            <h3 className="artistName">Album: {response.song.album}</h3>
+                        </div>
+                        <div className="album">
+                            <h3 className="albumName">Artist: {arrayToString(response.song.artists)}</h3>
+                        </div>
+                    </div>,
+                    );
+                }
+            }
+            if ((displayResponse).length == 0){
+                displayResponse.push(
+                    <div>
+                        No response yet.
+                    </div>
+                )
+            }
         }
     }
 
@@ -262,9 +257,9 @@ const Profile = () => {
         <h1 className="head">all about you</h1>
     </div>
     <div className="todayAnswer">
-            <h2 className="tprompt">Recent Prompts: </h2>
+            <h2 className="tprompt">Current Prompt: </h2>
             <div className="todayprompt">
-                {prompt.prompt}
+                Response: {prompt.prompt}
             </div>
             <div className="todayresponse">
                 <h2 className="tresponse">{displayResponse}</h2>
@@ -272,10 +267,10 @@ const Profile = () => {
     </div>
     <div>
         <div className="profileMain">
-            <div className="userInfo">
-                <h3 className="curName">Logged In As:</h3>
-                <div className="yourName">
-                         {you}
+            <div className="profilefriends">
+                <h3 className="friendTitle">Your Friends</h3>
+                <div className="yourfriends">
+                         {friendResults}
                 </div>
             </div>
             <div className="playlist">
