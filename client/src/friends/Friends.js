@@ -49,7 +49,7 @@ export default function Friends() {
     useEffect(() => {
         setFriends(JSON.parse(localStorage.getItem('userdata')))
     }, [])
-    console.log(friendList)
+    //console.log(friendList)
     const results = [];
     if (user)
     {

@@ -25,9 +25,9 @@ const Home = () => {
 
     var songVar = localStorage.getItem('songSubmitted');
     var cP = localStorage.getItem('cp');
-    console.log(cP);
+    //console.log(cP);
 
-    console.log(songVar);
+    //console.log(songVar);
 
     function arrayToString(array){
         var artistString = array.join(', ');
