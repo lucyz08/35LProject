@@ -50,11 +50,7 @@ const Profile = () => {
         {
             for (const friend of data.friends) {
                 friendResults.push(
-<<<<<<< HEAD
                 <div>
-=======
-                <div >
->>>>>>> tmp
                     <div>{friend}</div>
                 </div>,
                 );
@@ -88,10 +84,10 @@ const Profile = () => {
                     );
                 }
             }
-            if ((displayResponse).length == 0 ){
+            if ((displayResponse).length == 0){
                 displayResponse.push(
                     <div>
-                        No data brah
+                        No response yet.
                     </div>
                 )
             }
