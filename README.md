@@ -1,7 +1,7 @@
 # 35LProject
 # Arpeggio
 
-Arppeggio is a web application for posting your favorite songs in response to various questions and viewing your friends' responses. Arpeggio aims to give people a new anbd simple way to share what they're listening to with their friends, regardless of what streaming service you use. 
+Arppeggio is a web application for posting your favorite songs in response to various questions and viewing your friends' responses. Arpeggio aims to give people a new and simple way to share what they're listening to with their friends, regardless of what streaming service you use. 
 
 You can check out our project demo [here](https://drive.google.com/file/d/1SygpgufzO7Tnvv8geAhYB35gw5ZCHrzY/view?usp=sharing).
 
