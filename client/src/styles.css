@@ -24,9 +24,9 @@ body {
 
 .logOutButton {
     border: none;
-    background-color: rgb(243, 81, 12);
+    background-color: rgb(243, 81, 12);; 
     color: white;
-    padding: 1vw;
+    padding: 0.75vw;
     margin: 0vw;
     border-radius: 1vw;
     cursor: pointer;
@@ -34,6 +34,10 @@ body {
     font-weight: 500;
     font-family:'Times New Roman', Times, serif;
     margin-right: 0.5vw;
+}
+
+.logOutButton:hover{
+    background-color:rgb(167, 56, 8);
 }
 
 .siteTitle{
@@ -55,6 +59,7 @@ body {
     display: inline-flex; 
     gap: 1rem;
 }
+
 
 a{
     font-weight: lighter;

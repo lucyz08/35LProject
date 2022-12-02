@@ -25,9 +25,15 @@ const Home = () => {
 
     var songVar = localStorage.getItem('songSubmitted');
     var cP = localStorage.getItem('cp');
-    console.log(cP);
+    //console.log(cP);
 
-    console.log(songVar);
+    //console.log(songVar);
+
+    function arrayToString(array){
+        var artistString = array.join(', ');
+        return artistString
+    }
+
 
     useEffect(() => {
         dispatch(getSongs());
@@ -64,48 +70,113 @@ useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
     console.log(prompt)
-    //dont displat
-    return (
-    <>
-    <div className="outside">
-    <h1 className="homeTitle">
-        <h1 className="homeHeader">Arpeggio</h1>
-        <h3 className="subtitle">a new way to share music</h3>
-    </h1>
-    <div className="promptHead">
-        <h1 className="declareP">
-            Current Prompt:
+
+    const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
+    useEffect(() => {
+        setFriendResponses(JSON.parse(localStorage.getItem('userdata')))
+    }, [])
+
+    const [responses, setResponse] = useState(JSON.parse(localStorage.getItem('userresponse')))
+    useEffect(() => {
+        setResponse(JSON.parse(localStorage.getItem('userresponse')))
+    }, [])
+
+    const displayResponse = []
+    // console.log(Object.keys(responses))
+     if (data)
+     {
+         if (responses)
+         {
+             {Object.keys(responses).map((key, index) => {
+                 if(responses[key][0].user === data.username)
+                 {
+                     for (const songEntries of responses[key])
+                     {
+                         if (songEntries.prompt === prompt.prompt)
+                         {
+                             displayResponse.push(
+                             <div className="profileIndividualSong">
+                                 <div>
+                                     <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                                 </div>
+                                 <div className="songartist">
+                                     <h3 className="songName">Song: {songEntries.song.name}</h3>
+                                     <h3 className="artistName">Album: {songEntries.song.album}</h3>
+                                 </div>
+                                 <div className="album">
+                                     <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
+                                 </div>
+                             </div>,
+                             );
+                         }
+                     }
+                 };
+               })}
+               if((displayResponse).length == 0){
+                   displayResponse.push(
+                       <div className="noResponse">
+                           No response yet.
+                       </div>
+                   )
+               }
+         }
+     }
+
+
+     return (
+        <>
+        <div className="outside">
+        <h1 className="homeTitle">
+            <h1 className="homeHeader">Arpeggio</h1>
+            <h3 className="subtitle">a new way to share music</h3>
         </h1>
-        <h1 className="prompt">
-        {prompt.prompt}
-    </h1>
-    </div>
-
-
-     {user ? (
-        <div className="formAnswers">
-            <div className="form">
-                {songVar ? (
-                    <h1 className="thankYou">Thank you for submitting!</h1>       
-                ) : (
-                    <SongForm />
-                )
-                }
-                
+        {songVar ? (
+                <div className="todayAnswer">
+                <h2 className="recentReponses">Your Recent Reponses: </h2>
+                <div className="homePrompt">
+                    {prompt.prompt}
+                </div>
+                <div className="todayresponse">
+                    <h2 className="tresponse">{displayResponse}</h2>
+                </div>
+                </div>
+    
+        ) : (
+            <div className="promptHead">
+                <h1 className="declareP">
+                    Current Prompt:
+                </h1>
+                <h1 className="prompt">
+                {prompt.prompt}
+            </h1>
             </div>
-        <div className="proForm">
-            <h1 className="promptHeading">Write a Prompt</h1>
-            <PromptForm />
+            
+        )}
+    
+         {user ? (
+            <div className="formAnswers">
+                <div className="form">
+                    {songVar ? (
+                        <h1 className="thankYou">Thank you for submitting!</h1>       
+                    ) : (
+                        <SongForm />
+                    )
+                    }
+                    
+                </div>
+            <div className="proForm">
+                <h1 className="promptHeading">Write a Prompt</h1>
+                <PromptForm />
+            </div>
+            </div>
+        ) : (
+            <div>
+                <h1 className="loggedOutWarn"><a className="homeLink" href="http://localhost:3000/signin">Log In</a> or <a className="homeLink" href="http://localhost:3000/signup">Sign Up</a> for Access</h1>
+            </div>
+        )}
         </div>
-        </div>
-    ) : (
-        <div>
-            <h1 className="loggedOutWarn"><a className="homeLink" href="http://localhost:3000/signin">Log In</a> or <a className="homeLink" href="http://localhost:3000/signup">Sign Up</a> for Access</h1>
-        </div>
-    )}
-    </div>
-    </>
-    )
-}
-
-export default Home
+        </>
+        )
+    }
+    
+    export default Home

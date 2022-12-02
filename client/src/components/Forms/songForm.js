@@ -54,7 +54,7 @@ const SongForm = () => {
     const getSearchResults = (resultTracks) => {
         console.log("this was called")
         if (!resultTracks){
-            return null
+            return null;
         }
         return resultTracks.map((song, index) => {
             return (<div className="individualSong" key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>

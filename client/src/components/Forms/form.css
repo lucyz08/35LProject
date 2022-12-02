@@ -113,9 +113,17 @@ button{
     margin-left: 1vw;
 }
 
+button:hover{
+        background-color:rgb(167, 56, 8);
+}
+
 .songImg{
     padding: 5px;
     background-color: transparent;
+}
+
+.otherResult{
+    color: white; 
 }
 
 .songDiv{
