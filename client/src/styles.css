@@ -24,7 +24,7 @@ body {
 
 .logOutButton {
     border: none;
-    background-color: red; 
+    background-color: rgb(243, 81, 12);; 
     color: white;
     padding: 0.75vw;
     margin: 0vw;
