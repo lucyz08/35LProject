@@ -113,15 +113,12 @@ export default function Friends() {
           {results}
         </div>
       </div>
-<<<<<<< HEAD
-=======
       <div className="playlist">
         <h1 className="friendTitle">Friend Responses</h1>
         <div className="playlistSongs">
           {friendResults}
         </div>
       </div>
->>>>>>> tmpMerge
     </div>
     <div className="proForm">
             <div className="form">

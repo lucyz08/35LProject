@@ -55,6 +55,12 @@
     font-size: 3vw;
 }
 
+.noResponse{
+    font-size: 1.5vw;
+    font-weight: lighter;
+    color:rgb(177, 173, 173);
+}
+
 
 .tresponse{
     font-size: 3vw;
