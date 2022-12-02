@@ -62,7 +62,7 @@ export default function About(){
                     </div>
                 </div>
                 <div className="two">
-                    <img className="backface" src="../images/RohanFace.jpg" alt=""></img>
+                    <img className="backface" src="../images/rohanFace.jpg" alt=""></img>
                     <div>
                         <div className="person">
                             <h2 className="name">Rohan Jain</h2>

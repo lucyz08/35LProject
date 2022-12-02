@@ -69,7 +69,7 @@ useEffect(() => {
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
-    console.log(prompt)
+    //console.log(prompt)
 
     const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
     useEffect(() => {
