@@ -91,6 +91,8 @@ Our user interface is made possible by [Material UI](https://material-ui.com/).
 
 To implement the [Spoify API](https://developer.spotify.com/documentation/web-api/libraries/) we used a library called [spotify-node-api](https://github.com/thelinmichael/spotify-web-api-node). 
 
+User authentication was made possible by [JSON Web Tokens](https://jwt.io/).
+
 And of course credit the links we have used in this tutorial for tutorials.
 
 ## Creators
