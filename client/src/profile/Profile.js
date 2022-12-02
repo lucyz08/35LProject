@@ -101,7 +101,7 @@ const Profile = () => {
 
     
     const playlist1Results = [];
-    if (data)
+    if (data.playlist1)
     {
         if (data.playlist1.length > 0)
         {
@@ -132,7 +132,7 @@ const Profile = () => {
         }
     }
     const playlist2Results = [];
-    if (data)
+    if (data.playlist2)
     {
         if (data.playlist2.length > 0)
         {
@@ -163,7 +163,7 @@ const Profile = () => {
         }
     }
     const playlist3Results = [];
-    if (data)
+    if (data.playlist3)
     {
         if (data.playlist3.length > 0)
         {
@@ -194,7 +194,7 @@ const Profile = () => {
         }
     }
     const playlist4Results = [];
-    if (data)
+    if (data.playlist4)
     {
         if (data.playlist4.length > 0)
         {
@@ -225,7 +225,7 @@ const Profile = () => {
         }
     }
     const playlist5Results = [];
-    if (data)
+    if (data.playlist5)
     {
         if (data.playlist5.length > 0)
         {
