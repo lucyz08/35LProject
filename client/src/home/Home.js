@@ -7,6 +7,7 @@ import {getSongs} from '../actions/songFetching';
 import {getRandPrompt} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";
+import { promptResp } from "../actions/promptFetching"
 import { setUserData } from "../actions/userFetching";
 import { addResponse } from "../actions/searchFetching";
 
@@ -32,6 +33,7 @@ const Home = () => {
         return artistString
     }
     getRandPrompt();
+    promptResp();
 
 
     useEffect(() => {
@@ -48,6 +50,9 @@ useEffect(() => {
 }, [dispatch]);
 useEffect(() => {
     dispatch(compileResponses());
+}, [dispatch]);
+useEffect(() => {
+    dispatch(promptResp());
 }, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -78,6 +83,13 @@ useEffect(() => {
     const [responses, setResponse] = useState(JSON.parse(localStorage.getItem('userresponse')))
     useEffect(() => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
+    }, [])
+
+const [promptResponses, setPromptResponses] = useState(JSON.parse(localStorage.getItem('promptResponses')))
+    useEffect(() => {
+        const token = user?.token
+
+        setPromptResponses(JSON.parse(localStorage.getItem('promptResponses')))
     }, [])
 
     const displayResponse = []
@@ -111,7 +123,7 @@ useEffect(() => {
                      }
                  };
                })}
-               if((displayResponse).length == 0){
+               if((displayResponse).length === 0){
                    displayResponse.push(
                        <div className="noResponse">
                            No response yet.

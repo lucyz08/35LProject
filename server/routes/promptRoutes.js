@@ -1,10 +1,11 @@
 import express from 'express';
 
-import {getRandPrompt, createPrompt} from '../controllers/promptFetchBack.js';
+import {getRandPrompt, createPrompt, authoredPrompts} from '../controllers/promptFetchBack.js';
 
 const router = express.Router();
 
-router.put('/', getRandPrompt);
+router.put('/newprompt', getRandPrompt);
 router.post('/', createPrompt);
+router.put('/responses', authoredPrompts);
 
 export default router;

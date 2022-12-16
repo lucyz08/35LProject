@@ -30,3 +30,15 @@ export const createPromptPost = (post) => async (dispatch) => {
         window.location.reload();
     }
 }
+
+export const promptResp = () => async (dispatch) => {
+    try {
+        const currUsername = JSON.parse(localStorage.getItem('profile'))
+        const you = currUsername.result.username
+        const filter = {"user": you}
+        const {data} = await api.promptResponses(filter);
+        dispatch( {type: 'PROMPT_RESPONSES', payload: data})
+    } catch (error) {
+        console.log(error.response.data.message)
+    }
+}

@@ -6,7 +6,6 @@ const reducer = (songs = [], action) => {
             localStorage.setItem('friendSongs', JSON.stringify({ ...action?.payload}))
             return  [...songs, action.payload];
         case 'CREATESONG':
-            console.log("in song reducer");
             console.log(action.payload)
             return [...songs, action.payload];
         default:

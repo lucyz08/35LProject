@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import possiblePrompt from '../models/promptModel.js'
+import promptAuthor from '../models/songModel.js';
 import UserData from '../models/userDataModel.js';
 import express from 'express';
 
@@ -59,6 +60,28 @@ export const getRandPrompt = async (req, res) => {
         res.status(200).json(randPrompt)
     } catch (error) {
         res.status(406).json("Could not get prompt from admin or user friend");
+    }
+}
+
+export const authoredPrompts = async (req, res) => {
+    const user = req.body;
+    try {
+        const allResp = await promptAuthor.find();
+        const len = allResp.length;
+        const authoredByUser = [];
+
+        for (var i = 0; i < len; i++) {
+            const resp = allResp[i];
+            const currAuthor = resp.author;
+            if (currAuthor.localeCompare(user.user)== 0) {
+                authoredByUser.push(resp);
+            }
+        }
+
+        //returns an array of objects, all responses to prompts authored by logged in user
+        res.status(200).json(authoredByUser)
+    } catch (error) {
+        res.status(404).json("Could not compile responses to prompts authored by this user")
     }
 }
 

@@ -1,5 +1,3 @@
-
-
 const userReducer = (state = {currentUser: null}, action) => {
     switch(action.type) {
         case 'FRIEND':

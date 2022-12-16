@@ -5,6 +5,9 @@ const reducer = (prompts = [], action) => {
             return action.payload;
         case 'CREATEPROMPT':
             return [...prompts, action.payload];
+        case 'PROMPT_RESPONSES':
+            localStorage.setItem('promptResponses', JSON.stringify({ ...action?.payload}))
+            return action.payload;
         default:
             return prompts;
     }

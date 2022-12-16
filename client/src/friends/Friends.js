@@ -1,10 +1,6 @@
 import FriendForm from "../components/Forms/friendForm.js";
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {getSongs} from '../actions/songFetching';
-import {getRandPrompt} from '../actions/promptFetching';
-import { getPlaylists } from "../actions/userFetching";
-import { setUserData } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";
 
 import './friends.css';
@@ -48,7 +44,15 @@ export default function Friends() {
     useEffect(() => {
         setFriends(JSON.parse(localStorage.getItem('userdata')))
     }, [])
-    //console.log(friendList)
+
+    const [promptResponses, setPromptResponses] = useState(JSON.parse(localStorage.getItem('promptResponses')))
+    useEffect(() => {
+        const token = user?.token
+
+        setPromptResponses(JSON.parse(localStorage.getItem('promptResponses')))
+    }, [])
+
+
     const results = [];
     if (user)
     {
@@ -64,7 +68,41 @@ export default function Friends() {
         }
     }
 
+//Current issue is here, iterating through what's left
     const friendResults = [];
+    if (promptResponses)
+    {
+      for (const item in promptResponses) {
+        const iter = promptResponses[item]
+                friendResults.push(
+                <div className="friendResult">
+                  <div className="prompt">
+                   {iter.prompt}
+                  </div>
+                <div className="friendResponse">
+                  <div className="friendsFriend">
+                    <h3 className="friendName">{iter.user}</h3>
+                  </div>
+                <div className="friendIndividualSong">
+                    <div className="songDiv">
+                        <img className="songImg" src = {iter.song.albumCoverURL} width={60} height={60} alt="Image cannot be displayed"/>
+                    </div>
+                    <div className="songartist">
+                        <h3 className="songName">Song: {iter.song.name} </h3>
+                        <h3 className="artistName">Album: {iter.song.album} </h3>
+                    </div>
+                    <div className="album">
+                        <h3 className="albumName">Artist: {arrayToString(iter.song.artists)} </h3>
+                    </div>
+                </div>
+                </div>
+                </div>,
+                );
+            }
+          }
+    
+    /*
+
     if (data)
     {
         if (friendResponses.playlist1.length > 0)
@@ -96,7 +134,8 @@ export default function Friends() {
                 );
             }
         }
-    }
+      }
+    */
 
 
 
@@ -113,7 +152,7 @@ export default function Friends() {
         </div>
       </div>
       <div className="playlist">
-        <h1 className="friendTitle">Friend Responses</h1>
+        <h1 className="friendTitle">Friend Responses to Your Prompts</h1>
         <div className="playlistSongs">
           {friendResults}
         </div>
