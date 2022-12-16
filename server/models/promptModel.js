@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 const promptSchema = mongoose.Schema( {
-    prompt: String
+    prompt: String,
+    user: String
 })
 
-const possiblePrompt = mongoose.model('PossiblePrompt', promptSchema);
+const possiblePrompt = mongoose.model('Prompt', promptSchema);
 
 export default possiblePrompt;

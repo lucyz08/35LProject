@@ -1,9 +1,8 @@
 import FriendForm from "../components/Forms/friendForm.js";
-import Songs from '../components/Songs/printSongs';
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
-import {getPrompts} from '../actions/promptFetching';
+import {getRandPrompt} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
 import { setUserData } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";

@@ -4,7 +4,7 @@ import "./home.css"
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {getSongs} from '../actions/songFetching';
-import {getPrompts} from '../actions/promptFetching';
+import {getRandPrompt} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";
 import { setUserData } from "../actions/userFetching";
@@ -12,9 +12,7 @@ import { addResponse } from "../actions/searchFetching";
 
 import { newPlaylist } from "../actions/userFetching";
 
-import Songs from '../components/Songs/printSongs';
 import Prompts from '../components/Prompts/printPrompts';
-import Users from '../components/Users/printUsers'
 import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
 import FriendForm from "../components/Forms/friendForm.js";
@@ -33,13 +31,14 @@ const Home = () => {
         var artistString = array.join(', ');
         return artistString
     }
+    getRandPrompt();
 
 
     useEffect(() => {
         dispatch(getSongs());
     }, [dispatch]);
     useEffect(() => {
-      dispatch(getPrompts());
+      dispatch(getRandPrompt());
   }, [dispatch]);
 useEffect(() => {
     dispatch(getPlaylists());

@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {getSongs} from './actions/songFetching';
-import {getPrompts} from './actions/promptFetching';
+import {getRandPrompt} from './actions/promptFetching';
 import {setUserData} from './actions/userFetching';
 import './App.css'
 
@@ -24,7 +24,7 @@ const App = () => {
       dispatch(getSongs());
   }, [dispatch]);
   useEffect(() => {
-    dispatch(getPrompts());
+    dispatch(getRandPrompt());
 }, [dispatch]);
 useEffect(() => {
   dispatch(setUserData());

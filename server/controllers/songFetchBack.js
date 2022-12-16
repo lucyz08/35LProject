@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { tempSongPostMessage, rohantempSongPostMessage} from '../models/songModel.js';
+import { tempSongPostMessage, rohantempSongPostMessage, promptAuthor} from '../models/songModel.js';
 import UserData from '../models/userDataModel.js';
 import possiblePrompt from '../models/promptModel.js';
 import express from 'express';
@@ -32,7 +32,12 @@ export const createSongPost = async (req, res) => {
 //ROHAN ADDED MIGHT SUCK
 export const createSongResponse = async (req, res) => {
     console.log(req.body)
-    const newSongPostMessage = new rohantempSongPostMessage({ song: req.body.song, prompt: req.body.prompt, user: req.body.user})
+    if ((req.body.author).localeCompare("admin") == 0) {
+        var newSongPostMessage = new rohantempSongPostMessage({ song: req.body.song, prompt: req.body.prompt, user: req.body.user})
+    }
+    else {
+        var newSongPostMessage = new promptAuthor({ song: req.body.song, prompt: req.body.prompt, user: req.body.user, author: req.body.author})
+    }
     try {
         await UserData.findOneAndUpdate({username: newSongPostMessage.user}, {'$set': {song: newSongPostMessage.name}})
         await newSongPostMessage.save()

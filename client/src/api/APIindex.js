@@ -9,7 +9,7 @@ export const fetchSongs = () => API.get("/songs");
 export const createSong = (newPost) => API.put("/songs/response", newPost);
 
 //for prompt fetching
-export const fetchPrompts = () => API.get("/prompts");
+export const fetchPrompts = (post) => API.put("/prompts", post);
 export const createPrompt = (newPost) => API.post("/prompts", newPost);
 
 //for user fetching

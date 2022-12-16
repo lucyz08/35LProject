@@ -7,7 +7,7 @@ import './form.css'
 
 const SongForm = () => {
     const [dataOfSong, setData] = useState({
-        name: '', artist: '', username: '', prompt: '',
+        name: '', artist: '', username: '', prompt: '', author: ''
     });
     const [arrayOfSongs, setSongs] = useState([])
 
@@ -21,14 +21,14 @@ const SongForm = () => {
     const [prompt, setPrompt] = useState(JSON.parse(localStorage.getItem('currentPrompt')))
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
-        setData({ ...dataOfSong, prompt: prompt.prompt, username: user.result.username})
+        setData({ ...dataOfSong, prompt: prompt.prompt, username: user.result.username, author: prompt.user})
     }, [])
     console.log(prompt.prompt)
 
     const doSongSubmission = async (e) =>{
         e.preventDefault();
         //dispatch(createSongPost(dataOfSong));
-        setData({ ...dataOfSong, username: user.result.username, prompt: prompt.prompt})
+        setData({ ...dataOfSong, username: user.result.username, prompt: prompt.prompt, author: prompt.user})
         let array = await fetchSearch(dataOfSong.name);
         console.log(array)
         setSongs(array)
@@ -57,7 +57,7 @@ const SongForm = () => {
             return null;
         }
         return resultTracks.map((song, index) => {
-            return (<div className="individualSong" key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt}))}>
+            return (<div className="individualSong" key={index} onClick={() => dispatch(addResponse({song: song, user: dataOfSong.username, prompt: dataOfSong.prompt, author: dataOfSong.author}))}>
                 <div className="songDiv">
                     <img className="songImg" src = {song.albumCoverURL} width={60} height={60} alt="Image cannot be displayed"/>
                 </div>
