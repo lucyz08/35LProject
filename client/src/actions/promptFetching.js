@@ -35,7 +35,7 @@ export const promptResp = () => async (dispatch) => {
     try {
         const currUsername = JSON.parse(localStorage.getItem('profile'))
         const you = currUsername.result.username
-        const filter = {"user": you}
+        const filter = {"author": you}
         const {data} = await api.promptResponses(filter);
         dispatch( {type: 'PROMPT_RESPONSES', payload: data})
     } catch (error) {

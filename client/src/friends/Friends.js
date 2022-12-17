@@ -2,6 +2,7 @@ import FriendForm from "../components/Forms/friendForm.js";
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import { compileResponses } from "../actions/userFetching";
+import { promptResp, setCustomResponses } from "../actions/promptFetching"
 
 import './friends.css';
 import '../components/Forms/form.css'
@@ -16,9 +17,13 @@ export default function Friends() {
 }
 
   const dispatch = useDispatch();
+  promptResp();
 
   useEffect(() => {
     dispatch(compileResponses());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(promptResp());
   }, [dispatch]);
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -68,7 +73,7 @@ export default function Friends() {
         }
     }
 
-//Current issue is here, iterating through what's left
+
     const friendResults = [];
     if (promptResponses)
     {

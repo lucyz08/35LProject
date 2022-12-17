@@ -36,9 +36,7 @@ export const getRandPrompt = async (req, res) => {
     const user = req.body;
     try {
         const curr = await UserData.findOne({username: user.user}).select('friends');
-        if (!curr) {
-            res.status(333).json("couldnt find pink only yellow")
-        }
+
         var currFriends = curr.friends;//array of their friends
         const allPrompt = await possiblePrompt.find();
         const numDoc = await possiblePrompt.countDocuments();
@@ -64,20 +62,9 @@ export const getRandPrompt = async (req, res) => {
 }
 
 export const authoredPrompts = async (req, res) => {
-    const user = req.body;
+    const author = req.body;
     try {
-        const allResp = await promptAuthor.find();
-        const len = allResp.length;
-        const authoredByUser = [];
-
-        for (var i = 0; i < len; i++) {
-            const resp = allResp[i];
-            const currAuthor = resp.author;
-            if (currAuthor.localeCompare(user.user)== 0) {
-                authoredByUser.push(resp);
-            }
-        }
-
+        const authoredByUser = await promptAuthor.find(author);
         //returns an array of objects, all responses to prompts authored by logged in user
         res.status(200).json(authoredByUser)
     } catch (error) {
@@ -91,7 +78,7 @@ export const customResponses = async (req, res) => {
         const respondedByUser = await promptAuthor.find(user);
         res.status(200).json(respondedByUser)
     } catch (error) {
-        res.status(444).json("No custom responses shawty sorry")
+        res.status(444).json("Leider keine Antworten")
     }
 }
 
