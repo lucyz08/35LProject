@@ -3,7 +3,7 @@ import axios from 'axios';
 //connecting our server side to our client 
 const API = axios.create({ baseURL: 'http://localhost:8888'});
 
-//sogns connections
+//songs connections
 export const fetchSongs = () => API.get("/songs");
 //export const createSong = (newPost) => API.post("/songs", newPost);
 export const createSong = (newPost) => API.put("/songs/response", newPost);
@@ -12,6 +12,7 @@ export const createSong = (newPost) => API.put("/songs/response", newPost);
 export const fetchPrompts = (post) => API.put("/prompts/newprompt", post);
 export const createPrompt = (newPost) => API.post("/prompts", newPost);
 export const promptResponses = (post) => API.put("/prompts/responses", post);
+export const customresponses = (post) => API.put("prompts/customresponses", post)
 
 //for user fetching
 export const signIn = (newPost) => API.post("/user/signin", newPost);

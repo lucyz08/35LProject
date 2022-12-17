@@ -3,6 +3,7 @@ import './profile.css'
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import { compileResponses } from '../actions/userFetching';
+import { setCustomResponses } from "../actions/promptFetching"
 
 
 const Profile = () => {
@@ -12,6 +13,7 @@ const Profile = () => {
         return artistString
     }
 
+    setCustomResponses();
     const dispatch = useDispatch();
 
     const currUsername = JSON.parse(localStorage.getItem('profile'))
@@ -19,6 +21,9 @@ const Profile = () => {
     
     useEffect(() => {
         dispatch(compileResponses());
+    }, [dispatch]);
+    useEffect(() => {
+        dispatch(setCustomResponses());
     }, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -44,6 +49,12 @@ const Profile = () => {
     useEffect(() => {
         setResponse(JSON.parse(localStorage.getItem('userresponse')))
     }, [])
+    const [customResponses, setcustomResponses] = useState(JSON.parse(localStorage.getItem('customresponses')))
+    useEffect(() => {
+        const token = user?.token
+
+        setcustomResponses(JSON.parse(localStorage.getItem('customresponses')))
+    }, [])
 
 
     const friendResults = [];
@@ -62,45 +73,69 @@ const Profile = () => {
     }
 
     const displayResponse = []
-   // console.log(Object.keys(responses))
-    if (data)
-    {
-        if (responses)
-        {
-            {Object.keys(responses).map((key, index) => {
-                if(responses[key][0].user === data.username)
-                {
-                    for (const songEntries of responses[key])
-                    {
-                        if (songEntries.prompt === prompt.prompt)
-                        {
-                            displayResponse.push(
-                            <div className="profileIndividualSong">
-                                <div>
-                                    <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
-                                </div>
-                                <div className="songartist">
-                                    <h3 className="songName">Song: {songEntries.song.name}</h3>
-                                    <h3 className="artistName">Album: {songEntries.song.album}</h3>
-                                </div>
-                                <div className="album">
-                                    <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
-                                </div>
-                            </div>,
-                            );
-                        }
-                    }
-                };
-              })}
-              if((displayResponse).length == 0){
-                  displayResponse.push(
-                      <div className="noResponse">
-                          No response yet.
-                      </div>
-                  )
-              }
+    // console.log(Object.keys(responses))
+     if (data)
+     {
+         if (responses)
+         {
+             {Object.keys(responses).map((key, index) => {
+                 if(responses[key][0].user === data.username)
+                 {
+                     for (const songEntries of responses[key])
+                     {
+                         if (songEntries.prompt === prompt.prompt)
+                         {
+                             displayResponse.push(
+                             <div className="profileIndividualSong">
+                                 <div>
+                                     <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                                 </div>
+                                 <div className="songartist">
+                                     <h3 className="songName">Song: {songEntries.song.name}</h3>
+                                     <h3 className="artistName">Album: {songEntries.song.album}</h3>
+                                 </div>
+                                 <div className="album">
+                                     <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
+                                 </div>
+                             </div>,
+                             );
+                         }
+                     }
+                 };
+               })}
+         }
+         if (customResponses)
+         {
+                     for (const item in customResponses)
+                     {
+                        const songEntries = customResponses[item]
+                         if (songEntries.prompt === prompt.prompt)
+                         {
+                             displayResponse.push(
+                             <div className="profileIndividualSong">
+                                 <div>
+                                     <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                                 </div>
+                                 <div className="songartist">
+                                     <h3 className="songName">Song: {songEntries.song.name}</h3>
+                                     <h3 className="artistName">Album: {songEntries.song.album}</h3>
+                                 </div>
+                                 <div className="album">
+                                     <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
+                                 </div>
+                             </div>,
+                             );
+                         }
+                     }
+            };
+         if((displayResponse).length === 0){
+            displayResponse.push(
+                <div className="noResponse">
+                    No response yet.
+                </div>
+            )
         }
-    }
+     }
 
     
     const playlist1Results = [];

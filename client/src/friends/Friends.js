@@ -100,42 +100,7 @@ export default function Friends() {
                 );
             }
           }
-    
-    /*
 
-    if (data)
-    {
-        if (friendResponses.playlist1.length > 0)
-        {
-            for (const iter of friendResponses.playlist1) {
-                friendResults.push(
-                <div className="friendResult">
-                  <div className="prompt">
-                   {iter.prompt}
-                  </div>
-                <div className="friendResponse">
-                  <div className="friendsFriend">
-                    <h3 className="friendName">{iter.user}</h3>
-                  </div>
-                <div className="friendIndividualSong">
-                    <div className="songDiv">
-                        <img className="songImg" src = {iter.song.albumCoverURL} width={60} height={60} alt="Image cannot be displayed"/>
-                    </div>
-                    <div className="songartist">
-                        <h3 className="songName">Song: {iter.song.name} </h3>
-                        <h3 className="artistName">Album: {iter.song.album} </h3>
-                    </div>
-                    <div className="album">
-                        <h3 className="albumName">Artist: {arrayToString(iter.song.artists)} </h3>
-                    </div>
-                </div>
-                </div>
-                </div>,
-                );
-            }
-        }
-      }
-    */
 
 
 

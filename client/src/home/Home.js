@@ -7,17 +7,12 @@ import {getSongs} from '../actions/songFetching';
 import {getRandPrompt} from '../actions/promptFetching';
 import { getPlaylists } from "../actions/userFetching";
 import { compileResponses } from "../actions/userFetching";
-import { promptResp } from "../actions/promptFetching"
-import { setUserData } from "../actions/userFetching";
-import { addResponse } from "../actions/searchFetching";
+import { promptResp, setCustomResponses } from "../actions/promptFetching"
+
 
 import { newPlaylist } from "../actions/userFetching";
-
-import Prompts from '../components/Prompts/printPrompts';
 import SongForm from '../components/Forms/songForm.js';
 import PromptForm from "../components/Forms/promptForm";
-import FriendForm from "../components/Forms/friendForm.js";
-import Friends from "../friends/Friends";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -34,6 +29,7 @@ const Home = () => {
     }
     getRandPrompt();
     promptResp();
+    setCustomResponses();
 
 
     useEffect(() => {
@@ -54,6 +50,9 @@ useEffect(() => {
 useEffect(() => {
     dispatch(promptResp());
 }, [dispatch]);
+useEffect(() => {
+    dispatch(setCustomResponses());
+}, [dispatch]);
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     useEffect(() => {
@@ -73,7 +72,6 @@ useEffect(() => {
     useEffect(() => {
         setPrompt(JSON.parse(localStorage.getItem('currentPrompt')))
     }, [])
-    //console.log(prompt)
 
     const [friendResponses, setFriendResponses] = useState(JSON.parse(localStorage.getItem('userdata')))
     useEffect(() => {
@@ -90,6 +88,12 @@ const [promptResponses, setPromptResponses] = useState(JSON.parse(localStorage.g
         const token = user?.token
 
         setPromptResponses(JSON.parse(localStorage.getItem('promptResponses')))
+    }, [])
+    const [customResponses, setcustomResponses] = useState(JSON.parse(localStorage.getItem('customresponses')))
+    useEffect(() => {
+        const token = user?.token
+
+        setcustomResponses(JSON.parse(localStorage.getItem('customresponses')))
     }, [])
 
     const displayResponse = []
@@ -123,14 +127,38 @@ const [promptResponses, setPromptResponses] = useState(JSON.parse(localStorage.g
                      }
                  };
                })}
-               if((displayResponse).length === 0){
-                   displayResponse.push(
-                       <div className="noResponse">
-                           No response yet.
-                       </div>
-                   )
-               }
          }
+         if (customResponses)
+         {
+                     for (const item in customResponses)
+                     {
+                        const songEntries = customResponses[item]
+                         if (songEntries.prompt === prompt.prompt)
+                         {
+                             displayResponse.push(
+                             <div className="profileIndividualSong">
+                                 <div>
+                                     <img className="profileSongImg" src = {songEntries.song.albumCoverURL} width={70} height={70} alt="Image cannot be displayed"/>
+                                 </div>
+                                 <div className="songartist">
+                                     <h3 className="songName">Song: {songEntries.song.name}</h3>
+                                     <h3 className="artistName">Album: {songEntries.song.album}</h3>
+                                 </div>
+                                 <div className="album">
+                                     <h3 className="albumName">Artist: {arrayToString(songEntries.song.artists)}</h3>
+                                 </div>
+                             </div>,
+                             );
+                         }
+                     }
+            };
+         if((displayResponse).length === 0){
+            displayResponse.push(
+                <div className="noResponse">
+                    No response yet.
+                </div>
+            )
+        }
      }
 
 

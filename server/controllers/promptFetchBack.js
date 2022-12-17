@@ -85,4 +85,14 @@ export const authoredPrompts = async (req, res) => {
     }
 }
 
+export const customResponses = async (req, res) => {
+    const user = req.body;
+    try {
+        const respondedByUser = await promptAuthor.find(user);
+        res.status(200).json(respondedByUser)
+    } catch (error) {
+        res.status(444).json("No custom responses shawty sorry")
+    }
+}
+
 export default router;

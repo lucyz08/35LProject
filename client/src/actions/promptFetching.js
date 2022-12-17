@@ -42,3 +42,15 @@ export const promptResp = () => async (dispatch) => {
         console.log(error.response.data.message)
     }
 }
+
+export const setCustomResponses = () => async (dispatch) => {
+    try {
+        const currUsername = JSON.parse(localStorage.getItem('profile'))
+        const you = currUsername.result.username
+        const filter = {"user": you}
+        const {data} = await api.customresponses(filter);
+        dispatch( {type: 'ADD_CUSTOM_RESPONSES', payload: data})
+    } catch (error) {
+        console.log("Could not get custom responses in promptFetching")
+    }
+}

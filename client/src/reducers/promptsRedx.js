@@ -8,6 +8,9 @@ const reducer = (prompts = [], action) => {
         case 'PROMPT_RESPONSES':
             localStorage.setItem('promptResponses', JSON.stringify({ ...action?.payload}))
             return action.payload;
+        case 'ADD_CUSTOM_RESPONSES':
+            localStorage.setItem('customresponses', JSON.stringify({ ...action?.payload}))
+            return action.payload;
         default:
             return prompts;
     }

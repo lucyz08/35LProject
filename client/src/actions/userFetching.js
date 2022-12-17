@@ -99,6 +99,6 @@ export const compileResponses = () => async (dispatch) => {
         const {data} = await api.fetchResponses();
         dispatch( {type: 'FETCH_RESPONSES', payload: data})
     } catch (error) {
-        console.log(error.response.data.message)
+        console.log("Could not compile playlists in userFetching")
     }
 }
