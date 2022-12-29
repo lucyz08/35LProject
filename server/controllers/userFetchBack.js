@@ -255,17 +255,28 @@ export const compileResponses = async (req, res) => {
 
 
            const numPlaylists = playlists.length
+           const randIndx = new Set();
+           while(randIndx.size < numPlaylists) {
+                const r = Math.floor(Math.random()*(numPlaylists))
+                randIndx.add(r)
+           }
+           const it = randIndx.values()
+           let ins = []
+           for (const entry of it) {
+            ins.push(entry)
+           }
+          
            if (numPlaylists > 0) 
            {
             const updatedUser = await UserData.findOneAndUpdate({username: user.username},
-                { $set: {playlist1: playlists[0]}},
+                { $set: {playlist1: playlists[ins[0]]}},
                 {new: true})
 
            }
            if (numPlaylists > 1) 
            {
                 const updatedUser = await UserData.findOneAndUpdate({username: user.username},
-                { $set: {playlist2: playlists[1]}},
+                { $set: {playlist2: playlists[ins[1]]}},
                 {new: true})
 
            }
@@ -273,7 +284,7 @@ export const compileResponses = async (req, res) => {
            if (numPlaylists > 2) 
            {
                 const updatedUser = await UserData.findOneAndUpdate({username: user.username},
-                    { $set: {playlist3: playlists[2]}},
+                    { $set: {playlist3: playlists[ins[2]]}},
                     {new: true})
 
            }
@@ -281,7 +292,7 @@ export const compileResponses = async (req, res) => {
            if (numPlaylists > 3) 
            {
             const updatedUser = await UserData.findOneAndUpdate({username: user.username},
-                { $set: {playlist4: playlists[3]}},
+                { $set: {playlist4: playlists[ins[3]]}},
                 {new: true})
 
            }
@@ -289,7 +300,7 @@ export const compileResponses = async (req, res) => {
            if (numPlaylists > 4) 
            {
             const updatedUser = await UserData.findOneAndUpdate({username: user.username},
-                { $set: {playlist5: playlists[4]}},
+                { $set: {playlist5: playlists[ins[4]]}},
                 {new: true})
 
            }
